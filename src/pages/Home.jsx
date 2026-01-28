@@ -41,6 +41,13 @@ const Home = () => {
                     <div className="sidebar-cta">
                         <Link to="/articles" className="gold-link">Browse Archive &rarr;</Link>
                     </div>
+
+                    <div className="sidebar-compact-item" style={{ marginTop: '20px', paddingTop: '20px', borderTop: '1px solid #e0e0e0' }}>
+                        <span className="sidebar-label" style={{ fontSize: '0.8rem' }}>Just Added</span>
+                        <h4 style={{ fontSize: '1rem', marginTop: '5px' }}>
+                            <Link to="/article/6">Social Security: Rep. Larson Defends the Indefensible</Link>
+                        </h4>
+                    </div>
                 </div>
             </div>
 
