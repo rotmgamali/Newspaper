@@ -1,0 +1,78 @@
+:root {
+  --paper-bg: #FDFBF7;
+  --gold-accent: #C5A028;
+  /* A rich metallic gold */
+  --gold-light: #E6D28C;
+  --text-main: #1A1A1A;
+  --text-muted: #555555;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Libre Baskerville', serif;
+  --font-display: 'Cinzel', serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--paper-bg);
+  background-image:
+    radial-gradient(#f1e7d2 0.5px, transparent 0.5px),
+    radial-gradient(#f1e7d2 0.5px, #fdfbf7 0.5px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--gold-accent);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Utilities */
+.text-center {
+  text-align: center;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.gold {
+  color: var(--gold-accent);
+}

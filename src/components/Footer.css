@@ -1,0 +1,103 @@
+.site-footer {
+    background-color: #f4f1ea;
+    border-top: 1px solid var(--text-main);
+    padding: 40px 0 20px;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-section h3 {
+    font-family: var(--font-display);
+    margin-bottom: 15px;
+}
+
+.footer-section h4 {
+    font-family: var(--font-heading);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.footer-section p {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.publisher-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.publisher-name {
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+.publisher-email {
+    font-size: 0.9rem;
+    color: #900;
+}
+
+.publisher-note {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 5px;
+}
+
+/* Glowing Ad Button */
+.glowing-ad-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #d4af37 0%, #f9d71c 50%, #d4af37 100%);
+    color: #000 !important;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    animation: glow-pulse 2s infinite ease-in-out;
+    margin-top: 10px;
+    border: 1px solid #b8860b;
+}
+
+@keyframes glow-pulse {
+    0% {
+        box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 0 0 30px rgba(249, 215, 28, 0.4);
+        transform: scale(1.02);
+    }
+
+    100% {
+        box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+        transform: scale(1);
+    }
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
