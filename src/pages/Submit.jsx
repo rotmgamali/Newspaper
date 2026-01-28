@@ -41,7 +41,7 @@ const Submit = () => {
                         <h3>Submit an Article</h3>
                         <p>Send your draft to our editorial desk for review. No cost to publish.</p>
                         <div className="contact-person">
-                            <strong className="contact-name">Andrew Rollins</strong>
+                            <strong className="contact-name" style={{ display: 'block', marginBottom: '4px' }}>Andrew Rollins</strong>
                             <a href="mailto:andrew@web4guru.com" className="email-link">andrew@web4guru.com</a>
                         </div>
                     </div>
