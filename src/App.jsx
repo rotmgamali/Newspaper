@@ -9,7 +9,7 @@ import ArticleDetail from './pages/ArticleDetail';
 import Campaigns from './pages/Campaigns';
 import CampaignDetail from './pages/CampaignDetail';
 import Submit from './pages/Submit';
-import Print from './pages/Print';
+import Print from './pages/PrintEdition';
 import './App.css';
 
 function App() {

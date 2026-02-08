@@ -1,0 +1,209 @@
+.paper-edition-container {
+    background-color: #fdf6e3;
+    /* Gold-tinted paper base */
+    color: #1a1a1a;
+    font-family: 'Libre Baskerville', serif;
+    padding: 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newspaper-sheet {
+    background-color: #f7e9c5;
+    /* Rich gold paper */
+    width: 100%;
+    max-width: 1000px;
+    min-height: 1400px;
+    padding: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), inset 0 0 100px rgba(197, 160, 40, 0.1);
+    position: relative;
+    border: 1px solid #dcd3b6;
+    margin-bottom: 40px;
+    transition: transform 0.3s ease;
+}
+
+.newspaper-sheet::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJyZ2JhKDAsMCwwLDAuMDUpIj48L3JlY3Q+Cjwvc3ZnPg==');
+    opacity: 0.5;
+}
+
+.newspaper-masthead {
+    text-align: center;
+    border-bottom: 4px double #000;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+.newspaper-masthead img {
+    max-width: 600px;
+    height: auto;
+    filter: sepia(0.2) contrast(1.1);
+}
+
+.page-meta {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+/* Page Layouts */
+.content-columns {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.main-column {
+    border-right: 1px solid #000;
+    padding-right: 40px;
+}
+
+.article-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    line-height: 1.1;
+    text-align: center;
+}
+
+.article-subtitle {
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #444;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.article-body {
+    columns: 2;
+    column-gap: 30px;
+    text-align: justify;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+.article-body p {
+    margin-bottom: 15px;
+    text-indent: 20px;
+}
+
+/* Illustrations */
+.illustration-box {
+    margin: 20px 0;
+    text-align: center;
+    border: 1px solid #000;
+    padding: 5px;
+}
+
+.illustration-box img {
+    max-width: 100%;
+    filter: contrast(1.2) grayscale(0.5);
+}
+
+.caption {
+    font-size: 0.8rem;
+    font-style: italic;
+    margin-top: 10px;
+    padding: 0 10px;
+}
+
+/* Timeline */
+.timeline-section h3 {
+    text-align: center;
+    border-bottom: 1px solid #000;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.timeline-entry {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dotted #ccc;
+}
+
+.timeline-year {
+    font-weight: bold;
+    color: var(--gold-accent);
+}
+
+/* Ads */
+.ad-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.ad-card {
+    border: 2px solid #000;
+    padding: 15px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.ad-large {
+    grid-column: span 2;
+    border: 3px double #000;
+    padding: 30px;
+}
+
+/* Navigation */
+.page-navigation {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.nav-btn {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: inherit;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.nav-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+@media print {
+
+    .page-navigation,
+    .site-header,
+    .site-footer {
+        display: none !important;
+    }
+
+    .paper-edition-container {
+        padding: 0;
+        background: none;
+    }
+
+    .newspaper-sheet {
+        box-shadow: none;
+        border: none;
+        margin: 0;
+        width: 100%;
+        max-width: none;
+    }
+}
