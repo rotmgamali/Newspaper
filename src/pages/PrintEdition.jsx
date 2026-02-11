@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { newspaperEditions } from '../data/newspaperContent';
-import mastheadImg from '../assets/common_sense_masthead_final.jpg'; // Note: User needs to move generated assets to assets folder or use direct path
+import mastheadImg from '../assets/common_sense_masthead_final.jpg';
 import ticonderogaImg from '../assets/ethan_allan_ticonderoga.png';
 import railwayImg from '../assets/granite_railway_vintage.png';
 import bellImg from '../assets/bell_telephone_vintage.png';
@@ -9,33 +9,35 @@ import './PrintEdition.css';
 
 const PrintEdition = () => {
     const [currentPageIndex, setCurrentPageIndex] = useState(0);
+    const [isSleekMode, setIsSleekMode] = useState(false);
     const edition = newspaperEditions[0];
     const page = edition.pages[currentPageIndex];
 
     const nextPage = () => {
         if (currentPageIndex < edition.pages.length - 1) {
             setCurrentPageIndex(prev => prev + 1);
-            window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     };
 
     const prevPage = () => {
         if (currentPageIndex > 0) {
             setCurrentPageIndex(prev => prev - 1);
-            window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     };
 
-    const renderContent = (item, index) => {
+    const renderItem = (item, index) => {
         switch (item.type) {
             case 'article':
                 return (
-                    <article key={index} className="news-article">
+                    <article key={index} className="news-article-expanded">
                         <h2 className="article-title">{item.title}</h2>
-                        {item.subtitle && <p className="article-subtitle">{item.subtitle}</p>}
-                        <div className="article-meta">By {item.author}</div>
+                        {item.subtitle && <span className="article-subtitle">{item.subtitle}</span>}
                         <div className="article-body">
-                            {item.body.split('\n\n').map((p, i) => <p key={i}>{p}</p>)}
+                            {item.body.split('\n\n').map((p, i) => (
+                                <p key={i}>{p.split('**').map((text, j) => (j % 2 === 1 ? <strong key={j}>{text}</strong> : text))}</p>
+                            ))}
                         </div>
                     </article>
                 );
@@ -53,8 +55,58 @@ const PrintEdition = () => {
                 );
             case 'timeline-entry':
                 return (
-                    <div key={index} className="timeline-entry single-entry">
+                    <div key={index} className="timeline-entry">
                         <span className="timeline-year">{item.year}</span> — <strong>{item.name}</strong> ({item.location})
+                        <p>{item.text}</p>
+                    </div>
+                );
+            case 'republication':
+                return (
+                    <div key={index} className="republication-container">
+                        <div className="original-box">
+                            <h3 className="section-label">ORIGINAL ARTICLE</h3>
+                            <h4 className="article-title-small">{item.title}</h4>
+                            <p className="article-preview">"{item.originalText}"</p>
+                            <div className="author-sig">— {item.originalAuthor}</div>
+                        </div>
+                        <div className="reply-box">
+                            <h3 className="section-label">PUBLIC REPLY</h3>
+                            <p className="reply-text">{item.replyText}</p>
+                            <div className="author-sig">— {item.replyAuthor}</div>
+                        </div>
+                        <p className="note italic">{item.note}</p>
+                    </div>
+                );
+            case 'profile':
+                return (
+                    <div key={index} className="profile-card">
+                        <h2 className="article-title">{item.name}</h2>
+                        <p className="tagline bold lowercase uppercase">{item.tagline}</p>
+                        <div className="priorities-list">
+                            <h4>SIX KEY PRIORITIES:</h4>
+                            <ul>
+                                {item.priorities.map((p, i) => <li key={i}>{p}</li>)}
+                            </ul>
+                        </div>
+                        <div className="bio-footer" style={{ marginTop: '30px', borderTop: '1px solid #000', paddingTop: '20px' }}>
+                            <p>{item.bio}</p>
+                            <p className="contact bold">{item.contact}</p>
+                        </div>
+                    </div>
+                );
+            case 'skate-again':
+                return (
+                    <div key={index} className="skate-section">
+                        <h2 className="article-title">{item.title}</h2>
+                        <div className="skate-text bold italic" style={{ border: '4px solid #000', padding: '20px', textAlign: 'center' }}>
+                            {item.text}
+                        </div>
+                    </div>
+                );
+            case 'ad':
+                return (
+                    <div key={index} className="ad-small">
+                        <h4>{item.title}</h4>
                         <p>{item.text}</p>
                     </div>
                 );
@@ -62,35 +114,20 @@ const PrintEdition = () => {
                 return (
                     <div key={index} className="ad-grid">
                         {item.ads.map((ad, i) => (
-                            <div key={i} className="ad-card">
-                                <h3>ADVERTISEMENT</h3>
-                                <p>{ad}</p>
+                            <div key={i} className="ad-small">
+                                <h4>{typeof ad === 'object' ? ad.name : ad}</h4>
+                                <p>{typeof ad === 'object' ? ad.text : "Advertisement Support"}</p>
+                                {ad.url && <p className="url">{ad.url}</p>}
                             </div>
                         ))}
                     </div>
                 );
-            case 'profile':
-                return (
-                    <section key={index} className="candidate-profile">
-                        <h2 className="article-title">{item.name}</h2>
-                        <p className="article-subtitle">{item.party} — {item.role}</p>
-                        <div className="profile-bio">
-                            <p>{item.bio}</p>
-                        </div>
-                        <div className="priorities-list">
-                            <h4>KEY PRIORITIES:</h4>
-                            <ul>
-                                {item.priorities.map((p, i) => <li key={i}>{p}</li>)}
-                            </ul>
-                        </div>
-                    </section>
-                );
             case 'ad-large':
                 return (
-                    <div key={index} className="ad-large">
+                    <div key={index} className="ad-full-width">
                         <h2>{item.name}</h2>
                         <p className="url">{item.url}</p>
-                        <p className="text">{item.text}</p>
+                        <p>{item.text}</p>
                     </div>
                 );
             default:
@@ -100,68 +137,68 @@ const PrintEdition = () => {
 
     return (
         <main className="paper-edition-container">
-            <div className="page-navigation">
-                <button className="nav-btn" onClick={prevPage} disabled={currentPageIndex === 0}>&larr; Previous Page</button>
-                <span>Page {page.number} of {edition.pages.length}</span>
-                <button className="nav-btn" onClick={nextPage} disabled={currentPageIndex === edition.pages.length - 1}>Next Page &rarr;</button>
+            <div className="newspaper-controls">
+                <button className="nav-btn" onClick={prevPage} disabled={currentPageIndex === 0}>&larr; Prev Page</button>
+                <span className="page-indicator">PAGE {page.number} / 8</span>
+                <button className="nav-btn" onClick={nextPage} disabled={currentPageIndex === 7}>Next Page &rarr;</button>
+                <div className="control-separator">|</div>
+                <button
+                    className="toggle-btn"
+                    onClick={() => setIsSleekMode(!isSleekMode)}
+                >
+                    SWITCH TO {isSleekMode ? 'VINTAGE' : 'SLEEK'} MODE
+                </button>
             </div>
 
-            <div className={`newspaper-sheet page-${page.number}`}>
-                {page.number === 1 && (
+            <div className={`newspaper-sheet ${isSleekMode ? 'sleek-mode' : 'vintage-mode'}`}>
+                {page.number === 1 && !isSleekMode && (
                     <header className="newspaper-masthead">
-                        <img src={mastheadImg} alt="Common Sense 250" />
+                        <img src={mastheadImg} alt="Common Sense 250" className="masthead-img" />
                     </header>
                 )}
+
+                {isSleekMode && <h1 style={{ fontFamily: 'Playfair Display, serif', textAlign: 'center', marginBottom: '40px' }}>Common Sense 250</h1>}
 
                 <div className="page-meta">
                     <span>{edition.date}</span>
                     <span>{page.type}</span>
-                    <span>Vol. {edition.vol}, No. {edition.no} — Page {page.number}</span>
+                    <span>VOL. {edition.vol} — NO. {edition.no}</span>
                 </div>
 
                 <div className="page-content">
                     {page.number === 1 ? (
-                        <div className="content-columns">
-                            <div className="main-column">
-                                {renderContent(page.content[0], 0)}
-                                <div className="illustration-box">
-                                    <img src={ticonderogaImg} alt="Fort Ticonderoga" />
-                                    <p className="caption">The Capture of Fort Ticonderoga, May 10, 1775</p>
-                                </div>
+                        <div className="front-page-grid">
+                            {renderItem(page.content[0], 0)}
+                            <div className="illustration-box" style={{ margin: '40px auto', maxWidth: '80%' }}>
+                                <img src={ticonderogaImg} alt="Fort Ticonderoga" />
+                                <p className="caption">Ethan Allan & The Green Mountain Boys - Capture of Fort Ticonderoga</p>
                             </div>
-                            <div className="side-column">
-                                {renderContent(page.content[1], 1)}
-                                {renderContent(page.content[2], 2)}
-                            </div>
+                            {renderItem(page.content[1], 1)}
                         </div>
                     ) : (
-                        <div className="standard-page-layout">
-                            {page.content.map((item, i) => renderContent(item, i))}
+                        <div className="standard-layout">
+                            {page.content.map((item, i) => renderItem(item, i))}
+
+                            {/* Contextual Images */}
                             {page.number === 4 && (
-                                <div className="illustration-box">
-                                    <img src={mayeImg} alt="Drake Maye" />
-                                    <p className="caption">Drake Maye leads the Patriots rebound.</p>
+                                <div className="illustration-spacer" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginTop: '40px' }}>
+                                    <div className="illustration-box"><img src={bellImg} /><p className="caption">Bell's Telephone</p></div>
+                                    <div className="illustration-box"><img src={railwayImg} /><p className="caption">Granite Railway, Mass.</p></div>
                                 </div>
                             )}
-                            {page.number === 5 && (
-                                <div className="illustration-box">
-                                    <img src={bellImg} alt="Alexander Graham Bell" />
-                                    <p className="caption">Bell's Telephone Experiment, 1876</p>
-                                </div>
-                            )}
-                            {page.number === 6 && (
-                                <div className="illustration-box">
-                                    <img src={railwayImg} alt="Granite Railway" />
-                                    <p className="caption">The Granite Railway, Quincy, Mass.</p>
+                            {page.number === 8 && (
+                                <div className="illustration-box" style={{ marginTop: '40px' }}>
+                                    <img src={mayeImg} className="halftone" />
+                                    <p className="caption">The Future of New England Sports: Drake Maye</p>
                                 </div>
                             )}
                         </div>
                     )}
                 </div>
-            </div>
 
-            <div className="print-instruction">
-                <p>Press <strong>Cmd+P</strong> (Mac) or <strong>Ctrl+P</strong> (Windows) to print this page.</p>
+                <footer className="page-footer-mini" style={{ marginTop: '60px', borderTop: '1px solid #000', textAlign: 'center', fontSize: '0.8rem', paddingTop: '10px' }}>
+                    © 2026 COMMON SENSE 250 • PUBLISHED WEEKLY • WWW.COMMONSENSE250.COM
+                </footer>
             </div>
         </main>
     );

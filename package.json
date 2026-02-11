@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/old-standard-tt": "^5.2.8",
+    "@fontsource/unifrakturmaguntia": "^5.2.8",
     "@stripe/stripe-js": "^8.6.4",
     "dotenv": "^17.2.3",
     "react": "^19.2.0",
