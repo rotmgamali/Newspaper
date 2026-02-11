@@ -36,6 +36,13 @@ const StandardArticle = ({ data }) => (
     </article>
 );
 
+const Snippet = ({ title, text }) => (
+    <div className="snippet-box">
+        <h4>{title}</h4>
+        <p>{text}</p>
+    </div>
+);
+
 const FrontPage = ({ content }) => (
     <div className="layout-front-page">
         <header className="page-masthead">
@@ -71,10 +78,11 @@ const ArticlePage = ({ content, side }) => (
                     <p>{content.ad.text}</p>
                 </div>
             )}
-            {content.snippet && (
-                <div className="snippet-box">
-                    <h4>{content.snippet.title}</h4>
-                    <p>{content.snippet.text}</p>
+            {content.snippet && <Snippet title={content.snippet.title} text={content.snippet.text} />}
+            {content.quote && (
+                <div className="quote-box small">
+                    <p>"{content.quote.text}"</p>
+                    <span>— {content.quote.source}</span>
                 </div>
             )}
         </div>
@@ -95,6 +103,12 @@ const HistoryPage = ({ content }) => (
                 </div>
             ))}
         </div>
+        {content.sidebar && (
+            <div className="snippet-box wide" style={{ marginTop: '20px' }}>
+                <h4>{content.sidebar.title}</h4>
+                <p>{content.sidebar.text}</p>
+            </div>
+        )}
         <div className="bottom-ad-ribbon">
             <h4>{content.ad.name}</h4>
             <p>{content.ad.text}</p>
@@ -123,7 +137,9 @@ const DialoguePage = ({ content }) => (
         </div>
         <div className="letters-section">
             <h4>{content.letters.title}</h4>
-            {content.letters.items.map((l, i) => <p key={i} className="letter">{l}</p>)}
+            <div className="letters-grid">
+                {content.letters.items.map((l, i) => <p key={i} className="letter">{l}</p>)}
+            </div>
         </div>
     </div>
 );
@@ -142,6 +158,17 @@ const ProfilePage = ({ content }) => (
             <div className="bio-block">
                 <p>{content.profile.bio}</p>
                 <div className="contact-box">{content.profile.contact}</div>
+                {content.profile.qa && (
+                    <div className="qa-section">
+                        <h4>Q & A</h4>
+                        {content.profile.qa.map((qa, i) => (
+                            <div key={i} className="qa-item">
+                                <strong>Q: {qa.q}</strong>
+                                <p>A: {qa.a}</p>
+                            </div>
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
         <div className="ad-box-corner">
@@ -156,6 +183,7 @@ const BackPage = ({ content }) => (
         <div className="feature-block">
             <StandardArticle data={content.feature} />
         </div>
+        {content.trivia && <Snippet title={content.trivia.title} text={content.trivia.text} />}
         <div className="ads-block">
             {content.ads.map((ad, i) => (
                 <div key={i} className={`ad-box ${ad.size}`}>
