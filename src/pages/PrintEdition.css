@@ -57,6 +57,7 @@
 }
 
 /* Sheet Base */
+/* Sheet Base */
 .newspaper-sheet {
     background: var(--paper);
     width: 100%;
@@ -66,6 +67,8 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     position: relative;
     border: 1px solid #c5a028;
+    display: flex;
+    flex-direction: column;
 }
 
 .vintage .newspaper-sheet {
@@ -86,11 +89,12 @@
 }
 
 .sheet-footer {
-    position: absolute;
-    bottom: 20px;
+    margin-top: auto;
     width: 100%;
     text-align: center;
     font-weight: bold;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Typography & Articles */

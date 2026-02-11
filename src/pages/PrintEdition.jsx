@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { newspaperEditions } from '../data/newspaperContent';
-import mastheadImg from '../assets/common_sense_masthead_final.jpg';
+import mastheadImg from '../assets/common_sense_masthead_old_style_v2.png';
 import ticonderogaImg from '../assets/ethan_allan_ticonderoga.png';
 import railwayImg from '../assets/granite_railway_vintage.png';
 import bellImg from '../assets/bell_telephone_vintage.png';
