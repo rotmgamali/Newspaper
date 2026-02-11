@@ -65,6 +65,11 @@ const FrontPage = ({ content }) => (
                 <ul>
                     {content.sidebar.items.map((it, i) => <li key={i}>{it}</li>)}
                 </ul>
+                {content.sidebar.image && (
+                    <div className="sidebar-image" style={{ marginTop: '20px', textAlign: 'center' }}>
+                        <img src={getPhoto(content.sidebar.image)} alt="Sidebar Visual" style={{ width: '100%', border: '1px solid #333', padding: '3px' }} />
+                    </div>
+                )}
             </div>
             <div className="quote-box">
                 <p>"{content.quote.text}"</p>

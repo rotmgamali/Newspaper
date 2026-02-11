@@ -19,6 +19,7 @@ export const newspaperEditions = [
                     },
                     sidebar: {
                         listTitle: "Admirable New Englanders",
+                        image: "ticonderoga",
                         items: [
                             "1775-76: Ethan Allan - CT. Leads 40 militiamen to capture Fort Ticonderoga by surprise. The 70 cannons were later used to liberate Boston.",
                             "1826: Gridley Bryant - MA. Constructed The Granite Railway, the first commercial line, to build the Bunker Hill Monument.",

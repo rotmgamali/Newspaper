@@ -63,9 +63,8 @@
     background: var(--paper);
     width: 100%;
     max-width: 900px;
-    /* Removed min-height to allow content to dictate size, but added min-height for feel */
-    min-height: 1200px;
-    height: auto;
+    /* Fixed height for uniformity as requested */
+    height: 1450px;
     padding: 40px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     position: relative;
@@ -73,7 +72,6 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    /* Prevent spillover */
 }
 
 .vintage .newspaper-sheet {
@@ -166,6 +164,8 @@
     display: grid;
     grid-template-columns: 2.2fr 1fr;
     gap: 40px;
+    height: 100%;
+    /* Fill the sheet */
 }
 
 .page-masthead {
@@ -213,7 +213,7 @@
     background: rgba(0, 0, 0, 0.05);
     border: 1px solid var(--ink);
     margin-top: auto;
-    /* Push to bottom of sidebar if needed */
+    /* Push to bottom of sidebar */
 }
 
 /* Article Page Layout */
@@ -221,6 +221,7 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 40px;
+    height: 100%;
 }
 
 .layout-article.right {
@@ -258,7 +259,6 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    /* Fill the sheet */
     justify-content: space-between;
 }
 
