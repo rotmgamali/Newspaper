@@ -7,192 +7,206 @@ import bellImg from '../assets/bell_telephone_vintage.png';
 import mayeImg from '../assets/drake_maye_vintage_newsprint.png';
 import './PrintEdition.css';
 
+const getPhoto = (name) => {
+    const map = {
+        'ticonderoga': ticonderogaImg,
+        'railway': railwayImg,
+        'bell': bellImg,
+        'maye': mayeImg
+    };
+    return map[name];
+};
+
+const StandardArticle = ({ data }) => (
+    <article className="std-article">
+        <h2 className="headline">{data.title}</h2>
+        {data.subtitle && <h3 className="sub-headline">{data.subtitle}</h3>}
+        {data.photo && (
+            <figure className="article-photo">
+                <img src={getPhoto(data.photo)} alt={data.title} />
+                <figcaption>{data.caption}</figcaption>
+            </figure>
+        )}
+        <div className="article-content">
+            {data.body.split('\n\n').map((p, i) => (
+                <p key={i}>{p.split('**').map((t, j) => j % 2 === 1 ? <strong key={j}>{t}</strong> : t)}</p>
+            ))}
+        </div>
+        <div className="article-byline">— {data.author}</div>
+    </article>
+);
+
+const FrontPage = ({ content }) => (
+    <div className="layout-front-page">
+        <header className="page-masthead">
+            <img src={mastheadImg} alt="Common Sense 250" />
+        </header>
+        <div className="main-story">
+            <StandardArticle data={content.mainArticle} />
+        </div>
+        <aside className="sidebar">
+            <div className="snippet-box">
+                <h4>{content.sidebar.listTitle}</h4>
+                <ul>
+                    {content.sidebar.items.map((it, i) => <li key={i}>{it}</li>)}
+                </ul>
+            </div>
+            <div className="quote-box">
+                <p>"{content.quote.text}"</p>
+                <span>— {content.quote.source}</span>
+            </div>
+        </aside>
+    </div>
+);
+
+const ArticlePage = ({ content, side }) => (
+    <div className={`layout-article ${side}`}>
+        <div className="primary-col">
+            <StandardArticle data={content.article} />
+        </div>
+        <div className="secondary-col">
+            {content.ad && (
+                <div className="ad-box vintage">
+                    <h4>{content.ad.title}</h4>
+                    <p>{content.ad.text}</p>
+                </div>
+            )}
+            {content.snippet && (
+                <div className="snippet-box">
+                    <h4>{content.snippet.title}</h4>
+                    <p>{content.snippet.text}</p>
+                </div>
+            )}
+        </div>
+    </div>
+);
+
+const HistoryPage = ({ content }) => (
+    <div className="layout-history">
+        <h2 className="section-header">{content.title}</h2>
+        <div className="timeline-grid">
+            {content.timelineItems.map((item, i) => (
+                <div key={i} className="timeline-item">
+                    <span className="year">{item.year}</span>
+                    <div className="info">
+                        <strong>{item.name}</strong>
+                        <p>{item.text}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+        <div className="bottom-ad-ribbon">
+            <h4>{content.ad.name}</h4>
+            <p>{content.ad.text}</p>
+        </div>
+    </div>
+);
+
+const DialoguePage = ({ content }) => (
+    <div className="layout-dialogue">
+        <div className="republication-section">
+            <h2 className="section-label">CIVIC DIALOGUE</h2>
+            <div className="dialogue-split">
+                <div className="original">
+                    <h3>ORIGINAL</h3>
+                    <h4>{content.republication.title}</h4>
+                    <p>"{content.republication.original.text}"</p>
+                    <span className="sig">— {content.republication.original.author}</span>
+                </div>
+                <div className="reply">
+                    <h3>REPLY</h3>
+                    <p>"{content.republication.reply.text}"</p>
+                    <span className="sig">— {content.republication.reply.author}</span>
+                </div>
+            </div>
+            <p className="note">{content.republication.note}</p>
+        </div>
+        <div className="letters-section">
+            <h4>{content.letters.title}</h4>
+            {content.letters.items.map((l, i) => <p key={i} className="letter">{l}</p>)}
+        </div>
+    </div>
+);
+
+const ProfilePage = ({ content }) => (
+    <div className="layout-profile">
+        <div className="profile-header">
+            <h2>{content.profile.name}</h2>
+            <h3>{content.profile.tagline}</h3>
+        </div>
+        <div className="profile-body">
+            <div className="priorities-list">
+                <h4>KEY PRIORITIES</h4>
+                <ul>{content.profile.priorities.map((p, i) => <li key={i}>{p}</li>)}</ul>
+            </div>
+            <div className="bio-block">
+                <p>{content.profile.bio}</p>
+                <div className="contact-box">{content.profile.contact}</div>
+            </div>
+        </div>
+        <div className="ad-box-corner">
+            <h4>{content.ad.name}</h4>
+            <p>{content.ad.text}</p>
+        </div>
+    </div>
+);
+
+const BackPage = ({ content }) => (
+    <div className="layout-back">
+        <div className="feature-block">
+            <StandardArticle data={content.feature} />
+        </div>
+        <div className="ads-block">
+            {content.ads.map((ad, i) => (
+                <div key={i} className={`ad-box ${ad.size}`}>
+                    <h4>{ad.name}</h4>
+                    <p>{ad.text}</p>
+                    {ad.url && <small>{ad.url}</small>}
+                </div>
+            ))}
+        </div>
+    </div>
+);
+
 const PrintEdition = () => {
-    const [currentPageIndex, setCurrentPageIndex] = useState(0);
-    const [isSleekMode, setIsSleekMode] = useState(false);
-    const edition = newspaperEditions[0];
-    const page = edition.pages[currentPageIndex];
+    const [pageIndex, setPageIndex] = useState(0);
+    const [sleekMode, setSleekMode] = useState(false);
+    const page = newspaperEditions[0].pages[pageIndex];
 
-    const nextPage = () => {
-        if (currentPageIndex < edition.pages.length - 1) {
-            setCurrentPageIndex(prev => prev + 1);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    };
-
-    const prevPage = () => {
-        if (currentPageIndex > 0) {
-            setCurrentPageIndex(prev => prev - 1);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    };
-
-    const getPhotoSrc = (photoName) => {
-        const photos = {
-            'ticonderoga': ticonderogaImg,
-            'railway': railwayImg,
-            'bell': bellImg,
-            'maye': mayeImg
-        };
-        return photos[photoName] || null;
-    };
-
-    const renderItem = (item, index) => {
-        switch (item.type) {
-            case 'article':
-                return (
-                    <div key={index} className={`article-container ${item.photoSize === 'hero' ? 'large-feature' : ''}`}>
-                        <h2 className="article-title">{item.title}</h2>
-                        {item.subtitle && <span className="article-subtitle">{item.subtitle}</span>}
-                        {item.photo && item.photoSize === 'hero' && (
-                            <div className="photo-box photo-hero">
-                                <img src={getPhotoSrc(item.photo)} alt={item.title} />
-                                {item.photoCaption && <p className="photo-caption">{item.photoCaption}</p>}
-                            </div>
-                        )}
-                        <div className="article-body drop-cap">
-                            {item.photo && item.photoSize === 'side' && (
-                                <div className="photo-box photo-side">
-                                    <img src={getPhotoSrc(item.photo)} alt={item.title} />
-                                    {item.photoCaption && <p className="photo-caption">{item.photoCaption}</p>}
-                                </div>
-                            )}
-                            {item.body.split('\n\n').map((p, i) => (
-                                <p key={i}>{p.split('**').map((text, j) => (j % 2 === 1 ? <strong key={j}>{text}</strong> : text))}</p>
-                            ))}
-                        </div>
-                    </div>
-                );
-            case 'snippet-box':
-                return (
-                    <div key={index} className="snippet-box">
-                        <h4>{item.title}</h4>
-                        {item.items.map((it, i) => (
-                            <div key={i} className="snippet-item">{it}</div>
-                        ))}
-                    </div>
-                );
-            case 'quote':
-                return (
-                    <div key={index} className="quote-block">
-                        <span className="quote-text">“{item.text}”</span>
-                        <span className="quote-source">— {item.source}</span>
-                    </div>
-                );
-            case 'timeline':
-                return (
-                    <div key={index} className="timeline-container">
-                        <h3 className="section-header">{item.title}</h3>
-                        {item.items.map((entry, i) => (
-                            <div key={i} className="timeline-entry">
-                                <span className="timeline-year">{entry.year}</span> — <strong>{entry.name}</strong>
-                                <p>{entry.text}</p>
-                            </div>
-                        ))}
-                    </div>
-                );
-            case 'republication':
-                return (
-                    <div key={index} className="republication-layout">
-                        <div className="original-article">
-                            <h3 className="tag">ORIGINAL</h3>
-                            <h4>{item.title}</h4>
-                            <p>"{item.originalText}"</p>
-                            <span className="sig">— {item.originalAuthor}</span>
-                        </div>
-                        <div className="public-reply">
-                            <h3 className="tag">THE REPLY</h3>
-                            <p>{item.replyText}</p>
-                            <span className="sig">— {item.replyAuthor}</span>
-                        </div>
-                        <p className="editor-note">{item.note}</p>
-                    </div>
-                );
-            case 'profile':
-                return (
-                    <div key={index} className="candidate-profile-view">
-                        <h2 className="article-title">{item.name}</h2>
-                        <h4 className="candidate-tagline">{item.tagline}</h4>
-                        <div className="priority-grid">
-                            {item.priorities.map((p, i) => (
-                                <div key={i} className="priority-item">• {p}</div>
-                            ))}
-                        </div>
-                        <div className="candidate-bio">
-                            <p>{item.bio}</p>
-                            <p className="contact-info"><strong>Contact:</strong> {item.contact}</p>
-                        </div>
-                    </div>
-                );
-            case 'skate-again':
-                return (
-                    <div key={index} className="skate-feature">
-                        <h2 className="article-title">{item.title}</h2>
-                        <div className="skate-text">{item.text}</div>
-                        {item.photo && (
-                            <div className="photo-box photo-side">
-                                <img src={getPhotoSrc(item.photo)} alt="Whale" />
-                                {item.photoCaption && <p className="photo-caption">{item.photoCaption}</p>}
-                            </div>
-                        )}
-                    </div>
-                );
-            case 'ad-large':
-                return (
-                    <div key={index} className="ad-ribbon">
-                        <h2>{item.name}</h2>
-                        <p>{item.text}</p>
-                        {item.url && <span className="url">{item.url}</span>}
-                    </div>
-                );
-            case 'ad-small':
-            case 'ad':
-                return (
-                    <div key={index} className="ad-vintage">
-                        <h4>{item.name || item.title}</h4>
-                        <p>{item.text}</p>
-                    </div>
-                );
-            default:
-                return null;
+    const renderLayout = () => {
+        switch (page.layoutId) {
+            case 'front-page': return <FrontPage content={page.content} />;
+            case 'opinion-left': return <ArticlePage content={page.content} side="left" />;
+            case 'opinion-right': return <ArticlePage content={page.content} side="right" />;
+            case 'history-full': return <HistoryPage content={page.content} />;
+            case 'article-standard': return <ArticlePage content={page.content} side="left" />;
+            case 'dialogue-spread': return <DialoguePage content={page.content} />;
+            case 'profile-full': return <ProfilePage content={page.content} />;
+            case 'back-page': return <BackPage content={page.content} />;
+            default: return <div>Unknown Layout</div>;
         }
     };
 
     return (
-        <main className="paper-edition-container">
-            <div className="newspaper-controls">
-                <button className="nav-btn" onClick={prevPage} disabled={currentPageIndex === 0}>PREVIOUS</button>
-                <span className="page-label">PAGE {page.number} / 8</span>
-                <button className="nav-btn" onClick={nextPage} disabled={currentPageIndex === 7}>NEXT</button>
-                <div className="v-divider"></div>
-                <button onClick={() => setIsSleekMode(!isSleekMode)} className="mode-btn">
-                    {isSleekMode ? 'VINTAGE' : 'SLEEK'}
+        <div className={`print-app-container ${sleekMode ? 'sleek' : 'vintage'}`}>
+            <nav className="edition-controls">
+                <button disabled={pageIndex === 0} onClick={() => setPageIndex(p => p - 1)}>Prev</button>
+                <span>PAGE {page.number} of 8</span>
+                <button disabled={pageIndex === 7} onClick={() => setPageIndex(p => p + 1)}>Next</button>
+                <button className="mode-toggle" onClick={() => setSleekMode(!sleekMode)}>
+                    {sleekMode ? 'Switch to Vintage' : 'Switch to Sleek'}
                 </button>
-            </div>
-
-            <div className={`newspaper-sheet ${isSleekMode ? 'sleek' : 'vintage'}`}>
-                {page.number === 1 && (
-                    <header className="masthead">
-                        <img src={mastheadImg} alt="Common Sense 250" className="masthead-img" />
-                    </header>
-                )}
-
-                <div className="page-meta">
-                    <span>{edition.date}</span>
-                    <span>{page.type}</span>
-                    <span>EST. 2026</span>
+            </nav>
+            <main className="newspaper-sheet">
+                <div className="sheet-meta">
+                    <span>Vol 1, No 1</span>
+                    <span>{newspaperEditions[0].date}</span>
+                    <span>Common Sense 250</span>
                 </div>
-
-                <div className={`page-content ${page.gridType || ''}`}>
-                    {page.content.map((item, i) => renderItem(item, i))}
-                </div>
-
-                <footer className="sheet-footer">
-                    <span>© Common Sense 250 Newspaper</span>
-                    <span>Digital Edition Reproduced by Web4Guru</span>
-                </footer>
-            </div>
-        </main>
+                {renderLayout()}
+                <footer className="sheet-footer">{pageIndex + 1}</footer>
+            </main>
+        </div>
     );
 };
 
