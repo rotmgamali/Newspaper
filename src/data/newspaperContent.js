@@ -14,8 +14,8 @@ export const newspaperEditions = [
                         subtitle: "A common sense approach to biological categories in athletics.",
                         author: "Mark Greenstein",
                         body: "Common sense is not merely a slogan; it is the faculty by which we perceive the plain truths of our existence. In the realm of athletics, a plain truth is currently under siege: that biological differences between the sexes matter, and that fairness requires we acknowledge them. \n\nIt has been over fifty years since Title IX was enacted. Its purpose was explicit and noble—to ensure that young women had the same opportunities as young men to compete, to strive, and to achieve glory on the playing field. It was a recognition that without distinct categories, female athletes would be effectively erased from the podium. Today, we face a peculiar regress where the very category of 'girls' sports' is being dismantled. \n\nWe must ask ourselves: what is the cost of this new 'inclusion'? It is the exclusion of biological females from fair competition. It is the loss of scholarships, podium spots, and the dignity of fair play.",
-                        photo: "ticonderoga",
-                        caption: "Standing our ground: Like the patriots of old, we must defend established principles."
+                        photo: "girls_track",
+                        caption: "Defending fairness: The finish line should not be determined by ideology."
                     },
                     sidebar: {
                         listTitle: "INSIDE THIS EDITION",
@@ -46,7 +46,8 @@ export const newspaperEditions = [
                     },
                     ad: {
                         title: "Gov Jim Libby",
-                        text: "Leadership for a free New England. Supporting the EPIC vision for a minimalist government. It's time to AXE THE TAX."
+                        text: "Leadership for a free New England.",
+                        image: "axe_tax"
                     },
                     snippet: {
                         title: "Historical Note",
@@ -81,18 +82,23 @@ export const newspaperEditions = [
                 content: {
                     title: "Admirable New Englanders — Every 50 Years",
                     timelineItems: [
-                        { year: "1775-76", name: "Ethan Allan", text: "Captured Fort Ticonderoga by surprise without firing a shot. This bold act secured the cannons that Henry Knox would later drag through the snow to Boston, forcing the British evacuation on Evacuation Day." },
-                        { year: "1826", name: "Gridley Bryant", text: "Constructed The Granite Railway in Quincy, MA. It was the first commercial railroad in the U.S., specifically built to haul granite for the Bunker Hill Monument. A true feat of private enterprise!" },
-                        { year: "1875-76", name: "Alexander Graham Bell", text: "Working in Boston, Bell invents and patents the telephone. His first words, 'Mr. Watson, come here, I want to see you,' ushered in a new era of global communication." },
-                        { year: "1926", name: "Calvin Coolidge", text: "The Vermonter President gives a speech at Arlington: 'As a people we have not sought military glory... liberty would be more secure.' Silent Cal remains a model of restraint." }
+                        {
+                            year: "1775-76",
+                            name: "Ethan Allan",
+                            text: "Captured Fort Ticonderoga by surprise without firing a shot. A bold act that secured the cannons for Boston.",
+                            image: "ticonderoga"
+                        },
+                        { year: "1826", name: "Gridley Bryant", text: "Constructed The Granite Railway in Quincy, MA. It was the first commercial railroad in the U.S." },
+                        { year: "1875-76", name: "Alexander Graham Bell", text: "Invents and patents the telephone. 'Mr. Watson, come here' ushered in a new era." },
+                        { year: "1926", name: "Calvin Coolidge", text: "The Vermonter President: 'As a people we have not sought military glory... liberty would be more secure.'" }
                     ],
                     ad: {
                         name: "Impact Health Sharing",
-                        text: "Modern healthcare, community values. A liberty-minded alternative for families. Escape the insurance bureaucracy and join a community that cares."
+                        text: "Modern healthcare, community values. A liberty-minded alternative for families."
                     },
                     sidebar: {
                         title: "Local Heritage",
-                        text: "New England has always been the cradle of liberty and innovation. From the whalers of Nantucket to the mills of Manchester, our spirit is one of industry and independence."
+                        text: "New England has always been the cradle of liberty. From the Green Mountain Boys to the minutemen."
                     }
                 }
             },
@@ -123,11 +129,11 @@ export const newspaperEditions = [
                         title: "Optionality for the Young",
                         original: {
                             author: "Mark Stewart",
-                            text: "At least 90% of young workers would opt out if given a choice. The current system is a forced pyramid scheme that relies on an ever-expanding base of new workers to pay off early investors. That base is shrinking."
+                            text: "At least 90% of young workers would opt out if given a choice. The current system is a forced pyramid scheme that relies on an ever-expanding base of new workers."
                         },
                         reply: {
                             author: "J. Rollins, Manchester, NH",
-                            text: "Making it optional for the young is the only moral path forward, but we can't abandon current retirees who were forced into the deal... We need a bridge, not a cliff. Perhaps a buyout option for those under 40?"
+                            text: "Making it optional for the young is the only moral path forward, but we can't abandon current retirees who were forced into the deal... We need a bridge, not a cliff."
                         },
                         note: "Dialogue published weekly to ensure citizen feedback. We welcome all rational viewpoints."
                     },
@@ -152,11 +158,11 @@ export const newspaperEditions = [
                         bio: "Mr. Greenstein co-founded the EPIC Party (Every Politically Independent Citizen) to challenge uncontested seats and bring fresh blood to the General Assembly. He believes in 'Citizen Legislators', not career politicians.",
                         contact: "Treasurers: MA or PK | stewartforliberty@gmail.com",
                         priorities: [
-                            "Pulverizing Crime in CT with stricter enforcement",
-                            "Ending wasteful state activities (including ending DMV)",
-                            "Allowing a federal tax opt-out for sovereignty",
+                            "Pulverizing Crime in CT",
+                            "Ending wasteful state activities/DMV",
+                            "Allowing a federal tax opt-out",
                             "Bringing more business to Connecticut",
-                            "Establishing universal school choice for all families",
+                            "Establishing universal school choice",
                             "Making Connecticut even better for tourism"
                         ],
                         qa: [
@@ -166,7 +172,8 @@ export const newspaperEditions = [
                     },
                     ad: {
                         name: "Join EPIC",
-                        text: "Be the independent voice your district needs. Run for office, join a board, make a difference."
+                        text: "Be the independent voice your district needs.",
+                        image: "classroom"
                     }
                 }
             },

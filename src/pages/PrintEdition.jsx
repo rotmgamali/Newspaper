@@ -5,6 +5,10 @@ import ticonderogaImg from '../assets/ethan_allan_ticonderoga.png';
 import railwayImg from '../assets/granite_railway_vintage.png';
 import bellImg from '../assets/bell_telephone_vintage.png';
 import mayeImg from '../assets/drake_maye_vintage_newsprint.png';
+import girlsTrackImg from '../assets/girls_track.png';
+import axeTaxImg from '../assets/axe_tax.png';
+import classroomImg from '../assets/classroom.png';
+import townHallImg from '../assets/town_hall.png';
 import './PrintEdition.css';
 
 const getPhoto = (name) => {
@@ -12,7 +16,11 @@ const getPhoto = (name) => {
         'ticonderoga': ticonderogaImg,
         'railway': railwayImg,
         'bell': bellImg,
-        'maye': mayeImg
+        'maye': mayeImg,
+        'girls_track': girlsTrackImg,
+        'axe_tax': axeTaxImg,
+        'classroom': classroomImg,
+        'town_hall': townHallImg
     };
     return map[name];
 };
@@ -62,6 +70,10 @@ const FrontPage = ({ content }) => (
                 <p>"{content.quote.text}"</p>
                 <span>— {content.quote.source}</span>
             </div>
+            <div className="ad-box small">
+                <img src={getPhoto('town_hall')} alt="Town Hall" style={{ width: '100%', sepia: '100%' }} />
+                <p style={{ marginTop: '5px', fontSize: '0.8rem' }}><strong>Town Hall Meeting</strong><br />Tuesday, 7PM</p>
+            </div>
         </aside>
     </div>
 );
@@ -74,8 +86,18 @@ const ArticlePage = ({ content, side }) => (
         <div className="secondary-col">
             {content.ad && (
                 <div className="ad-box vintage">
-                    <h4>{content.ad.title}</h4>
-                    <p>{content.ad.text}</p>
+                    {content.ad.image ? (
+                        <div className="visual-ad">
+                            <img src={getPhoto(content.ad.image)} alt={content.ad.title} style={{ width: '100%' }} />
+                            <h4>{content.ad.title}</h4>
+                            <p>{content.ad.text}</p>
+                        </div>
+                    ) : (
+                        <>
+                            <h4>{content.ad.title}</h4>
+                            <p>{content.ad.text}</p>
+                        </>
+                    )}
                 </div>
             )}
             {content.snippet && <Snippet title={content.snippet.title} text={content.snippet.text} />}
@@ -99,6 +121,7 @@ const HistoryPage = ({ content }) => (
                     <div className="info">
                         <strong>{item.name}</strong>
                         <p>{item.text}</p>
+                        {item.image && <img src={getPhoto(item.image)} alt={item.name} style={{ width: '100px', float: 'right', marginLeft: '10px' }} />}
                     </div>
                 </div>
             ))}
@@ -172,6 +195,7 @@ const ProfilePage = ({ content }) => (
             </div>
         </div>
         <div className="ad-box-corner">
+            {content.ad.image && <img src={getPhoto(content.ad.image)} alt={content.ad.name} style={{ width: '100%', marginBottom: '10px' }} />}
             <h4>{content.ad.name}</h4>
             <p>{content.ad.text}</p>
         </div>
