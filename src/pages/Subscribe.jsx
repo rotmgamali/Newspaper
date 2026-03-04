@@ -31,7 +31,7 @@ const Subscribe = () => {
                     <div className="plan-card">
                         <h3>Single Issue</h3>
                         <div className="price">$2.50</div>
-                        <p>Pick up a copy at participating locations or order a one-time print edition.</p>
+                        <p>Pick up a copy at participating locations or order a one-time edition.</p>
                         <button className="btn-subscribe" onClick={() => handleCheckout(stripeConfig.SINGLE_ISSUE_PRICE_ID)}>Buy Issue</button>
                     </div>
 
@@ -41,7 +41,7 @@ const Subscribe = () => {
                         <p>4 Issues delivered weekly to your New England address.</p>
                         <div className="plan-features">
                             <ul>
-                                <li>Print edition mailed to you</li>
+                                <li>Edition mailed to you</li>
                                 <li>Digital archive access</li>
                                 <li>Support independent journalism</li>
                             </ul>

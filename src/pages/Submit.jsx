@@ -29,7 +29,7 @@ const Submit = () => {
                             <li><strong>What:</strong> Articles (1000 words max) or Dialogue Replies (300 words max).</li>
                             <li><strong>Style:</strong> We value clarity, respect, and evidence. </li>
                             <li><strong>Format:</strong> Submit text in the body of an email or as a .doc/.pdf attachment.</li>
-                            <li><strong>Photos:</strong> Include 1-3 high-quality images. We use 1" square thumbnails in print.</li>
+                            <li><strong>Photos:</strong> Include 1-3 high-quality images. We use 1" square thumbnails.</li>
                         </ul>
                     </div>
                 </section>
@@ -66,7 +66,7 @@ const Submit = () => {
                     <div className="ad-info">
                         <h3>Why Advertise with Us?</h3>
                         <p>
-                            Your message will appear on our premium <strong>Gold-Tinted Bond</strong> weekly print edition,
+                            Your message will appear in our premium weekly edition,
                             distributed to the most engaged civic minds across New England.
                         </p>
                         <div className="ad-rates">

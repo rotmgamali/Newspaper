@@ -9,7 +9,7 @@ import ArticleDetail from './pages/ArticleDetail';
 import Campaigns from './pages/Campaigns';
 import CampaignDetail from './pages/CampaignDetail';
 import Submit from './pages/Submit';
-import Print from './pages/PrintEdition';
+
 import './App.css';
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
           <Route path="/campaigns" element={<Campaigns />} />
           <Route path="/campaign/:id" element={<CampaignDetail />} />
           <Route path="/submit" element={<Submit />} />
-          <Route path="/print" element={<Print />} />
+
         </Routes>
         <Footer />
       </div>

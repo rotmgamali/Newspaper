@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Newspaper - {{MONTH}} {{YEAR}}</title>
+    <style>
+        /* PRODUCTION PRINT SETTINGS */
+        @page {
+            size: 10.25in 10.25in;
+            margin: 0.5in;
+            prince-bleed: 0.125in;
+            prince-trim: 10in 10in;
+            marks: crop;
+            prince-pdf-output-intent: url("USWebCoatedSWOP.icc");
+            prince-print-color-adjust: exact;
+        }
+
+        /* INJECTED MODULAR CSS */
+            {
+                {
+                COLORS_CSS
+            }
+        }
+
+            {
+                {
+                TYPOGRAPHY_CSS
+            }
+        }
+
+            {
+                {
+                LAYOUT_CSS
+            }
+        }
+    </style>
+</head>
+
+<body>
+    {{PAGES_HTML}}
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+body {
+    font-family: "Times New Roman", Times, serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+.sans-font {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.headline-main {
+    font-size: 16pt;
+    font-weight: 800;
+    line-height: 0.95;
+    margin: 0 0 4px 0;
+    color: var(--text-dark);
+}
+
+.article-feature .headline-main {
+    font-size: 26pt;
+    color: var(--accent-red);
+    line-height: 0.9;
+}
+
+.headline-continued {
+    font-size: 11pt;
+    font-weight: 800;
+    margin: 0 0 4px 0;
+    color: var(--text-dark);
+    border-bottom: 1px solid var(--border-dark);
+    padding-bottom: 3px;
+    margin-bottom: 6px;
+}
+
+.headline-sub {
+    font-size: 11pt;
+    font-weight: normal;
+    font-style: italic;
+    line-height: 1.1;
+    margin: 0 0 6px 0;
+}
+
+.byline {
+    font-size: 6.5pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+p {
+    font-size: 7.2pt;
+    line-height: 1.15;
+    text-align: justify;
+    margin: 0;
+    text-indent: 1em;
+    orphans: 2;
+    widows: 2;
+}
+
+p:first-of-type {
+    text-indent: 0;
+}
+
+.drop-cap:first-letter {
+    float: left;
+    font-size: 30pt;
+    line-height: 0.8;
+    padding-top: 2px;
+    padding-right: 6px;
+    padding-left: 2px;
+    font-weight: 800;
+    color: var(--accent-red);
+}

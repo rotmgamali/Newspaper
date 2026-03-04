@@ -1,0 +1,35 @@
+:root {
+    --text-dark: cmyk(0, 0, 0, 1);
+    --accent-red: cmyk(0, 1, 1, 0);
+    --border-light: cmyk(0, 0, 0, 0.2);
+    --border-dark: cmyk(0, 0, 0, 1);
+    --bg-ad: cmyk(0, 0, 0, 0.05);
+}
+
+body {
+    color: var(--text-dark);
+}
+
+.accent-text {
+    color: var(--accent-red);
+}
+
+.border-top-heavy {
+    border-top: 3px solid var(--border-dark);
+}
+
+.border-bottom-heavy {
+    border-bottom: 3px solid var(--border-dark);
+}
+
+.border-bottom-light {
+    border-bottom: 1px solid var(--border-light);
+}
+
+.border-dashed {
+    border-bottom: 1px dashed cmyk(0, 0, 0, 0.5);
+}
+
+.border-dotted {
+    border: 1px dotted var(--border-dark);
+}

@@ -32,7 +32,7 @@ const Header = () => {
             <li><Link to="/campaigns" onClick={() => setIsMenuOpen(false)}>Campaigns</Link></li>
             <li><Link to="/articles" onClick={() => setIsMenuOpen(false)}>Articles</Link></li>
             <li><Link to="/submit" onClick={() => setIsMenuOpen(false)}>Submit</Link></li>
-            <li><Link to="/print" onClick={() => setIsMenuOpen(false)}>Print Edition</Link></li>
+
             <li><Link to="/subscribe" className="nav-subscribe-btn" onClick={() => setIsMenuOpen(false)}>Subscribe</Link></li>
           </ul>
         </nav>

@@ -1,0 +1,414 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* PRODUCTION PRINT SETTINGS */
+    @page {
+      size: 10in 10in; 
+      margin: 0.5in; 
+      marks: crop;
+      bleed: 0.125in;
+      prince-pdf-output-intent: url("USWebCoatedSWOP.icc");
+    }
+
+    /* GLOBAL RESET & TYPOGRAPHY */
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Times New Roman", Times, serif;
+      margin: 0;
+      padding: 0;
+      color: cmyk(0, 0, 0, 1);
+    }
+
+    .page-wrapper {
+       width: 9in;
+       page-break-after: always;
+       position: relative;
+    }
+    .page-wrapper:last-child {
+       page-break-after: avoid;
+    }
+    .page-content {
+       columns: 5;
+       column-gap: 0.25in;
+       height: 100%;
+    }
+
+    /* MASTHEAD */
+    .masthead {
+      text-align: center;
+      margin-bottom: 0.2in;
+      height: 1.5in;
+    }
+    .masthead h1 {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 68pt; 
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      margin: 0;
+      line-height: 0.9;
+      color: cmyk(0, 0, 0, 1);
+    }
+    .dateline {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid cmyk(0, 0, 0, 1);
+      border-bottom: 1px solid cmyk(0, 0, 0, 1);
+      padding: 5px 0;
+      margin-top: 5px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 7.5pt;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    /* TYPOGRAPHY COMPONENTS */
+    .headline-main {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 16pt; 
+      font-weight: 800;
+      line-height: 0.95;
+      margin: 0 0 4px 0;
+      color: cmyk(0, 0, 0, 1);
+    }
+    .article-feature .headline-main {
+      font-size: 26pt;
+      color: cmyk(0, 1, 1, 0); 
+      line-height: 0.9;
+    }
+    .headline-continued {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 11pt; 
+      font-weight: 800;
+      margin: 0 0 4px 0;
+      color: cmyk(0, 0, 0, 1);
+      border-bottom: 1px solid cmyk(0,0,0,1);
+      padding-bottom: 3px;
+      margin-bottom: 6px;
+    }
+
+    .headline-sub {
+      font-size: 11pt;
+      font-weight: normal;
+      font-style: italic;
+      line-height: 1.1;
+      margin: 0 0 6px 0;
+      color: cmyk(0, 0, 0, 1);
+    }
+    .byline {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 6.5pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid cmyk(0,0,0,0.2);
+    }
+
+    /* BODY COPY */
+    p {
+      font-size: 7.2pt;
+      line-height: 1.15; 
+      text-align: justify;
+      margin: 0;
+      text-indent: 1em;
+      orphans: 2; 
+      widows: 2;  
+    }
+    p:first-of-type {
+      text-indent: 0;
+    }
+    .drop-cap:first-letter {
+      float: left;
+      font-size: 30pt;
+      line-height: 0.8;
+      padding-top: 2px;
+      padding-right: 6px;
+      padding-left: 2px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 800;
+      color: cmyk(0, 1, 1, 0); 
+    }
+
+    /* ARTICLES/BLOCKS */
+    .article {
+      margin-bottom: 0.1in;
+    }
+    .article-feature {
+        border-bottom: 2px solid cmyk(0, 0, 0, 1);
+        padding-bottom: 0.1in;
+        margin-bottom: 0.1in;
+    }
+
+    /* ADVERTISEMENTS */
+    .ad-container { margin-top: 0.2in; }
+    .ad-block { box-sizing: border-box; }
+    
+    .campaign-block {
+        break-inside: avoid;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px dashed cmyk(0,0,0,0.5);
+    }
+    .campaign-block h4 { margin: 0; font-size: 10pt; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+
+  </style>
+</head>
+<body>
+  <div class="page-wrapper" id="page-1">
+        <!-- MASTHEAD -->
+        <div class="masthead">
+            <h1>Common Sense</h1>
+            <div class="dateline">
+                <span>Vol. 1, No. 1</span>
+                <span>Printed in the USA</span>
+                <span>Tuesday, March 3, 2026</span>
+            </div>
+        </div>
+        <div class="page-content">
+            
+    <div class="article span-all article-feature ">
+        <h2 class="headline-main">Protect Girls Sports</h2>
+        <h3 class="headline-sub">Common sense is not merely a slogan; it is the faculty by which we perceive the plain truths of our existence. In the realm of athletics, a plain truth is currently under siege...</h3>
+        <div class="byline">By Mark Greenstein | Opinion</div>
+        <p class="drop-cap ">Common sense is not merely a slogan; it is the faculty by which we perceive the plain truths of our existence. In the realm of athletics, a plain truth is currently under siege: that biological differences between the sexes matter, and that fairness requires we acknowledge them.</p><p>It has been over fifty years since Title IX was enacted. Its purpose was explicit and noble—to ensure that young women had the same opportunities as young men to compete, to strive, and to achieve glory on the playing field. It was a recognition that without distinct categories, female athletes would be effectively erased from the podium. Today, we face a peculiar regress where the very category of 'girls' sports' is being dismantled in the name of a new, abstract definition of inclusion.</p>
+    </div>
+    
+            
+    <div class="article ">
+        <h2 class="headline-main">Conserva-Tarian: Definition and Purpose</h2>
+        
+        <div class="byline">By CS 250 Founders and Publisher | Message</div>
+        <p>We welcome articles about civics, both public and private. With an expanding readership, we do hope to influence our national civics and politics. Contributors should email the publisher using firmconnect@gmail.com. These are especially welcome from those with intimate knowledge in a subject, but pure opinion pieces backed by reasoning are solid too.</p><p>Articles will be edited with a “Conserva-Tarian” overlay. And the expected readership is American. While American families, American businesses, American religiosity, and American government can and should again influence the world, the direct focus is here, and in particular New England.</p><p>Conserva-Taran is a term we trace to 2014. It is a melding of “conservative” and “libertarian” that very well defines the American creed. Since 1776, thoughtful Americans have generally shared a strong belief in: Tolerance for others, Individualism (not groups), Merit-ocracy (not blood lines), Property rights (not forced socialism), And Deism (at minimum, that we have a Creator).</p><p>This creed envelops almost all of us, from center-left Democrats, to Libertarians, to far-right Republicans. Though our elected leaders may squabble, we the people generally hold the above tenets.</p><p>The far-left, are not among “We the People”. They are by our definition, those who do not want American to succeed. Though they may profess patriotism, they are, but the definition above, un-American.</p><p>Common Sense 250 is for the rest of us. It is meant to extol virtuous Civics to Americans for the NEXT 250 years. We trace to Thomas Paine, but invoke modernity in having an online version follow the paper version 4 to 5 days later. The online version includes ripostes which all readers (even leftists) can get published.</p><p>May this herald resurgent journalism, and a resurgent United States of America.</p>
+    </div>
+    
+        </div>
+    </div>\n<div class="page-wrapper" id="page-2">
+        <div class="page-content" style="height: 7in;">
+            
+    <div class="article span-all article-feature ">
+        <h2 class="headline-main">The Patriot Way: Rebuilding Excellence</h2>
+        <h3 class="headline-sub">Actions speak louder than words. As Drake Maye takes the helm in New England, we look at the historical precedent for quiet leadership.</h3>
+        <div class="byline">By Sports Desk | Sports</div>
+        <p class="drop-cap ">The New England Patriots have long been defined by a specific culture of accountability and preparation. With the arrival of Drake Maye, that culture faces its most significant test in a generation. Leadership in New England has never been about the loudest voice in the room, but the most prepared one. </p><p>As Maye begins his tenure, we examine why the region's sports identity is so intertwined with the values of grit and resilience. After five years in the wilderness, the rebound of the Patriots is more than just a football story; it's a testament to the idea that actions speak more than words. The region watches not just for wins, but for the restoration of a standard of excellence that defined the 'Patriot Way'.</p>
+    </div>
+    
+        </div>
+        <div class="ad-container" style="border-top: 2px solid cmyk(0,0,0,1); padding-top: 10px;">
+            
+    <div class="ad-block span-all" style="background-color: cmyk(0,0,0,0.05); text-align: center; border: 1px dotted cmyk(0,0,0,1); padding: 15px;">
+        <strong>ADVERTISEMENT PLACEHOLDER</strong><br>
+        Contact us at $35/issue
+    </div>
+
+        </div>
+    </div>\n<div class="page-wrapper" id="page-3">
+        <div class="page-content" style="height: 7in;">
+            
+    <div class="article span-all article-feature ">
+        <h2 class="headline-main">ICE Deportations: for New England Republicans, it’s NOT an 80-20 Issue</h2>
+        <h3 class="headline-sub">“80-20 Issues” are the new hallmark for political pundits to note, and for political consultants to steer their candidates to elevating...</h3>
+        <div class="byline">By Kemler Samuels | Politics</div>
+        <p class="drop-cap ">“80-20 Issues” are the new hallmark for political pundits to note, and for political consultants to steer their candidates to elevating. I am a volunteer consultant to all Northeast conservative candidates, and my wisdom for you is, ICE deportations are NOWHERE NEAR an 80-20 issue for New England Republicans.</p><p>While national polling MIGHT yield a 70+ percent favorability, please remember: nationwide polling absorbs New England, a mere 6% of the U.S. population, with the 94% elsewhere. Fervor for ICE deportations in Arizona, Texas, and Florida (together nearly 4x the population of New England) dwarfs the coolness that New England voters have.</p><p>As of mid-February 2026, ICE deportations have barely been vivid in New England. A five-day ICE intrusion in Lewiston Maine yielded the only widely-photographed mass arrests. Should ICE operations head to multiple New England cities in salient force, there are too many things that can go wrong. It will animate New England opinion against these stiff-armed deportations. Nice neighbors pulled from their homes, harsh detention of their children, scuffles at protests, and perhaps violence akin to that displayed in Minnesota all move the opinion of all but the most fervid “law-and-order” voters.</p><p>As for “law-and-order” leaders….right now, it’s not a good look. Those leading the ICE charge are not exactly “telegenic”:
+Greg Bovino (Patton without a war), Steven Miller, Kash Patel, and Ken Paxton.
+More telegenic, but also problematic:
+Tom Homan (calm and seemingly warm, but view the semi-criminality for which he got a “pardon”)
+Kristi Noem (telegenic, but her fabrications in defense of “following orders” are out-of-control)</p><p>And it will get worse. Another shooting during a deportation operation is almost inevitable. Videos of ICE taking good-but-for-their-immigration-status men from their homes can’t possibly engender sympathy for the heavily-armed, still-masked SWAT-like teams. Photos of a crying child without her parents well-up almost all our sympathies. And while the cerebral can and should overwhelm policy, the emotional usually rules mass opinion.</p><p>Meanwhile, Republican rhetoric about ICE helps a very wily (and very telegenic) Gavin Newsom bring forth the clever, manipulative acts that also animate media for him and against sensible policy.</p><p>We lost the Vietnam war largely because of images. Our policy was rightly on the side of freedom, but the images of fire and blood overseas, and of roughed-up protesters at home, made the vast majority of Americans anti-conflict or at best unconcerned with how Vietnam was run. If ICE images seem similar, please take heed.</p>
+    </div>
+    
+        </div>
+        <div class="ad-container" style="border-top: 2px solid cmyk(0,0,0,1); padding-top: 10px;">
+             
+    <div class="ad-block span-all" style="background-color: cmyk(0,0,0,0.05); text-align: center; border: 1px dotted cmyk(0,0,0,1); padding: 15px;">
+        <strong>ADVERTISEMENT PLACEHOLDER</strong><br>
+        Contact us at $35/issue
+    </div>
+
+        </div>
+    </div>\n<div class="page-wrapper" id="page-4">
+        <div class="page-content" style="height: 7in;">
+            
+    <div class="article ">
+        <h2 class="headline-continued">Protect Girls Sports (Continued from Page 1)</h2>
+        
+        
+        <p>We are told that to exclude biological males who identify as females from girls' sports is a form of bigotry. But let us apply the lamp of experience. Sports are discriminative by nature. We discriminate by age—we do not force 12-year-olds to wrestle 18-year-olds. We discriminate by weight in boxing and wrestling—we do not pit the featherweight against the heavyweight. We do this not out of malice, but out of a fierce commitment to fairness. Sex is the most fundamental of these biological categories.</p><p>When a biological male competes in female athletics, the competitive balance is shattered. The bone density, muscle mass, and lung capacity conferred by male puberty provide an insurmountable advantage that no amount of training or 'identification' can erase. To ignore this is to tell every girl on the starting line that her effort, her discipline, and her dreams are secondary to the validation of another's personal identity.</p>
+    </div>
+    
+            
+    <div class="article ">
+        <h2 class="headline-main">The Town Hall: Democracy's Purest Form</h2>
+        
+        <div class="byline">By Sarah Miller | Civics</div>
+        <p>In hundreds of small towns across Vermont and New Hampshire, the first Tuesday in March isn't just another day; it's Town Meeting Day. This tradition represents the purest form of direct democracy remaining in the United States. It's a place where a single voice can change the course of a town's budget, and where disagreement is tempered by the fact that you will see your opponent at the grocery store tomorrow.</p><p>In an era of increasing polarization and digital siloization, the physical proximity of the town hall forces a level of civility that is often lost online. Here, civics is not an abstract concept; it is a lived experience of collective responsibility.</p>
+    </div>
+    
+        </div>
+        <div class="ad-container" style="border-top: 2px solid cmyk(0,0,0,1); padding-top: 10px;">
+             
+    <div class="ad-block span-all" style="background-color: cmyk(0,0,0,0.05); text-align: center; border: 1px dotted cmyk(0,0,0,1); padding: 15px;">
+        <strong>ADVERTISEMENT PLACEHOLDER</strong><br>
+        Contact us at $35/issue
+    </div>
+
+        </div>
+    </div>\n<div class="page-wrapper" id="page-5">
+        <div class="page-content" style="height: 7in;">
+            
+    <div class="article span-all article-feature ">
+        <h2 class="headline-main">Axe the Tax: A Legacy of Minimalist Government</h2>
+        <h3 class="headline-sub">Gov. Meldrim Thomson didn't just have a catchy slogan; he had a philosophy. We revisit the 'Axe the Tax' platform and why New Hampshire's advantage depends on it.</h3>
+        <div class="byline">By Historical Archive | History</div>
+        <p class="drop-cap ">Meldrim Thomson served as Governor of New Hampshire from 1973 to 1979, but his influence is still felt in the state's fierce 'Live Free or Die' attitude. His 'Axe the Tax' mantra was more than a fiscal policy; it was a moral stance on the role of the state.</p><p>He believed that the power to tax was the power to destroy, and that a citizen's liberty was directly proportional to the money they were allowed to keep. Today, as regional tax burdens continue to rise, the Thomson approach remains a focal point for those seeking a more minimalist, less intrusive government in New England.</p>
+    </div>
+    
+            
+    <div class="article ">
+        <h2 class="headline-main">Restoring Civics in the Classroom</h2>
+        
+        <div class="byline">By Education Board | Education</div>
+        <p>For decades, civics education has been sidelined in favor of technical skills and standardized testing. The result is a generation that understands how to use a tablet but doesn't understand the separation of powers.</p><p>Restoring civics means more than memorizing dates; it means engaging with the primary documents of our founding—the papers of Paine, the speeches of Coolidge, and the debates of the Constitutional Convention. It means learning the difficult art of productive disagreement and understanding that the preservation of liberty requires an informed and active citizenry.</p>
+    </div>
+    
+        </div>
+        <div class="ad-container" style="border-top: 2px solid cmyk(0,0,0,1); padding-top: 10px;">
+             
+    <div class="ad-block span-all" style="background-color: cmyk(0,0,0,0.05); text-align: center; border: 1px dotted cmyk(0,0,0,1); padding: 15px;">
+        <strong>ADVERTISEMENT PLACEHOLDER</strong><br>
+        Contact us at $35/issue
+    </div>
+
+        </div>
+    </div>\n<div class="page-wrapper" id="page-6">
+        <div class="page-content" style="height: 7in;">
+            
+    <div class="article ">
+        <h2 class="headline-continued">ICE Deportations: for New England Republicans, it’s NOT an 80-20 Issue (Continued from Page 3)</h2>
+        
+        
+        <p>A “hill to die on”?
+New England Republicans especially…are federally-run deportations your “hill to die on”? There are others to fight fervently for:
+Keeping babies alive
+Universal school choice
+Pro minimizing government, and
+Ending local Democrat Party hegemony.</p><p>In 2026, state government policy should be more important than any DC policy. DC issues are assuredly problematic, in part because Republicans in Congress are themselves divided, and in part because Trump floats a policy every month that is hard to defend. Stick to your state and local issues. Even if running for Congress, the last issue, about Democrats restricting our lives, taxing us wherever possible, and rewarding their specialty groups at our expense, is fulsome for weeks of podcasts and personal campaign appearances.</p><p>The RIGHT policy
+Here goes. With still fervor for the “law of the land”, even at the no-tolerance level, we can remove just as many illegals with ICE minimally on the sidelines while local police do the arrests.</p><p>When two officers gently meet an illegal child during a school lunch period, they can then call the mom saying
+“Senora, your son is in our custody. We see no evidence of his status as a “dreamer”. Do you and your husband want to come to our station to work this out?</p><p>When two officers meet an older illegal following hospital care or clinic treatment, a call goes to the family:
+“We have your abuela in custody. She will be sent to a detention facility unless you want to be self-deporting with her. Would you like to see us and hear your options with her?”</p><p>The Feds should reward them for good, surgical apprehensions. That effects the “lighter touch” that President Trump recently touted.</p><p>Local police arrests are also economical. It costs ICE nearly $800 per official per day to work in Metro Minneapolis. The low-end estimate is $18,000,000 a week; and the high-end estimate (from an unsupported Kristi Noem) of arrests per week is 500. That is $36,000 per arrest.</p><p>So instead, how about paying that to local police, who almost certainly have better knowledge of where the illegals are and their activities. Even paying the local PDs half that brings their precinct over $500,000 for every 30 people they turn over.</p><p>Additionally, consider Alternatives To Detention. Detention following arrest averages nearly 50 days before deportation, costs on average $7500 more per detainee, and deprives both employer and employee of productivity. Ankle-monitoring is effective, while showing we mean business.</p><p>Notice that the above policy and tactics apply irrespective of whether Republicans desire deportation only from post-immigration criminals or to all non-legal immigrants. It thus bridges the “libertarian” wing among Republicans (those aroused only by criminality), the cultural conservatives, and the “law-and-order” voters. The differences among our groups alone make this nowhere near an 80-20 issue. Let the issue be subordinated to other pressing federal and state activities.</p>
+    </div>
+    
+            
+    <div class="article ">
+        <h2 class="headline-main">Tariffs: Hurtful, especially in the northeast</h2>
+        
+        <div class="byline">By Mark Stewart Greenstein | Economy</div>
+        <p>The few who support tariffs need to start again. I say “few” because almost nobody likes the consequences of tariffs, direct or indirect. Many who support President Trump align to approve of tariffs simply because Trump is behind it and they are convinced he’s playing 4D chess. Separate them, and there are few Americans who approve.</p><p>The direct consequence of tariffs are: consumers pay more. Or at least “more than necessary”. If an importer really can absorb the cost of the tariff and keep a decent margin, then without the tariff, that importer COULD be offering consumers a still-lower price.</p><p>And where is the excess we lay out going? Not to the importer. Not to the American retailer. It’s to the U.S. government, a very UN-worthy receiver. Our government already taxes us too much; it does not deserve a windfall from our purchases of imported goods.</p><p>The indirect consequence is even worse: foreign nations enact reciprocal tariffs on U.S. exports. That has not happened in a large way yet; but all it takes is a populist leader abroad to say “I’m standing up to Trump”. His consumers will then have THREE reasons to not buy from U.S. firms:
+• Higher prices to them,
+• Akin to war, they adopt “Don’t Buy American”,
+• New manufacturers form in those nations to compete against us.</p><p>Any one of these three is devastating to American exporters. Indirectly it hurts us all, because less money in the pockets of the employees and owners means less they can spend domestically. And if it’s dramatically less revenue, employees get laid off. That’s ZERO income for them and greatly reduced spending to businesses around them.</p><p>What does it take to trigger this retaliation? For some foreign leaders it would take a lot, but if there’s anything that can supply instant international animus, it’s the not-so careful words of a bombastic U.S. President.</p><p>If the Trump Administration REALLY Wants Tariffs, Use Congress.
+Congress, should a majority in each House approve, has the sole responsibility to impose tariffs. This comes straight from the U.S. Constitution. The Framers did not want states competing with one another to have lower tariffs, so they added the language in Article I sec 8, that “all Duties, Imposts and Excises shall be uniform throughout the United States”. From the outset, the Trump tariffs were an end-around.</p><p>Why has Trump eschewed Congress thus far? Because no Democrats and very few Republicans will vote for raised tariffs.**</p><p>The RIGHT policy
+The world has known since 1776 that the wealth of nations (ours and theirs) increases with free trade. Mercantilism is jingoistic and can lead to war. Even when it doesn’t lead to war, it punishes consumers. A few leaders look tough on video while the rest of us suffer.</p><p>I am a candidate for Congress, a liberty-minded Independent. That’s neither left nor right (we call liberty-mindedness “above”). If elected, citizens can count on my vote to be a steadfast “no” on tariffs. They are unwise. Even if the revenue dramatically brought down the debt (it doesn’t; $200 B wind-drift barely makes a dent in a $38,000 B mountain of debt) tariffs are bad. Tariffs act as a tax on us.</p><p>I will never vote to use a tariff as a weapon to prod a foreign nation’s policy change. We have enough clout and enough financial tools, from freezing foreign assets to outright urges to boycott sales, to propel change. Unless a nation truly deserves a financial sanction, let American businesses and American consumers trade with their businesses, and don’t put upon us a tax every time we buy Italian shoes, Moroccan shirts, Chinese toys, Colombian coffee, or New Zealand fruit.</p><p>With six Supreme Court Justices voting against him, our President now looks to administrative loopholes and legal interpretations to do what’s not right in the first place. He should let it go. I’m Donald Trump’s ally on many things. He’s shown by effective use of the military that he can move nations toward compliance; he does not need a punitive tariff regime to do so.</p><p>** Only 11 states have a positive trade balance; nine are politically “red”, led by oil exporter Louisiana. None is in the northeast; even the Congressional Republicans from the other 39 states would likely vote against raised tariffs. Indeed, one of the worst trade-deficit states, just behind the two biggest “losers”, New Jersey and Tennessee, is MICHIGAN. Yes, producers of the most expensive items consumers can buy, Michigan’s trucks and cars are virtually off-limits to international buyers, so high are THEIR protective tariffs against U.S. car manufacturers.</p>
+    </div>
+    
+        </div>
+        <div class="ad-container" style="border-top: 2px solid cmyk(0,0,0,1); padding-top: 10px;">
+             
+    <div class="ad-block span-all" style="background-color: cmyk(0,0,0,0.05); text-align: center; border: 1px dotted cmyk(0,0,0,1); padding: 15px;">
+        <strong>ADVERTISEMENT PLACEHOLDER</strong><br>
+        Contact us at $35/issue
+    </div>
+
+        </div>
+    </div>\n<div class="page-wrapper" id="page-7">
+        <div class="page-content" style="height: 7in;">
+            
+    <div class="article span-all article-feature ">
+        <h2 class="headline-main">Health Insurance Spike and Poor Government Decisions</h2>
+        <h3 class="headline-sub">When it comes to health insurance, the Affordable Care Act (ACA), the lack of tort reform, our inflating American dollar, fraud...</h3>
+        <div class="byline">By Sen. James Libby | Opinion</div>
+        <p class="drop-cap ">When it comes to health insurance, the Affordable Care Act (ACA), the lack of tort reform, our inflating American dollar, fraud, and several other key issues have put Maine in an incredibly vulnerable position. A solution to the health insurance problem will be elusive; but American political leaders must face the challenge now – not later.</p><p>A presentation made to the Maine Legislature’s Health Coverage, Insurance and Financial Services Committee in November tipped off lawmakers to what is coming. For the 64,678 Mainers who get their insurance from Maine’s CoverME, the state-based health care exchange operated under the ACA, health care premiums are set to increase by an average of 77% in 2026 for households receiving the federal enhanced premium tax credit (EPTC).</p><p>For many Maine families, it means a much larger percentage of their income will go toward health insurance premiums – that is, if they even decide to continue coverage. Those in the highest income bracket who currently receive the EPTC will lose the subsidy completely. And according to the office that oversees the Maine Health Insurance Marketplace, that could add up to tens of thousands of dollars per year.</p><p>One problem is the ACA, known to most as Obamacare, has been failing us for years. Higher subsidization of it through the American Rescue Plan Act of 2021 and then extended by the Inflation Reduction Act of 2022 only masked a problem that had been growing since ACA was first implemented in 2014. The nearly 600,000 Mainers with health insurance through an employer (including me) have already experienced the rollercoaster of double-digit rate increases over the past decade.</p><p>In fact, the average annual cost of insurance for single employees covered under an employer-sponsored plan was $5,571 in 2013, the year before ACA took effect. Today, that same coverage is $9,325, according to the 2025 Employer Health Benefits Survey released by KFF this year. That’s a staggering 67% increase under ACA, certainly not what we were promised by then-President Barack Obama. Unfortunately, health insurance premium increases are about to rise still higher.</p><p>The ACA was billed as health care reform; but it did very little besides enriching insurance companies by forcing people to purchase policies under penalty of an additional tax. Health care providers on the other side of the insurance equation can charge whatever they want because the government has subsidized their patients’ insurance premiums. It demonstrates the ACA never solved the true problem with health care – it simply became one of three major cost drivers of it.</p><p>ACA has cost taxpayers dearly and has been ripe for fraud and abuse. The Government Accountability Office reported in December 2025 that millions of improper enrollments accounted for $27 billion in taxpayer losses annually. It’s simply more proof of a broken system that only drives up costs in the long run.</p><p>Another problem is the American dollar itself. Recently the Federal Reserve System's M1 money supply expansion topped $19 trillion dollars, up from about $4 trillion in February 2020. The money supply was increased to accommodate interest rate cuts; and we have just experienced two rate cuts in the past two Fed meetings. The reality of this is that if all other intervening variables were held constant since 2019, health care costs will eventually more than quadruple from that 2020 date, since health care services are needs – not wants – and good healthcare is hard to find. Unfortunately, no variables held constant and upward price pressures are at severe levels.</p><p>If I were to advise the President on one thing, it would be to stop his well-intentioned advocacy for interest rate reduction. Rate reduction often works well by providing opportunities for consumer and industry borrowing and refinancing. But in the current inflated environment, that strategy will help some and hurt many others. It will cause another spiral of inflation in areas of the economy where more supply of goods and services are harder to foster, which is the case with healthcare.</p><p>Another cost driver is that the ACA and other insurance eras failed to reform tort laws that insurance companies charge medical providers enormous premiums to cover. The lawsuit lottery condition of the United States has led to higher premiums and defensive medicine. At some point, we will need to face this problem – we have been ignoring it for decades.</p><p>The ACA also didn’t address our unhealthy, aging population, force price transparency or eliminate the relic known as "certificate of need (CON)," through which states like Maine limit competition. Maine reformers will tell you that CON has been reformed but much of it is still in law. Consolidation in the industry reduces competition and has also driven up prices in sheltered markets like Maine's.</p><p>The impending loss of the EPTC is a problem for Maine families; but it’s one that Democrats created by increasing the subsidies to begin with. It only hid the problem and delayed the inevitable. What’s happening now is the CoverME premiums are finally catching up to what the rest of us have already endured since ACA was implemented over a decade ago.</p><p>The entire health insurance system is collapsing under its own weight. The solution is to reform the health care system itself by addressing each of the problems I outlined above. I was involved in doing just that when worker's compensation insurers left Maine in the early 1990s. That fix, led by Governor McKernan, was outstanding. Unfortunately, its complexities pale in comparison to the health insurance premium problem we face today.</p>
+    </div>
+    
+        </div>
+        <div class="ad-container" style="border-top: 2px solid cmyk(0,0,0,1); padding-top: 10px;">
+             
+    <div class="ad-block span-all" style="background-color: cmyk(0,0,0,0.05); text-align: center; border: 1px dotted cmyk(0,0,0,1); padding: 15px;">
+        <strong>ADVERTISEMENT PLACEHOLDER</strong><br>
+        Contact us at $35/issue
+    </div>
+
+        </div>
+    </div>\n<div class="page-wrapper" id="page-8">
+        <div class="page-content" style="height: 5in;">
+            
+    <div class="article span-all article-feature ">
+        <h2 class="headline-main">Social Security - Rep. Larson defends the indefensible</h2>
+        <h3 class="headline-sub">Oh my. Congressman John Larson has made “saving Social Security” his banner issue. Only a few highly protective or deeply out-of-touch people think this is a system worth saving...</h3>
+        <div class="byline">By Mark Stewart | Liberty & Politics</div>
+        <p class="drop-cap ">Oh my. Congressman John Larson has made “saving Social Security” his banner issue. Only a few highly protective or deeply out-of-touch people think this is a system worth saving. It should have been ended long ago.</p><p>By 1999 it was clear to anyone that Social Security could not pay its promised returns without a large tax increase. By 2005, Social Security was, by any business definition, bankrupt. Twenty more years of deficits, higher life-expectancies, and a still lower worker-to-payee ratio (now 3:1; when the program was inaugurated it was 18:1), Social Security cannot right itself absent a dramatic cut in benefits, or a tripling of the tax it foists on workers.</p><p>The 1936 system of SS funds being set aside and building interest to be paid decades later lasted all of three years. By 1939, politicians had raided the Social Security Trust. Since then, some or (now) all of its funds go right to the U.S. Treasury, for Congress to spend as it wishes.</p><p>Social Security will always be a fat trove of money for politicians to take. That is because:
+1. Few people notice the mis-directed spending,
+2. Those who notice can’t do anything to stop the politicians or the “Trustees”, and
+3. Those who are hurt most have no political clout: the very young and the unborn.</p><p>The harm to young workers is significant. Social Security (including Medicare), extracts 15.3% of a mid-income worker’s salary. One who “earns” $70,000 a year thus sees only $59,300. Ask one hundred workers whose take-home is $59,300 minus income taxes whether they’d prefer an added $10,700 and forgo a mystical Social Security benefit 20, 30, 40, or 50 years away. At least 90% will say “yes”.</p><p>For those few who would like to entrust their money to the government for those many years (and hope to not die before collecting) there’s a beautiful option that Larson doesn’t countenance: make Social Security optional. The people wanting the government option can still have it; a slimmed-down Social Security system will still give the same percentage returns; it does not require 100,000,000 participants. It doesn’t even require 1,000,000 (see long-standing private wealth managers who do very well for a mere 1000 or so clients.).</p><p>Larson is not alone. His blind spot appears to infect every elected Democrat. Not one Democrat has announced a vision other than government-controlled tethering of our earnings. Not one Democrat decries the oppressive unfairness that Social Security foists on younger workers. And ironically, not one elected Democrat even points out that Social Security is the most regressive tax in America. High income earners pay in at a LOWER rate than middle income and low income earners. Currently, the pay-in applies only up to $184,500**. Thus, the person earning above $184,500 annually has a smaller percentage taken out. For the $300,000 earner, the benefit is a boon: 15.3% of $184,500 is just 9.4% of $300,000; for the $750,000 earner, the benefit is laughable: 15.3% of $184,500 is a mere 3.76% of the $750,000.</p><p>Elected Democrats endorse Social Security because they like government control. The forced pay-in, before even receiving one’s paycheck, is the ultimate way to fund statism. FDR started this morass, and 90 years later, it is a fixture for elected Democrats (and some Republicans).</p><p>Why the Larson solution does not work
+Rep Larson’s main cog in attempted reform is to push for high income earners to pay in at the same rate. If enacted, this would be a very temporary fix. Larson’s solution neglects the pay-OUT aspect of Social Security. At some point, the high earners retire; then their benefits come due and they are HIGHER than the mid-income earner. Larson’s plan might bring a quick infusion of money, but unless the accounting is even more monstrous, the ledger must show a very high expected pay-out for every high paying-in “contributor”.</p><p>Indeed, the pay-OUT time almost certainly comes sooner than average if high income earners are fully contributing. At least four reasons gird this:
+1. The highest income earners are on average older and thus closer to withdrawal age.
+2. Because they don’t need the money, they are more likely to take their money out at age 59.5 than the lower income earner who calculates a bigger benefit by delaying withdrawals.
+3. They are healthier, and far less likely to succumb to disease in their early 60s than lower income workers.
+4. They are almost always married, so the Trust Fund will not be keeping their funds, as it does with unmarried workers who die young.</p><p>Now, if Larson, in traditional legislative fashion, is just “kicking the can down the road”, with not true fix in sight, that’s even more reason to keep his plans far away from a Congressional vote. If his plan is to fix by taxing workers at a higher rate, that’s from the classic ”tax-because-you-can” playbook.</p><p>Either version means Social Security’s purpose is defeated. Social Security was meant to be a backstop, to keep those who had saved inadequately from working until they dropped dead. Now, any attempt to “save” it means a delay of the inevitable collapse, and unfair confiscations along the way. OSDI and Medicare should be optional; if a payout is needed for current retirees and those close to retirement, then that should come from the Treasury, not from workers whose confiscated earnings will never be fairly repaid.</p><p>** Social Security was capped for two main reasons: 1) high earners rarely need the benefits in old age, and 2) high earners are influential in policy-making; few legislators felt their well-heeled constituents (including political donors) would brook a 15.3% tax on themselves.</p>
+    </div>
+    
+        </div>
+        
+    <div class="campaign-section" style="border-top: 3px solid cmyk(0,0,0,1); padding-top: 0.1in; margin-top: 0.15in;">
+        <h2 style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; text-transform: uppercase; color: cmyk(0, 1, 1, 0); text-align: center; margin-bottom: 5px;">On The Trail</h2>
+        <div style="columns: 5; column-gap: 0.25in; text-align: left;">
+            
+                <div class="campaign-block" style="break-inside: avoid; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed cmyk(0,0,0,0.5);">
+                    <h4 style="margin: 0; font-size: 9pt; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Kelly Ayotte (R)</h4>
+                    <div style="font-size: 7.5pt; font-style: italic; color: cmyk(0,0,0,0.7); margin-bottom: 3px;">Governor - New Hampshire</div>
+                    <p style="font-size: 6.5pt; margin-bottom: 3px; text-indent: 0;"><strong>Status:</strong> Campaigning in Nashua today</p>
+                    <p style="font-size: 6.5pt; text-indent: 0;">Former U.S. Senator and New Hampshire Attorney General, Kelly Ayotte is running for Governor with a focus on 'Live Free or Die' values.</p>
+                </div>
+            
+                <div class="campaign-block" style="break-inside: avoid; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed cmyk(0,0,0,0.5);">
+                    <h4 style="margin: 0; font-size: 9pt; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Joyce Craig (D)</h4>
+                    <div style="font-size: 7.5pt; font-style: italic; color: cmyk(0,0,0,0.7); margin-bottom: 3px;">Governor - New Hampshire</div>
+                    <p style="font-size: 6.5pt; margin-bottom: 3px; text-indent: 0;"><strong>Status:</strong> Town Hall meeting in Concord at 6 PM</p>
+                    <p style="font-size: 6.5pt; text-indent: 0;">Former Mayor of Manchester, Joyce Craig is bringing her experience in local government to the gubernatorial race.</p>
+                </div>
+            
+                <div class="campaign-block" style="break-inside: avoid; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed cmyk(0,0,0,0.5);">
+                    <h4 style="margin: 0; font-size: 9pt; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Phil Scott (R)</h4>
+                    <div style="font-size: 7.5pt; font-style: italic; color: cmyk(0,0,0,0.7); margin-bottom: 3px;">Governor - Vermont</div>
+                    <p style="font-size: 6.5pt; margin-bottom: 3px; text-indent: 0;"><strong>Status:</strong> Signed three new bills in Montpelier</p>
+                    <p style="font-size: 6.5pt; text-indent: 0;">Vermont's 82nd Governor, Phil Scott has focused on growing the economy, making Vermont more affordable, and protecting the vulnerable.</p>
+                </div>
+            
+                <div class="campaign-block" style="break-inside: avoid; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed cmyk(0,0,0,0.5);">
+                    <h4 style="margin: 0; font-size: 9pt; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Janet Mills (D)</h4>
+                    <div style="font-size: 7.5pt; font-style: italic; color: cmyk(0,0,0,0.7); margin-bottom: 3px;">Governor - Maine</div>
+                    <p style="font-size: 6.5pt; margin-bottom: 3px; text-indent: 0;"><strong>Status:</strong> Visiting a shipyard in Bath</p>
+                    <p style="font-size: 6.5pt; text-indent: 0;">Janet Mills is the 75th Governor of Maine, focusing on healthcare access and environmental protection.</p>
+                </div>
+            
+                <div class="campaign-block" style="break-inside: avoid; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed cmyk(0,0,0,0.5);">
+                    <h4 style="margin: 0; font-size: 9pt; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Maura Healey (D)</h4>
+                    <div style="font-size: 7.5pt; font-style: italic; color: cmyk(0,0,0,0.7); margin-bottom: 3px;">Governor - Massachusetts</div>
+                    <p style="font-size: 6.5pt; margin-bottom: 3px; text-indent: 0;"><strong>Status:</strong> Speaking at a tech summit in Boston</p>
+                    <p style="font-size: 6.5pt; text-indent: 0;">Maura Healey is the Governor of Massachusetts, formerly serving as Attorney General.</p>
+                </div>
+            
+                <div class="campaign-block" style="break-inside: avoid; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed cmyk(0,0,0,0.5);">
+                    <h4 style="margin: 0; font-size: 9pt; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Chris Murphy (D)</h4>
+                    <div style="font-size: 7.5pt; font-style: italic; color: cmyk(0,0,0,0.7); margin-bottom: 3px;">U.S. Senator - Connecticut</div>
+                    <p style="font-size: 6.5pt; margin-bottom: 3px; text-indent: 0;"><strong>Status:</strong> In Washington for committee hearings</p>
+                    <p style="font-size: 6.5pt; text-indent: 0;">Chris Murphy has served as the junior U.S. Senator from Connecticut since 2013.</p>
+                </div>
+            
+        </div>
+    </div>
+
+    </div>
+</body>
+</html>

@@ -428,13 +428,6 @@
   color: var(--gold-accent);
 }
 
-.print-article-link {
-  display: inline-block;
-  margin-top: 10px;
-  color: #900;
-  font-weight: bold;
-  text-decoration: underline;
-}
 
 /* Compact Magazine Grid (Articles) */
 .compact-magazine-grid {
