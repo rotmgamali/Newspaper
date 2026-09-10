@@ -8,9 +8,10 @@ const Campaigns = () => {
     return (
         <main className="container campaigns-page">
             <div className="page-header">
-                <span className="section-label">Live Election Tracking</span>
-                <h2>Campaign Corner 2026</h2>
-                <p className="subtitle">Real-time status updates for New England's state and local candidates.</p>
+                <span className="section-label">Candidate Directory</span>
+                <h2>New England Candidates, 2026</h2>
+                <p className="subtitle">Office sought, party, and platform for state and local candidates across the region.</p>
+                <p className="directory-note">These profiles are a static reference compiled for the 2026 cycle and are not live updates.</p>
             </div>
 
             <div className="campaign-grid enhanced-grid">
@@ -21,23 +22,13 @@ const Campaigns = () => {
                             {campaigns.filter(c => c.state === state).map(candidate => (
                                 <Link to={`/campaign/${candidate.id}`} key={candidate.id} className="candidate-card-link">
                                     <div className="enhanced-candidate-card">
-                                        <div className="live-status-ribbon">
-                                            <span className="pulse-dot-live"></span>
-                                            LIVE STATUS
-                                        </div>
-
                                         <div className="card-top">
                                             <h4>{candidate.name}</h4>
                                             <span className="office-tag">{candidate.office}</span>
                                         </div>
 
-                                        <div className="real-time-snippet">
-                                            <p className="snippet-text">"{candidate.realTimeStatus}"</p>
-                                            <p className="update-timestamp">Updated: Just Now</p>
-                                        </div>
-
                                         <div className="card-bottom">
-                                            <p className="latest-note-small"><strong>Latest:</strong> {candidate.latestUpdate}</p>
+                                            <p className="candidate-party-line">{candidate.party} &middot; {candidate.status}</p>
                                             <span className="expand-label">Read Platform &rarr;</span>
                                         </div>
                                     </div>

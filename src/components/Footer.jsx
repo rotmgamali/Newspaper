@@ -9,17 +9,17 @@ const Footer = () => {
                 <div className="footer-content">
                     <div className="footer-section">
                         <h3>Common Sense 250</h3>
-                        <p>A Personal Press of Andrew Rollins Web4Guru</p>
+                        <p>Published by Web4Guru for Common Sense 250</p>
                         <p>Publishing opinions on CIVICS in New England.</p>
                         <p>Est. 2026</p>
                     </div>
                     <div className="footer-section publisher-info">
-                        <h4>Publisher</h4>
+                        <h4>Submissions</h4>
                         <div className="publisher-details">
                             <span className="publisher-name">Andrew Rollins</span>
                             <span className="publisher-email">andrew@web4guru.com</span>
                         </div>
-                        <p className="publisher-note">Web4Guru</p>
+                        <p className="publisher-note">Web4Guru &mdash; publisher of record, web edition</p>
                     </div>
                     <div className="footer-section advertise-section">
                         <h4>Advertise</h4>

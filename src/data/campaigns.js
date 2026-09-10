@@ -6,8 +6,6 @@ export const campaigns = [
         state: "New Hampshire",
         party: "Republican",
         status: "Active",
-        realTimeStatus: "Campaigning in Nashua today",
-        latestUpdate: "Released new economic plan focusing on property tax relief.",
         bio: "Former U.S. Senator and New Hampshire Attorney General, Kelly Ayotte is running for Governor with a focus on 'Live Free or Die' values.",
         platform: [
             "Economic growth through reduced regulation",
@@ -24,8 +22,6 @@ export const campaigns = [
         state: "New Hampshire",
         party: "Democrat",
         status: "Active",
-        realTimeStatus: "Town Hall meeting in Concord at 6 PM",
-        latestUpdate: "Endorsed by local teachers' union for her education platform.",
         bio: "Former Mayor of Manchester, Joyce Craig is bringing her experience in local government to the gubernatorial race.",
         platform: [
             "Increased funding for public education",
@@ -42,8 +38,6 @@ export const campaigns = [
         state: "Vermont",
         party: "Republican",
         status: "Incumbent",
-        realTimeStatus: "Signed three new bills in Montpelier",
-        latestUpdate: "Governor Scott holds a press conference on state infrastructure.",
         bio: "Vermont's 82nd Governor, Phil Scott has focused on growing the economy, making Vermont more affordable, and protecting the vulnerable.",
         platform: [
             "Maintaining fiscal discipline and no new taxes",
@@ -60,8 +54,6 @@ export const campaigns = [
         state: "Maine",
         party: "Democrat",
         status: "Incumbent",
-        realTimeStatus: "Visiting a shipyard in Bath",
-        latestUpdate: "Gov. Mills announces new initiative for clean energy jobs.",
         bio: "Janet Mills is the 75th Governor of Maine, focusing on healthcare access and environmental protection.",
         platform: [
             "Expansion of rural healthcare",
@@ -78,8 +70,6 @@ export const campaigns = [
         state: "Massachusetts",
         party: "Democrat",
         status: "Incumbent",
-        realTimeStatus: "Speaking at a tech summit in Boston",
-        latestUpdate: "Healey signs executive order on AI deployment in state metrics.",
         bio: "Maura Healey is the Governor of Massachusetts, formerly serving as Attorney General.",
         platform: [
             "Leading on climate innovation",
@@ -96,8 +86,6 @@ export const campaigns = [
         state: "Connecticut",
         party: "Democrat",
         status: "Active",
-        realTimeStatus: "In Washington for committee hearings",
-        latestUpdate: "Senator Murphy introduces new bill on digital safety for children.",
         bio: "Chris Murphy has served as the junior U.S. Senator from Connecticut since 2013.",
         platform: [
             "Addressing the loneliness epidemic",

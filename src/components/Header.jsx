@@ -2,15 +2,26 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 
+// Change this once per issue.
+const EDITION = 'Vol. 1, No. 1';
+
+const formatIssueDate = (date) => date.toLocaleDateString('en-US', {
+  weekday: 'long',
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric'
+});
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const issueDate = formatIssueDate(new Date());
 
   return (
     <header className="site-header">
       <div className="container">
         <div className="header-top">
-          <span className="date">Saturday, February 21, 2026</span>
-          <span className="edition">Vol. 1, No. 1</span>
+          <span className="date">{issueDate}</span>
+          <span className="edition">{EDITION}</span>
           <span className="price">$2.50</span>
         </div>
         <div className="header-main">

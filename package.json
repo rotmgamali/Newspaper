@@ -7,7 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "issue": "node newspaper-production/scripts/generate-issue.js",
+    "issue:html": "node newspaper-production/scripts/generate-issue.js --html-only",
+    "issue:live": "node newspaper-production/scripts/generate-issue.js --live",
+    "barcode": "node scripts/generate-barcode.js",
+    "test:barcode": "node scripts/lib/ean13.test.js"
   },
   "dependencies": {
     "@fontsource/cinzel": "^5.2.8",
@@ -32,5 +37,6 @@
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
     "vite": "^7.2.4"
-  }
+  },
+  "description": "Common Sense 250 \u2014 the web edition and the print production pipeline."
 }

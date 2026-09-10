@@ -1,3 +1,15 @@
+/*
+ * SUPERSEDED — kept for reference, not for use.
+ *
+ * Replaced 2026-09-10 by newspaper-production/scripts/generate-issue.js, which
+ * reads the issue from config/issue.js, takes its DocRaptor key from the
+ * environment, and refuses to print an advertisement nobody authorised.
+ *
+ * The DocRaptor API key that used to sit in this file in plaintext has been
+ * removed. It was committed to a PUBLIC repository and must be treated as
+ * compromised: rotate it in the DocRaptor dashboard.
+ */
+
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -7,7 +19,7 @@ import { campaigns } from '../src/data/campaigns.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const API_KEY = '6Z2Pads--raSgGE1ayd3';
+const API_KEY = process.env.DOCRAPTOR_API_KEY;
 
 // ----------------------------------------
 // DATA MAPPING

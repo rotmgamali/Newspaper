@@ -25,17 +25,6 @@ const CampaignDetail = () => {
                     <span className="office-title-detail">{candidate.office}</span>
                     <span className="party-label">{candidate.party}</span>
                 </div>
-
-                <div className="real-time-status-card">
-                    <div className="status-header">
-                        <span className="pulse-dot"></span>
-                        <span className="status-title">REAL-TIME TRACKING</span>
-                    </div>
-                    <div className="status-content">
-                        <p className="status-text">{candidate.realTimeStatus}</p>
-                        <p className="latest-announcement"><strong>Latest:</strong> {candidate.latestUpdate}</p>
-                    </div>
-                </div>
             </div>
 
             <div className="campaign-content-grid">

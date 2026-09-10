@@ -1,3 +1,7 @@
+/* ---------------------------------------------------------------------------
+   Page structure
+   --------------------------------------------------------------------------- */
+
 * {
     box-sizing: border-box;
 }
@@ -7,35 +11,56 @@ body {
     padding: 0;
 }
 
+/* A 10.25in page with 0.5in margins leaves 9.25in of printable width. */
 .page-wrapper {
-    /* The printable area for 10.25x10.25 with 0.5in margins on all sides is 9.25in wide */
     width: 9.25in;
+    height: 9.25in;
     page-break-after: always;
     position: relative;
+    overflow: hidden;
 }
 
 .page-wrapper:last-child {
     page-break-after: avoid;
 }
 
+/* The column well. Its height is set per page so the ad rail sits below it. */
 .page-content {
-    columns: 5;
+    columns: 4;
     column-gap: 0.25in;
+    column-fill: auto;
 }
+
+/* ---------------------------------------------------------------------------
+   Masthead
+   --------------------------------------------------------------------------- */
 
 .masthead {
     text-align: center;
-    margin-bottom: 0.2in;
-    height: 1.5in;
+    margin-bottom: 0.14in;
+    /* The wordmark is set with a line-height below 1, so its cap-height exceeds
+       its line box and the ascenders clip against the top of the page. This
+       padding is the difference, not decoration — remove it and the M and the
+       S lose their tops on press. */
+    padding-top: 0.16in;
 }
 
 .masthead h1 {
-    font-size: 68pt;
+    font-size: 66pt;
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: -2px;
+    letter-spacing: -2.5px;
     margin: 0;
-    line-height: 0.9;
+    line-height: 0.92;
+}
+
+.masthead .masthead-tagline {
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    margin: 3px 0 0 0;
+    color: var(--accent-red);
 }
 
 .dateline {
@@ -43,36 +68,282 @@ body {
     justify-content: space-between;
     border-top: 1px solid var(--border-dark);
     border-bottom: 1px solid var(--border-dark);
-    padding: 5px 0;
-    margin-top: 5px;
+    padding: 4px 0;
+    margin-top: 6px;
     font-size: 7.5pt;
     font-weight: bold;
     text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 
+/* Running head on interior pages. */
+.folio {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-dark);
+    padding-bottom: 3px;
+    margin-bottom: 0.12in;
+    font-size: 7pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* ---------------------------------------------------------------------------
+   Articles
+   --------------------------------------------------------------------------- */
+
 .article {
-    margin-bottom: 0.1in;
-    break-inside: avoid;
+    margin-bottom: 0.12in;
 }
 
 .article-feature {
     border-bottom: 2px solid var(--border-dark);
     padding-bottom: 0.1in;
-    margin-bottom: 0.1in;
-    break-inside: avoid;
+    margin-bottom: 0.12in;
 }
 
+/* Furniture that sits outside the column well. Articles never carry this —
+   giving an article column-span:all collapses the five-column grid into one
+   full-width block of unreadably long lines. */
 .span-all {
     column-span: all;
     break-inside: avoid;
 }
 
-.ad-container {
-    margin-top: 0.2in;
+/* Mark's op-ed uses bare uppercase lines as section headings. Style them so
+   they read as headings rather than as shouting inside a paragraph. */
+p.section-break {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-indent: 0;
+    text-align: left;
+    margin: 7px 0 4px 0;
+    padding-top: 4px;
+    border-top: 1px solid var(--border-light);
+    break-after: avoid;
+}
+
+.jump-line {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 6.5pt;
+    font-weight: 700;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--accent-red);
+    text-indent: 0;
+    margin-top: 4px;
+}
+
+/* ---------------------------------------------------------------------------
+   Advertisements
+   --------------------------------------------------------------------------- */
+
+.ad-rail {
+    border-top: 3px solid var(--border-dark);
+    padding-top: 0.09in;
+    margin-top: 0.11in;
+    display: flex;
+    gap: 0.18in;
+    align-items: stretch;
 }
 
 .ad-block {
-    background-color: var(--bg-ad);
+    break-inside: avoid;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    padding: 15px;
+    flex: 1 1 0;
+}
+
+.ad-full { flex: 1 1 100%; }
+.ad-half { flex: 1 1 50%; }
+.ad-quarter { flex: 1 1 25%; }
+
+.ad-rule-top,
+.ad-rule-bottom {
+    border-top: 1px solid var(--border-dark);
+    height: 0;
+}
+
+.ad-rule-top { margin-bottom: 5px; }
+.ad-rule-bottom { margin-top: auto; padding-top: 5px; }
+
+.ad-eyebrow,
+.ad-house-eyebrow {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 5.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-bottom: 4px;
+}
+
+.ad-house-eyebrow {
+    color: var(--accent-red);
+}
+
+.ad-art {
+    margin-bottom: 5px;
+}
+
+.ad-art img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.ad-headline,
+.ad-house-headline {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12pt;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+}
+
+.ad-line,
+.ad-house-body {
+    font-size: 8pt;
+    line-height: 1.25;
+    text-align: center;
+    text-indent: 0;
+    margin: 0 0 3px 0;
+}
+
+.ad-foot,
+.ad-house-contact {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 6pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 4px;
+}
+
+.ad-house {
+    background-color: var(--bg-ad);
+    padding: 7px 9px;
+}
+
+/* ---------------------------------------------------------------------------
+   Candidate directory (back page)
+   --------------------------------------------------------------------------- */
+
+.campaign-section {
+    padding-top: 0.09in;
+    margin-top: 0.11in;
+}
+
+.campaign-section h2 {
+    font-size: 11pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-red);
+    text-align: center;
+    margin: 0 0 2px 0;
+}
+
+.campaign-standfirst {
+    font-size: 6.5pt;
+    font-style: italic;
+    text-align: center;
+    text-indent: 0;
+    margin: 0 0 6px 0;
+}
+
+.campaign-grid {
+    columns: 4;
+    column-gap: 0.18in;
+}
+
+.campaign-block {
+    break-inside: avoid;
+    margin-bottom: 7px;
+    padding-bottom: 6px;
+}
+
+.campaign-block h4 {
+    margin: 0;
+    font-size: 9pt;
+    line-height: 1.05;
+}
+
+.campaign-block .campaign-office {
+    font-size: 7pt;
+    font-style: italic;
+    margin-bottom: 2px;
+}
+
+.campaign-block p {
+    font-size: 7pt;
+    line-height: 1.2;
+    text-indent: 0;
+    text-align: left;
+}
+
+/* ---------------------------------------------------------------------------
+   Colophon and barcode (back page)
+   --------------------------------------------------------------------------- */
+
+.colophon {
+    border-top: 3px solid var(--border-dark);
+    margin-top: 0.11in;
+    padding-top: 0.08in;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 0.2in;
+}
+
+.colophon-text {
+    font-size: 7pt;
+    line-height: 1.3;
+    max-width: 5.6in;
+}
+
+.colophon-text p {
+    font-size: 7pt;
+    text-indent: 0;
+    text-align: left;
+    margin: 0 0 2px 0;
+}
+
+.colophon-text .colophon-title {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 8pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 3px;
+}
+
+/* The barcode sits bottom-right of the back page, clear of the trim, with its
+   quiet zones protected by padding that nothing else may occupy. */
+.barcode {
+    flex: 0 0 auto;
+    text-align: right;
+    padding: 0 0 2px 0;
+}
+
+.barcode img {
+    height: 0.86in;
+    width: auto;
+    display: block;
+}
+
+.barcode-caption {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 5.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 2px;
+    color: var(--accent-red);
 }

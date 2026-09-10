@@ -35,8 +35,6 @@ const Articles = () => {
                                     </article>
                                 </Link>
                             ))}
-                            {/* Placeholder for "More in Category" if needed */}
-                            <Link to={`/category/${cat}`} className="view-cat-all">View All in {cat} &rarr;</Link>
                         </div>
                     </section>
                 ))}

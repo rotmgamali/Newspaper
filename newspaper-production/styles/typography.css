@@ -1,3 +1,16 @@
+/* ---------------------------------------------------------------------------
+   Type
+   ---------------------------------------------------------------------------
+   Body copy is set at 9pt over four columns, not 7.2pt over five.
+
+   The February draft used 7.2pt across five columns on a 10-inch page, which
+   gives a 1.7-inch measure and type smaller than almost any newspaper in print.
+   It was chosen to make a short issue look full. It does not read.
+
+   Nine point over a two-inch measure is close to what a broadsheet actually
+   uses, and it is legible to the older readership this paper is written for.
+   --------------------------------------------------------------------------- */
+
 body {
     font-family: "Times New Roman", Times, serif;
 }
@@ -10,55 +23,71 @@ h4,
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+/* --- headlines --- */
+
 .headline-main {
-    font-size: 16pt;
+    font-size: 15pt;
     font-weight: 800;
-    line-height: 0.95;
+    line-height: 0.98;
+    letter-spacing: -0.01em;
     margin: 0 0 4px 0;
     color: var(--text-dark);
+    break-after: avoid;
 }
 
 .article-feature .headline-main {
-    font-size: 26pt;
+    font-size: 25pt;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
     color: var(--accent-red);
-    line-height: 0.9;
 }
 
 .headline-continued {
     font-size: 11pt;
     font-weight: 800;
-    margin: 0 0 4px 0;
+    margin: 0 0 6px 0;
+    padding-bottom: 3px;
     color: var(--text-dark);
     border-bottom: 1px solid var(--border-dark);
-    padding-bottom: 3px;
-    margin-bottom: 6px;
+    break-after: avoid;
+}
+
+.headline-continued span {
+    font-weight: 500;
+    font-style: italic;
 }
 
 .headline-sub {
-    font-size: 11pt;
+    font-size: 10.5pt;
     font-weight: normal;
     font-style: italic;
-    line-height: 1.1;
+    line-height: 1.18;
     margin: 0 0 6px 0;
+    break-after: avoid;
 }
 
 .byline {
-    font-size: 6.5pt;
+    font-size: 7pt;
     font-weight: bold;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
     margin-bottom: 6px;
     padding-bottom: 3px;
     border-bottom: 1px solid var(--border-light);
+    break-after: avoid;
 }
 
+/* --- body --- */
+
 p {
-    font-size: 7.2pt;
-    line-height: 1.15;
+    font-size: 9pt;
+    line-height: 1.22;
     text-align: justify;
+    hyphens: auto;
     margin: 0;
     text-indent: 1em;
-    orphans: 2;
-    widows: 2;
+    orphans: 3;
+    widows: 3;
 }
 
 p:first-of-type {
@@ -67,11 +96,11 @@ p:first-of-type {
 
 .drop-cap:first-letter {
     float: left;
-    font-size: 30pt;
-    line-height: 0.8;
+    font-size: 34pt;
+    line-height: 0.78;
     padding-top: 2px;
-    padding-right: 6px;
-    padding-left: 2px;
+    padding-right: 5px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 800;
     color: var(--accent-red);
 }

@@ -1,39 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Newspaper - {{MONTH}} {{YEAR}}</title>
+    <title>{{PUBLICATION}} — {{ISSUE_DATE}}</title>
     <style>
-        /* PRODUCTION PRINT SETTINGS */
+        /*
+         * PRODUCTION PRINT SETTINGS
+         * Trim 10in square, with bleed and crop marks for the press.
+         * Two-tone: process black plus one red.
+         */
         @page {
-            size: 10.25in 10.25in;
-            margin: 0.5in;
-            prince-bleed: 0.125in;
-            prince-trim: 10in 10in;
+            size: {{PAGE_SIZE}};
+            margin: {{PAGE_MARGIN}};
+            prince-bleed: {{PAGE_BLEED}};
+            prince-trim: {{PAGE_TRIM}};
             marks: crop;
-            prince-pdf-output-intent: url("USWebCoatedSWOP.icc");
             prince-print-color-adjust: exact;
         }
 
-        /* INJECTED MODULAR CSS */
-            {
-                {
-                COLORS_CSS
-            }
-        }
+        /* --- injected stylesheets, in cascade order --- */
 
-            {
-                {
-                TYPOGRAPHY_CSS
-            }
-        }
+        {{COLORS_CSS}}
 
-            {
-                {
-                LAYOUT_CSS
-            }
-        }
+        {{TYPOGRAPHY_CSS}}
+
+        {{LAYOUT_CSS}}
     </style>
 </head>
 

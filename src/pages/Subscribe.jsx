@@ -24,7 +24,7 @@ const Subscribe = () => {
             <div className="subscribe-content">
                 <div className="subscribe-header">
                     <h2>Subscribe to Common Sense 250</h2>
-                    <p>A Personal Press of Andrew Rollins Web4Guru. Get the gold-standard in civics delivered to your door.</p>
+                    <p>Published by Web4Guru for Common Sense 250. Get the gold-standard in civics delivered to your door.</p>
                 </div>
 
                 <div className="subscription-plans">
@@ -70,7 +70,7 @@ const Subscribe = () => {
                         All payments are processed securely via Stripe. Your subscription helps maintain the independence of this New England press.
                     </p>
                     <p className="publisher-credit">
-                        Published by: <strong>Andrew Rollins Web4Guru</strong>
+                        Published by: <strong>Web4Guru for Common Sense 250</strong>
                     </p>
                 </div>
             </div>
