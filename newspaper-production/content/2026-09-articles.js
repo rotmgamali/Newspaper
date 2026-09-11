@@ -17,6 +17,17 @@ const carriedOver = (id) => {
   return found;
 };
 
+
+/**
+ * Carried-over pieces that need a joined body for the six-page layout.
+ * ice-deportations was written split across two pages. In a six-page paper it
+ * runs whole, so a "continued from" line would be a lie.
+ */
+const joined = (id) => {
+  const a = carriedOver(id);
+  return { ...a, contentFull: [a.contentPart1, a.contentPart2].filter(Boolean).join('\n\n') };
+};
+
 /**
  * The front-page feature, from Mark Greenstein's op-ed of 18 August 2026.
  *
@@ -111,7 +122,7 @@ export const articlesV2 = [
   carriedOver('tariffs'),
   carriedOver('health-insurance'),
   carriedOver('social-security'),
-  carriedOver('ice-deportations'),
+  joined('ice-deportations'),
   carriedOver('town-hall'),
   carriedOver('axe-tax'),
   carriedOver('civics'),

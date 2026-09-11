@@ -41,6 +41,13 @@ export const publication = {
    * placeholder can never be mistaken for a registered number on a press sheet.
    */
   issn: null,          // e.g. '2831-4174'
+
+  /** Supplied by the publisher, 2026-09-11. Needed for the ISSN application. */
+  publisher: 'Mark Stewart Greenstein',
+  publisherAddress: 'PO Box 98, Farmington, CT 06034',
+  placeOfPublication: 'Vernon, Connecticut',
+  frequency: 'Quarterly',
+  firstIssueDate: 'October 1, 2026',
 };
 
 // -----------------------------------------------------------------------------
@@ -52,7 +59,7 @@ export const issue = {
   number: 1,
   /** Two digits, carried inside the barcode so each edition scans distinctly. */
   variant: '01',
-  date: 'Tuesday, September 15, 2026',
+  date: 'October 1, 2026',
   contentModule: '../content/2026-09-articles.js',
 
   /**
@@ -72,6 +79,8 @@ export const issue = {
         { article: 'no-draft', part: 'part1', feature: true, jumpTo: 2 },
         { article: 'conservatarian' },
         { article: 'hartford-convention' },
+        { article: 'civics' },
+        { article: 'town-hall' },
       ],
     },
     {
@@ -82,8 +91,8 @@ export const issue = {
     },
     {
       blocks: [
-        { article: 'tariffs', feature: true },
-        { article: 'town-hall' },
+        { article: 'ice-deportations', feature: true },
+        { article: 'axe-tax' },
       ],
       ads: ['friendlys', 'aldi'],
     },
@@ -96,26 +105,13 @@ export const issue = {
     {
       blocks: [
         { article: 'social-security', feature: true },
+        { article: 'patriot-way' },
       ],
       ads: ['whalers'],
     },
     {
       blocks: [
-        { article: 'ice-deportations', part: 'part1', feature: true, jumpTo: 7 },
-        { article: 'axe-tax' },
-        { article: 'civics' },
-      ],
-      ads: ['jim-libby'],
-    },
-    {
-      blocks: [
-        { article: 'ice-deportations', part: 'part2', continuedFrom: 6 },
-      ],
-      ads: ['web4guru'],
-    },
-    {
-      blocks: [
-        { article: 'patriot-way', feature: true },
+        { article: 'tariffs', feature: true },
       ],
       candidates: true,
       colophon: true,
