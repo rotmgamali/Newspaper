@@ -12,7 +12,7 @@
 // -----------------------------------------------------------------------------
 
 export const publication = {
-  title: 'Common Sense',
+  title: 'Common Sense 250',
   fullTitle: 'Common Sense 250',
   tagline: 'Civics · Opinions · History',
   price: 2.5,

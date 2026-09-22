@@ -46,10 +46,10 @@ body {
 }
 
 .masthead h1 {
-    font-size: 66pt;
+    font-size: 54pt;
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: -2.5px;
+    letter-spacing: -2px;
     margin: 0;
     line-height: 0.92;
 }
