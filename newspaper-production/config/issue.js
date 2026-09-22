@@ -78,27 +78,28 @@ export const issue = {
       blocks: [
         { article: 'no-draft', part: 'part1', feature: true, jumpTo: 2 },
         { article: 'conservatarian' },
+        { article: 'come-on-up' },
         { article: 'hartford-convention' },
-        { article: 'civics' },
-        { article: 'town-hall' },
       ],
     },
     {
       blocks: [
         { article: 'no-draft', part: 'part2', continuedFrom: 1 },
+        { article: 'civics' },
       ],
       ads: ['ivy-bound'],
     },
     {
       blocks: [
         { article: 'ice-deportations', feature: true },
-        { article: 'axe-tax' },
+        { article: 'town-hall' },
       ],
       ads: ['friendlys', 'aldi'],
     },
     {
       blocks: [
         { article: 'health-insurance', feature: true },
+        { article: 'axe-tax' },
       ],
       ads: ['impact-health'],
     },

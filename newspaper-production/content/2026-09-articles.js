@@ -10,6 +10,7 @@
  */
 
 import { articlesV2 as march } from './2026-03-articles.js';
+import { cleared as fromVideos } from './2026-09-video-articles.js';
 
 const carriedOver = (id) => {
   const found = march.find((a) => a.id === id);
@@ -128,6 +129,7 @@ export const articlesV2 = [
   carriedOver('civics'),
   carriedOver('patriot-way'),
   hartfordConvention,
+  ...fromVideos,
 ];
 
 /** Withdrawn from this issue at the publisher's instruction, 2026-09. */

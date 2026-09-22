@@ -1,0 +1,43 @@
+export const drafts = [
+  {
+    id: 'immigrant-families',
+    title: 'How Good Immigrant Families Can Stay',
+    author: 'Mark Stewart Greenstein',
+    date: 'October 1, 2026',
+    category: 'Liberty & Politics',
+    excerpt: 'Democrat governors are wringing their hands over deportations, but the real advice belongs to the families themselves: here is how the good ones prove they belong here.',
+    contentFull: [
+      'A lot of Democrat governors are wringing their hands right now. Mine is one of them. The issue is what to do with illegal immigrant families they would like to keep in their state, despite the Trump federal march to remove a lot of these recent arrivals, and what to do with their children, who might be allowed to stay. That breaks up the family.',
+      'I have a solution for every one of those governors, and more importantly for every one of the good families. Good is a word I defined a long time ago. Sensible immigration was the first thing on my agenda when I started making videos, back in 2014, when they were still only audios. It is on the website as well, StewartForLiberty.com.',
+      'The number one thing for good is wanting to be American. That probably characterizes 80 percent of recent immigrants. It used to characterize 100 percent. We faded away. The other 20 percent is really the bone of contention for most conservatives: not caring about America, not wanting to be American, but wanting to take advantage of what we Americans, including waves of immigrants from many generations, have built here. That is a different kind of immigrant. And it is right, I think, to parse the two types, and yes, to demand that the second type go home.',
+      'To the first type, the ones who really want to be American, here is my solution. Get there fast. Learn English quickly. Demonstrate a desire to be part of Americana and not just to take from it. And do not attach yourself for very long to any welfare. There might have been a little at the beginning to help get you here. Get rid of it.',
+      'Families who will do that become the last group of people a Trump-Vance administration wants to deport. They cannot deport everyone. There are 30 million illegal immigrants here. They will not be able to do this in the next three and a half years. So be among the ones who will stay because you deserve to, not because of luck. Not because they did not find you. Not because you hid your kids and hid your exposure. Do it because you are exposed as a great American.',
+      'And that is true of probably 80 percent of immigrants. It is about 100 percent of Nigerians who come here. It is about 100 percent of Eastern Europeans who come here. But it is dubious among Asians from other nations. It is dubious from Latin America. Prove that you are in the good category.',
+      'And it might take disassociating yourself from some very bad Americans, the ones who influence you to be un-American, to be more Mexican than American, more Guatemalan, more North Korean, if any North Koreans have made it here. Those are bad influencers. Unfortunately, their demagogic tactics in many cities have put them into spheres of influence. And they are often nice people, or they sound like nice people.',
+      'So what does an immigrant family do? It might be time to listen to good conservatives, the ones who really do welcome immigrants if they have Americana in the forefront. Be among those.',
+    ].join('\n\n'),
+    sourceVideo: 'https://youtu.be/sxqRFp9a9QY',
+    sourceWords: 523,
+  },
+  {
+    id: 'police-masks',
+    title: 'No-Mask Rule Won\'t Reduce Violent Crime',
+    author: 'Mark Stewart Greenstein',
+    date: 'October 1, 2026',
+    category: 'Liberty & Politics',
+    excerpt: 'Connecticut Democrats want to forbid police officers from wearing masks on duty, and the legislators pushing it have plainly never asked a cop why he covers his face.',
+    contentFull: [
+      'The Connecticut General Assembly has a special session coming up, and among the things to be legislated is a proposal from Connecticut\'s Democrats that prevents police from doing their jobs. Law enforcement officers would be prevented from wearing any mask on duty. Not even when arresting a bad perpetrator. Nope.',
+      'This comes from legislators who largely do not understand crime. I am pretty sure they do not understand its nature. They do, however, understand force. There was no objection from Connecticut\'s elected Democrats when federal SWAT teams donned face shields and body armor to make a peaceful arrest of free speech protesters. And these legislators offered not a peep five years ago, when states forced employees to be masked in order to keep working through the supposed COVID contagion, or else be fired.',
+      'There are very good reasons why law enforcement men and women should be allowed, if they choose, to wear masks. They might not want their skin clawed when a recalcitrant arrestee fights back. They might not want spit in their faces. They might not want the blood of a recalcitrant, disease-ridden druggy running down their throats.',
+      'And there is a long-term reason. Many do not want to be recognized, off duty or on. Perpetrators eventually get free when they are released. Knowing their police antagonists is something of a danger. Cops can minimize that danger, and become at least a little more comfortable in their profession, if they are allowed to be masked when arresting a violent perpetrator.',
+      'Do legislators even speak with cops? Most cops do not live in their own work district, because they do not want to be recognized easily off duty.',
+      'Those who want this no-cover-up legislation would like law enforcement by nannies and third grade teachers. "It would be nice if you came down to the police precinct. We have a squad car, but we could walk with you if you\'d like." Wouldn\'t that be nice?',
+      'The people who want this are the same types who think it is dehumanizing to push a perpetrator into a squad car upon arrest, even though that guy has just pushed a toddler to her death.',
+      'Connecticut\'s Democrats have already made it dramatically harder for police to do their jobs. That was the police accountability bill. Some of us would-be legislators would like to end violent crime in Connecticut. Most elected Democrats — there are a couple of exceptions — are not among them.',
+    ].join('\n\n'),
+    sourceVideo: 'https://youtu.be/HS9fa6YbWBo',
+    sourceWords: 436,
+  },
+];
+export default drafts;
