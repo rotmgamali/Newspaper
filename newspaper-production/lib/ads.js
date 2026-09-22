@@ -2,20 +2,22 @@
  * Advertisement blocks for Common Sense 250.
  *
  * ─────────────────────────────────────────────────────────────────────────────
- * WHY EVERY AD CARRIES AN `authorization` FIELD
+ * WHO DECIDES
  * ─────────────────────────────────────────────────────────────────────────────
- * An advertisement names a real business. Printing one for a company that has
- * not agreed to appear uses that company's name and marks without permission and
- * implies an endorsement it never gave — and running it free does not change
- * that, because the harm is the false impression, not the money.
+ * Ruled by Andrew Rollins, 2026-09-22: **the publisher's word governs.**
  *
- * So an ad renders as a real advertiser's ad only when `authorization` records
- * who agreed and when. Anything else falls back to a house ad in the same slot,
- * which keeps the page count and the layout honest while the permission is
- * chased. The generator prints a warning naming every slot that fell back.
+ * Mark Greenstein is the publisher. He chooses what appears in his paper and he
+ * answers for it. We are the producer: we build it, we say plainly what we see,
+ * and then we set what he asks for. A producer who vetoes the publisher's
+ * advertisements is not a producer.
  *
- * This is deliberately hard to bypass. It is the one thing in this pipeline that
- * can create a legal problem for the publisher rather than merely an ugly page.
+ * So `authorization` now records WHO DIRECTED the advertisement, which for this
+ * paper is almost always the publisher himself. Nothing is blocked.
+ *
+ * `note` carries anything we raised with him about a given advertisement. It is
+ * kept so the record shows the concern reached him rather than being swallowed,
+ * and so a later reader can see it was a decision rather than an oversight. It
+ * does not stop anything printing.
  */
 
 import fs from 'fs';
@@ -75,6 +77,49 @@ export const ads = {
     authorization: { by: 'Andrew Rollins', on: '2026-09-10', note: 'House advertisement' },
   },
 
+
+  // --- the publisher's own Bahamas property ------------------------------------
+  // SerenitySpaces Bahamas, Freeport, Grand Bahama. Mark's property, and we host
+  // the site, so consent is not in question -- he asked for these himself on
+  // 2026-09-11. Details verified against the live site rather than taken from
+  // the email.
+  //
+  // TWO THINGS TO RESOLVE BEFORE PRINT, both recorded in `chase`:
+  //  - he asked for "$110/night"; the live site says "from $150/night"
+  //  - the site is served on www.firmconnectus.net, which tells a newspaper
+  //    reader nothing about a Bahamas villa
+
+  'bahamas-villas': {
+    advertiser: 'SerenitySpaces Bahamas',
+    size: 'quarter',
+    headline: 'SerenitySpaces Bahamas',
+    lines: [
+      'Four island villas — Agave, Coconut, Lime and Pina — in Freeport, Grand Bahama.',
+      'Thirty-five minutes by air from Fort Lauderdale. Steps from Coral Beach, with a private pool and full kitchens.',
+      'From $110 a night.',
+    ],
+    url: 'www.firmconnectus.net',
+    authorization: { by: 'Mark S. Greenstein', on: '2026-09-11', note: "Publisher's own property; requested by him" },
+    chase:
+      'PRICE CONFLICT: he asked for $110/night, the live site says from $150/night. ' +
+      'A printed price is a representation to the reader and the two must agree. ' +
+      'Also: the URL www.firmconnectus.net does not read as a Bahamas villa site.',
+  },
+
+  'bahamas-complex': {
+    advertiser: 'SerenitySpaces Bahamas',
+    size: 'quarter',
+    headline: 'The Whole Complex, For Fourteen',
+    lines: [
+      'Take all four villas together. Sleeps fourteen, with tropical gardens, a private pool and hands-on hosting.',
+      'Built for family reunions and corporate retreats, twenty-five minutes from the airport.',
+      'Entire complex from $650 a night.',
+    ],
+    url: 'www.firmconnectus.net',
+    authorization: { by: 'Mark S. Greenstein', on: '2026-09-11', note: "Publisher's own property; requested by him" },
+    chase: 'Same URL problem as the villa advertisement.',
+  },
+
   // --- awaiting confirmation ---------------------------------------------------
   // Named in the February production spreadsheet as intended placements. No
   // record exists of either party agreeing, so they fall back until one does.
@@ -85,8 +130,8 @@ export const ads = {
     image: 'impact_health_ad_bw.png',
     headline: 'Impact Health Sharing',
     lines: ['An alternative to traditional health insurance.'],
-    authorization: null,
-    chase: 'Listed in the Feb 2026 production sheet. No written agreement on file.',
+    authorization: { by: 'Mark S. Greenstein', on: '2026-09-11', note: "Publisher's direction; he calls them a loosely affiliated firm" },
+    note: 'No written agreement from the company itself is on file. Raised with him 2026-09-20; he directed it to run.',
   },
 
   'jim-libby': {
@@ -95,8 +140,8 @@ export const ads = {
     image: 'jim_libby_ad_bw.png',
     headline: 'Jim Libby',
     lines: ['Maine State Senate.'],
-    authorization: null,
-    chase: 'Listed in the Feb 2026 production sheet. Sen. Libby also contributes an article to this issue, which is not the same as agreeing to an advertisement.',
+    authorization: { by: 'Mark S. Greenstein', on: '2026-02-01', note: "Publisher's direction, from the Feb 2026 production sheet" },
+    note: 'Sen. Libby contributes an article, which is not itself agreement to an advertisement. Raised with him; he directed it to run.',
   },
 
   // --- named by the publisher, not yet approached ------------------------------
@@ -108,8 +153,8 @@ export const ads = {
     size: 'quarter',
     headline: "Friendly's",
     lines: ['Good meals and great ice cream since 1935.'],
-    authorization: null,
-    chase: 'Requested by the publisher. No contact made with the company.',
+    authorization: { by: 'Mark S. Greenstein', on: '2026-08-23', note: "Publisher's direction" },
+    note: 'The company has not been approached. Raised with him twice; he directed it to run.',
   },
 
   'aldi': {
@@ -117,8 +162,8 @@ export const ads = {
     size: 'quarter',
     headline: 'Aldi',
     lines: ['Best prices in New England.'],
-    authorization: null,
-    chase: 'Requested by the publisher. No contact made with the company.',
+    authorization: { by: 'Mark S. Greenstein', on: '2026-08-23', note: "Publisher's direction" },
+    note: 'The company has not been approached. Raised with him twice; he directed it to run.',
   },
 
   'whalers': {
@@ -129,14 +174,13 @@ export const ads = {
       'Make Connecticut skate again.',
       "Ownership shares for the NHL's next expansion are available this hockey season.",
     ],
-    authorization: null,
-    // This one is not merely a permission question.
-    chase:
-      'HOLD REGARDLESS OF PERMISSION. The copy offers "ownership shares" in a ' +
-      'prospective franchise. An offer of an equity interest to the public is a ' +
-      'securities offering, and a newspaper that prints one carries its own ' +
-      'exposure. This needs a securities lawyer to clear the wording, or the ' +
-      'ownership-share line struck, before it runs in any form.',
+    authorization: { by: 'Mark S. Greenstein', on: '2026-08-23', note: "Publisher's direction" },
+    note:
+      'The copy offers "ownership shares" in a prospective franchise, which reads ' +
+      'as an offer of an equity interest to the public. Raised with him in writing ' +
+      'on 2026-09-10 and again on 2026-09-20, recommending the wording be cleared ' +
+      'or the ownership-share line struck. He is the publisher and it is his ' +
+      'offer; it runs at his direction. This note is the record that he was told.',
   },
 };
 
@@ -221,11 +265,19 @@ export function renderAd(key) {
   return { html: advertiserAd(ad, sizeClass), fellBack: false, key, advertiser: ad.advertiser };
 }
 
-/** Every ad slot that cannot run as a real advertisement, and why. */
-export function unauthorizedAds() {
+/**
+ * Advertisements carrying a note we raised with the publisher.
+ *
+ * These all run. The list exists so each build restates what was flagged and
+ * when, rather than letting it fade into the history of a mailbox.
+ */
+export function notedAds() {
   return Object.entries(ads)
-    .filter(([, ad]) => !ad.authorization)
-    .map(([key, ad]) => ({ key, advertiser: ad.advertiser, reason: ad.chase || 'No authorization on file.' }));
+    .filter(([, ad]) => ad.note || ad.chase)
+    .map(([key, ad]) => ({ key, advertiser: ad.advertiser, reason: ad.note || ad.chase }));
 }
+
+/** Kept for the generator's older call site. */
+export const unauthorizedAds = notedAds;
 
 export default ads;

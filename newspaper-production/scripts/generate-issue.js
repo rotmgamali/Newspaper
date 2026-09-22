@@ -27,7 +27,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 import { publication, issue, press } from '../config/issue.js';
-import { renderAd, unauthorizedAds } from '../lib/ads.js';
+import { renderAd, notedAds } from '../lib/ads.js';
 import { campaigns } from '../../src/data/campaigns.js';
 import { issnToEan13, priceAddOn, ean13DataUri } from '../../scripts/lib/ean13.js';
 
@@ -345,10 +345,10 @@ function finish() {
     subs.forEach((n) => console.log(`  · ${n.text}`));
   }
 
-  const pending = unauthorizedAds();
+  const pending = notedAds();
   if (pending.length) {
     console.log('');
-    console.log('  PERMISSION STILL NEEDED');
+    console.log('  ADVERTISEMENTS CARRYING A NOTE WE RAISED WITH HIM (all of these run)');
     console.log(rule);
     pending.forEach((p) => console.log(`  · ${p.advertiser}: ${p.reason}`));
   }

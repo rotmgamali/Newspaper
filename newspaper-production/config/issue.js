@@ -94,7 +94,7 @@ export const issue = {
         { article: 'ice-deportations', feature: true },
         { article: 'town-hall' },
       ],
-      ads: ['friendlys', 'aldi'],
+      ads: ['bahamas-villas', 'bahamas-complex'],
     },
     {
       blocks: [
@@ -108,7 +108,7 @@ export const issue = {
         { article: 'social-security', feature: true },
         { article: 'patriot-way' },
       ],
-      ads: ['whalers'],
+      ads: ['web4guru'],
     },
     {
       blocks: [
