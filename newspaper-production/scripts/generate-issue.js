@@ -123,7 +123,12 @@ function renderArticle(block) {
   const isContinued = Boolean(block.continuedFrom);
   let body = formatContent(text);
 
-  if (isFeature && !isContinued) {
+  // A drop cap takes the first letter plus any punctuation before it, which is
+  // correct CSS and wrong for a story that opens on a number or a quotation:
+  // "80-20 Issues" printed as a giant "8 beside "0-20 Issues". Only drop a cap
+  // when the story actually opens on a letter.
+  const opensOnLetter = /^[A-Za-z]/.test((text || '').trim());
+  if (isFeature && !isContinued && opensOnLetter) {
     body = body.replace('<p>', '<p class="drop-cap">');
   }
 
