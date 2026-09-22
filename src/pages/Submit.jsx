@@ -66,20 +66,24 @@ const Submit = () => {
                     <div className="ad-info">
                         <h3>Why Advertise with Us?</h3>
                         <p>
-                            Your message will appear in our premium weekly edition,
-                            distributed to the most engaged civic minds across New England.
+                            Your message will appear in our quarterly print edition,
+                            distributed across New England and stocked in Connecticut shops.
                         </p>
                         <div className="ad-rates">
                             <div className="rate-row">
-                                <span>Single Issue Placement</span>
+                                <span>Eighth page</span>
                                 <strong>$35</strong>
                             </div>
                             <div className="rate-row">
-                                <span>Monthly (4 Consecutive Issues)</span>
-                                <strong>$135</strong>
+                                <span>Quarter page</span>
+                                <strong>$75</strong>
+                            </div>
+                            <div className="rate-row">
+                                <span>Half page</span>
+                                <strong>$225</strong>
                             </div>
                         </div>
-                        <p className="note">Monthly partners receive a direct link to their URL in our digital archive.</p>
+                        <p className="note"><strong>The first two issues are free.</strong> Advertisers receive a direct link to their URL in the digital edition.</p>
                     </div>
 
                     <div className="ad-benefits">

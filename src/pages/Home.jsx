@@ -22,7 +22,7 @@ const Home = () => {
                 <div className="featured-hero">
                     <span className="section-label">Featured Opinion</span>
                     <Link to={`/article/${featured.id}`}>
-                        <img src={featured.image} alt={featured.title} className="hero-img" />
+                        {featured.image ? <img src={featured.image} alt={featured.title} className="hero-img" /> : null}
                         <h2>{featured.title}</h2>
                     </Link>
                     <div className="byline">By {featured.author}</div>

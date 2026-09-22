@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 
-// Change this once per issue.
+// The only per-issue strings on the site. Change these two, nothing else.
 const EDITION = 'Vol. 1, No. 1';
+const ISSUE_DATE = 'October 1, 2026';
 
 const formatIssueDate = (date) => date.toLocaleDateString('en-US', {
   weekday: 'long',
@@ -14,13 +15,12 @@ const formatIssueDate = (date) => date.toLocaleDateString('en-US', {
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const issueDate = formatIssueDate(new Date());
-
+  
   return (
     <header className="site-header">
       <div className="container">
         <div className="header-top">
-          <span className="date">{issueDate}</span>
+          <span className="date">{ISSUE_DATE}</span>
           <span className="edition">{EDITION}</span>
           <span className="price">$2.50</span>
         </div>

@@ -44,15 +44,19 @@ const About = () => {
                     <div className="rates-card">
                         <h4>Rates</h4>
                         <div className="rate-item">
-                            <span className="rate-label">Per Issue</span>
+                            <span className="rate-label">Eighth page</span>
                             <span className="rate-price">$35</span>
                         </div>
                         <div className="rate-item">
-                            <span className="rate-label">One Month (4 issues)</span>
-                            <span className="rate-price">$135</span>
+                            <span className="rate-label">Quarter page</span>
+                            <span className="rate-price">$75</span>
                         </div>
-                        <p className="rate-note">Monthly advertisers get an active link to the URL of their choosing.</p>
-                        <p className="rate-note">Yearly advertisers (40 issues or more) become lead speakers at one of the three "Blue Moon Conferences" held each year on the <span className="bold">fifth Sunday of the month</span>.</p>
+                        <div className="rate-item">
+                            <span className="rate-label">Half page</span>
+                            <span className="rate-price">$225</span>
+                        </div>
+                        <p className="rate-note"><span className="bold">The first two issues are free.</span> We are building a readership and would rather have your advertisement in the paper than your money.</p>
+                        <p className="rate-note">Advertisers get an active link to the URL of their choosing in the digital edition.</p>
                     </div>
 
                     <div className="contact-box">

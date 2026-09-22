@@ -4,7 +4,8 @@ import { articles } from '../data/articles';
 
 const ArticleDetail = () => {
     const { id } = useParams();
-    const article = articles.find(a => a.id === parseInt(id)) || articles[0];
+    // Ids are slugs now, not numbers — they come from the print edition.
+    const article = articles.find(a => String(a.id) === String(id)) || articles[0];
 
     return (
         <main className="container article-detail-page">
@@ -17,10 +18,12 @@ const ArticleDetail = () => {
                 </div>
             </div>
 
-            <figure className="article-main-image-container">
-                <img src={article.image} alt={article.title} />
-                <figcaption>{article.title} — A Common Sense 250 Perspective.</figcaption>
-            </figure>
+            {article.image ? (
+                <figure className="article-main-image-container">
+                    <img src={article.image} alt={article.title} />
+                    <figcaption>{article.title} — A Common Sense 250 Perspective.</figcaption>
+                </figure>
+            ) : null}
 
             <div className="article-body-detail">
                 {article.content.split('\n\n').map((paragraph, idx) => (

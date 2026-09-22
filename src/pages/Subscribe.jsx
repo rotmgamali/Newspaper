@@ -31,17 +31,17 @@ const Subscribe = () => {
                     <div className="plan-card">
                         <h3>Single Issue</h3>
                         <div className="price">$2.50</div>
-                        <p>Pick up a copy at participating locations or order a one-time edition.</p>
+                        <p>Pick up a copy at a participating Connecticut shop, or order a single edition.</p>
                         <button className="btn-subscribe" onClick={() => handleCheckout(stripeConfig.SINGLE_ISSUE_PRICE_ID)}>Buy Issue</button>
                     </div>
 
                     <div className="plan-card featured">
-                        <h3>Monthly Subscription</h3>
-                        <div className="price">$10.00 <span className="period">/ month</span></div>
-                        <p>4 Issues delivered weekly to your New England address.</p>
+                        <h3>Subscription</h3>
+                        <div className="price">$10.00 <span className="period">/ quarter</span></div>
+                        <p>Every issue mailed to your New England address as it prints.</p>
                         <div className="plan-features">
                             <ul>
-                                <li>Edition mailed to you</li>
+                                <li>Each quarterly edition mailed to you</li>
                                 <li>Digital archive access</li>
                                 <li>Support independent journalism</li>
                             </ul>
@@ -52,7 +52,7 @@ const Subscribe = () => {
                     <div className="plan-card">
                         <h3>Patriot Supporter</h3>
                         <div className="price">$100.00 <span className="period">/ year</span></div>
-                        <p>Full year subscription + lead speaker invitation to Blue Moon Conferences.</p>
+                        <p>A full year of the paper, and a standing invitation to speak at a Blue Moon Conference.</p>
                         <div className="plan-features">
                             <ul>
                                 <li>All Monthly benefits</li>

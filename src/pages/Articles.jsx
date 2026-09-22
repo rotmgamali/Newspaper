@@ -25,9 +25,11 @@ const Articles = () => {
                             {articles.filter(a => a.category === cat).map(article => (
                                 <Link to={`/article/${article.id}`} key={article.id} className="compact-card-link">
                                     <article className="mini-article-card">
-                                        <div className="mini-card-thumb">
-                                            <img src={article.image} alt="" />
-                                        </div>
+                                        {article.image ? (
+                                            <div className="mini-card-thumb">
+                                                <img src={article.image} alt="" />
+                                            </div>
+                                        ) : null}
                                         <div className="mini-card-text">
                                             <h4>{article.title}</h4>
                                             <span className="mini-author">by {article.author}</span>
