@@ -204,7 +204,7 @@ export function ean13Svg({
   const ADDON_GAP = 9 * MM;
   if (addOnBits) width += ADDON_GAP + addOnBits.length * MM + 5 * MM;
 
-  const height = TOP + H + GUARD_DROP + TEXT + 1.6 * scale;
+  const height = TOP + H + GUARD_DROP + TEXT + (specimen ? 3.4 : 1.6) * scale;
   const baseY = TOP;
   const parts = [];
 
@@ -275,16 +275,16 @@ export function ean13Svg({
     }
   }
 
-  // A specimen overprint exists so that a barcode built against a placeholder
-  // number can never be mistaken for one built against a registered ISSN.
+  // A specimen marker says the NUMBER is a placeholder. It must never be painted
+  // over the bars: an earlier version knocked a white band through the middle of
+  // the symbol, which left two stubs and made it unscannable on press. The bars
+  // stay intact and the warning sits beneath them, where it costs nothing.
   if (specimen) {
     parts.push(
-      `<g opacity="0.42"><rect x="0" y="${(height * 0.33).toFixed(3)}" ` +
-      `width="${width.toFixed(3)}" height="${(height * 0.30).toFixed(3)}" fill="#fff"/>` +
-      `<text x="${(width / 2).toFixed(3)}" y="${(height * 0.55).toFixed(3)}" ` +
-      `text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="700" ` +
-      `font-size="${(TEXT * 1.5).toFixed(3)}" letter-spacing="${(MM * 2).toFixed(3)}" ` +
-      `fill="#000">SPECIMEN</text></g>`
+      `<text x="${QUIET_L.toFixed(4)}" y="${(height - 0.4 * scale).toFixed(4)}" ` +
+      `font-family="Helvetica, Arial, sans-serif" font-weight="700" ` +
+      `font-size="${(TEXT * 0.9).toFixed(3)}" letter-spacing="${(MM * 1.2).toFixed(3)}" ` +
+      `fill="#000">SPECIMEN</text>`
     );
   }
 

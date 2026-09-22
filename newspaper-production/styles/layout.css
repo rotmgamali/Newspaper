@@ -97,10 +97,12 @@ body {
     margin-bottom: 0.12in;
 }
 
+/* No bottom border. In a column flow it lands wherever the article happens to
+   break, which printed a heavy rule in the middle of page one column one with
+   nothing beneath it. Separation comes from space and the next headline. */
 .article-feature {
-    border-bottom: 2px solid var(--border-dark);
-    padding-bottom: 0.1in;
-    margin-bottom: 0.12in;
+    padding-bottom: 0.08in;
+    margin-bottom: 0.14in;
 }
 
 /* Furniture that sits outside the column well. Articles never carry this —
@@ -147,8 +149,16 @@ p.section-break {
     padding-top: 0.09in;
     margin-top: 0.11in;
     display: flex;
-    gap: 0.18in;
+    gap: 0.32in;
     align-items: stretch;
+    min-height: 1.15in;
+}
+
+/* A rule between neighbouring advertisements. Without it, two advertisers'
+   body copy sat 8pt apart and read as a single paragraph. */
+.ad-block + .ad-block {
+    border-left: 1px solid var(--border-light);
+    padding-left: 0.28in;
 }
 
 .ad-block {
@@ -191,10 +201,16 @@ p.section-break {
     margin-bottom: 5px;
 }
 
+/* Cap the height. These are 1024px scans; left uncapped they were laid out
+   9.25in wide, which is both about 110ppi and taller than the page, so the
+   clip amputated three quarters of the advertisement mid-word. */
 .ad-art img {
-    width: 100%;
+    max-width: 100%;
+    max-height: 1.15in;
+    width: auto;
     height: auto;
     display: block;
+    margin: 0 auto;
 }
 
 .ad-headline,
@@ -258,9 +274,11 @@ p.section-break {
     margin: 0 0 6px 0;
 }
 
+/* Three columns, not four: there are six candidates, so four left a quarter of
+   the block blank while the heading centred across the full measure. */
 .campaign-grid {
-    columns: 4;
-    column-gap: 0.18in;
+    columns: 3;
+    column-gap: 0.2in;
 }
 
 .campaign-block {
@@ -332,8 +350,10 @@ p.section-break {
     padding: 0 0 2px 0;
 }
 
+/* The symbol carries its own physical dimensions in millimetres. Do NOT set a
+   height here: doing so scaled it to about 55% magnification, and EAN-13 stops
+   scanning reliably below 80%. Let it render at its natural size. */
 .barcode img {
-    height: 0.86in;
     width: auto;
     display: block;
 }

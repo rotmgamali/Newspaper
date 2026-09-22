@@ -78,41 +78,40 @@ export const issue = {
       blocks: [
         { article: 'no-draft', part: 'part1', feature: true, jumpTo: 2 },
         { article: 'conservatarian' },
-        { article: 'come-on-up' },
         { article: 'hartford-convention' },
+        { article: 'civics' },
+        { article: 'town-hall' },
       ],
     },
     {
       blocks: [
         { article: 'no-draft', part: 'part2', continuedFrom: 1 },
-        { article: 'civics' },
       ],
       ads: ['ivy-bound'],
     },
     {
       blocks: [
         { article: 'ice-deportations', feature: true },
-        { article: 'town-hall' },
       ],
       ads: ['bahamas-villas', 'bahamas-complex'],
     },
     {
       blocks: [
         { article: 'health-insurance', feature: true },
-        { article: 'axe-tax' },
       ],
       ads: ['impact-health'],
     },
     {
       blocks: [
-        { article: 'social-security', feature: true },
-        { article: 'patriot-way' },
+        { article: 'tariffs', feature: true },
       ],
       ads: ['web4guru'],
     },
     {
       blocks: [
-        { article: 'tariffs', feature: true },
+        { article: 'come-on-up', feature: true },
+        { article: 'axe-tax' },
+        { article: 'patriot-way' },
       ],
       candidates: true,
       colophon: true,
@@ -126,7 +125,14 @@ export const issue = {
 // -----------------------------------------------------------------------------
 
 export const press = {
-  trim: '10in 10in',
+  /** Finished size after trimming. Documentation only; not passed to CSS. */
+  finished: '10in x 10in',
+  /**
+   * The amount trimmed off EACH EDGE, which is what prince-trim means.
+   * Setting this to the finished size instead produced a 30.5in sheet with
+   * the page floating in the middle of it.
+   */
+  trim: '0.125in',
   pageSize: '10.25in 10.25in',
   bleed: '0.125in',
   margin: '0.5in',

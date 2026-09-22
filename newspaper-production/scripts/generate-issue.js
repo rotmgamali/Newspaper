@@ -68,7 +68,13 @@ function capacityWords(wellHeightInches, columns = 4) {
   const wordsPerLine = charsPerLine / 5.8;
   const lineHeightIn = (9 * 1.22) / 72;
   const linesPerColumn = Math.floor(wellHeightInches / lineHeightIn);
-  return Math.round(linesPerColumn * columns * wordsPerLine);
+  // Held back deliberately. Proofing the first issue showed three stories
+  // amputated mid-word on pages reporting 94-99% full: the estimate was about
+  // a tenth too generous, and the page clips silently rather than complaining.
+  // Better to run a page visibly light than to lose a paragraph a reader paid
+  // for. Raise this only against a rendered proof, never against arithmetic.
+  const SAFETY = 0.88;
+  return Math.round(linesPerColumn * columns * wordsPerLine * SAFETY);
 }
 
 const countWords = (s) => (s || '').split(/\s+/).filter(Boolean).length;
@@ -125,7 +131,13 @@ function renderArticle(block) {
     ? `<h2 class="headline-continued">${esc(article.title)} <span>— continued from page ${block.continuedFrom}</span></h2>`
     : `<h2 class="headline-main">${esc(article.title)}</h2>`;
 
-  const standfirst = (isFeature && !isContinued && article.excerpt)
+  // Several carried-over pieces use their own first sentence as the excerpt.
+  // Printing that as a deck directly above the identical opening line is the
+  // most amateurish thing a page can do, so drop it when it duplicates.
+  const norm = (x) => (x || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  const deckDuplicatesLede =
+    article.excerpt && norm(text).startsWith(norm(article.excerpt).slice(0, 60));
+  const standfirst = (isFeature && !isContinued && article.excerpt && !deckDuplicatesLede)
     ? `<h3 class="headline-sub">${esc(article.excerpt)}</h3>` : '';
 
   const byline = isContinued
