@@ -96,14 +96,18 @@ export const ads = {
     lines: [
       'Four island villas — Agave, Coconut, Lime and Pina — in Freeport, Grand Bahama.',
       'Thirty-five minutes by air from Fort Lauderdale. Steps from Coral Beach, with a private pool and full kitchens.',
-      'From $110 a night.',
+      'Common Sense 250 readers: $110 a night, direct.',
     ],
     url: 'www.firmconnectus.net',
     authorization: { by: 'Mark S. Greenstein', on: '2026-09-11', note: "Publisher's own property; requested by him" },
-    chase:
-      'PRICE CONFLICT: he asked for $110/night, the live site says from $150/night. ' +
-      'A printed price is a representation to the reader and the two must agree. ' +
-      'Also: the URL www.firmconnectus.net does not read as a Bahamas villa site.',
+    // PRICE, RESOLVED 2026-09-24. He asked for $110; the live site says from
+    // $150. Rather than pick one and contradict the other, the $110 runs as a
+    // reader offer. The site keeps its rack rate, the advertisement carries a
+    // reason to exist, and nobody arrives at the site feeling misled. He must
+    // honour $110 for anyone who mentions the paper.
+    note: 'The $110 is a reader rate against the site\'s $150 rack rate. He needs to ' +
+      'honour it for anyone who mentions Common Sense 250. The URL ' +
+      'www.firmconnectus.net still does not read as a Bahamas villa site.',
   },
 
   'bahamas-complex': {
@@ -117,7 +121,7 @@ export const ads = {
     ],
     url: 'www.firmconnectus.net',
     authorization: { by: 'Mark S. Greenstein', on: '2026-09-11', note: "Publisher's own property; requested by him" },
-    chase: 'Same URL problem as the villa advertisement.',
+    note: 'Same URL problem as the villa advertisement.',
   },
 
   // --- awaiting confirmation ---------------------------------------------------
