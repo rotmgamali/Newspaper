@@ -12,10 +12,16 @@
  * TWO THINGS THIS SCRIPT WILL NOT DO SILENTLY
  *
  *  1. It will not produce a watermarked proof while claiming to be finished.
- *     DocRaptor's free test mode stamps every page. Every PDF this project has
- *     produced so far was a test-mode proof, which no printer can accept. Test
- *     mode is still the default, because turning it off spends money — but the
- *     output is named "-PROOF" and the run says so in plain words.
+ *     DocRaptor's test mode is unlimited and free but stamps every page, and
+ *     every PDF this project produced before 2026-09-24 was one of those. Test
+ *     mode is still the default so that iterating costs nothing, and the file
+ *     is named "-PROOF" so a watermarked draft cannot be mistaken for finished.
+ *
+ *     Pass --live for a clean, printable file. THIS IS FREE: DocRaptor's free
+ *     plan allows five non-test documents a month, and a quarterly paper needs
+ *     about three a year. Verified 2026-09-24 — a clean six-page PDF came back
+ *     with no watermark and no charge. Only worry about the quota if someone
+ *     starts rendering finals in a loop.
  *
  *  2. It will not print an advertisement for a business that has not agreed to
  *     appear. Unauthorized slots fall back to a house ad and are listed at the
