@@ -30,9 +30,8 @@
 
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 
-import { publication, issue, press } from '../config/issue.js';
 import { renderAd, notedAds } from '../lib/ads.js';
 import { campaigns } from '../../src/data/campaigns.js';
 import { issnToEan13, priceAddOn, ean13DataUri } from '../../scripts/lib/ean13.js';
@@ -44,6 +43,13 @@ const prodRoot = path.join(__dirname, '..');
 
 const argv = process.argv.slice(2);
 const has = (f) => argv.includes(f);
+
+// Which issue to build. Defaults to config/issue.js; pass --issue <file> for
+// another edition. Each issue file owns its pages and date; publication and
+// press come from config/issue.js so the ISSN and the sheet are set once.
+const issueArg = argv.includes('--issue') ? argv[argv.indexOf('--issue') + 1] : null;
+const issuePath = issueArg ? path.resolve(process.cwd(), issueArg) : path.join(prodRoot, 'config', 'issue.js');
+const { publication, issue, press } = await import(pathToFileURL(issuePath).href);
 
 const LIVE = has('--live') || process.env.DOCRAPTOR_LIVE === 'true';
 const HTML_ONLY = has('--html-only');
