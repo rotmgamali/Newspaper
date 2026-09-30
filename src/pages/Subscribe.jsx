@@ -1,38 +1,43 @@
 import React from 'react';
-import { loadStripe } from '@stripe/stripe-js';
+import { useSearchParams } from 'react-router-dom';
 import stripeConfig from '../data/stripe-config.json';
 
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
+// Stripe Payment Links, one per tier. Each collects a US mailing address,
+// because every tier is a paper that goes in the post.
+//
+// Until 30 September 2026 these were client-side Checkout calls. That API was
+// removed from stripe.js and the live build never carried a publishable key,
+// so all three buttons did nothing while this page said payments went through
+// Stripe. The subscription button also pointed at a $10-a-MONTH price under a
+// "$10 / quarter" label. Links need no key and no backend, and each one is
+// bound to exactly the price printed beside it.
+const links = stripeConfig.PAYMENT_LINKS;
 
 const Subscribe = () => {
-    const handleCheckout = async (priceId) => {
-        const stripe = await stripePromise;
-        const { error } = await stripe.redirectToCheckout({
-            lineItems: [{ price: priceId, quantity: 1 }],
-            mode: priceId === stripeConfig.SINGLE_ISSUE_PRICE_ID ? 'payment' : 'subscription',
-            successUrl: `${window.location.origin}/subscribe?success=true`,
-            cancelUrl: `${window.location.origin}/subscribe`,
-        });
-
-        if (error) {
-            console.error('Stripe Checkout Error:', error);
-        }
-    };
+    const [params] = useSearchParams();
+    const paid = params.get('success') === 'true';
 
     return (
         <main className="container subscribe-page">
             <div className="subscribe-content">
                 <div className="subscribe-header">
                     <h2>Subscribe to Common Sense 250</h2>
-                    <p>Published by Web4Guru for Common Sense 250. Get the gold-standard in civics delivered to your door.</p>
+                    <p>Get the gold-standard in civics delivered to your door.</p>
                 </div>
+
+                {paid && (
+                    <div className="subscribe-success" role="status">
+                        <strong>Thank you — you're in.</strong> A receipt is on its way to your
+                        email, and your copy will be mailed to the address you gave as it prints.
+                    </div>
+                )}
 
                 <div className="subscription-plans">
                     <div className="plan-card">
                         <h3>Single Issue</h3>
                         <div className="price">$2.50</div>
                         <p>Pick up a copy at a participating Connecticut shop, or order a single edition.</p>
-                        <button className="btn-subscribe" onClick={() => handleCheckout(stripeConfig.SINGLE_ISSUE_PRICE_ID)}>Buy Issue</button>
+                        <a className="btn-subscribe" href={links.SINGLE_ISSUE}>Buy Issue</a>
                     </div>
 
                     <div className="plan-card featured">
@@ -46,7 +51,7 @@ const Subscribe = () => {
                                 <li>Support independent journalism</li>
                             </ul>
                         </div>
-                        <button className="btn-subscribe" onClick={() => handleCheckout(stripeConfig.MONTHLY_SUBSCRIPTION_PRICE_ID)}>Subscribe Now</button>
+                        <a className="btn-subscribe" href={links.QUARTERLY}>Subscribe Now</a>
                     </div>
 
                     <div className="plan-card">
@@ -55,22 +60,24 @@ const Subscribe = () => {
                         <p>A full year of the paper, and a standing invitation to speak at a Blue Moon Conference.</p>
                         <div className="plan-features">
                             <ul>
-                                <li>All Monthly benefits</li>
+                                <li>Everything in the subscription</li>
                                 <li>Lead Speaker at Conferences</li>
                                 <li>Recognition in our annual list</li>
                             </ul>
                         </div>
-                        <button className="btn-subscribe outline" onClick={() => handleCheckout(stripeConfig.PATRIOT_SUPPORTER_PRICE_ID)}>Become a Supporter</button>
+                        <a className="btn-subscribe outline" href={links.PATRIOT_SUPPORTER}>Become a Supporter</a>
                     </div>
                 </div>
 
                 <div className="subscribe-info">
                     <h3>Payment Information</h3>
                     <p>
-                        All payments are processed securely via Stripe. Your subscription helps maintain the independence of this New England press.
+                        Payments are processed securely by Stripe. Web4Guru produces the paper
+                        and handles its payments, so your card statement will read WEB4GURU.
+                        Your subscription helps maintain the independence of this New England press.
                     </p>
                     <p className="publisher-credit">
-                        Published by: <strong>Web4Guru for Common Sense 250</strong>
+                        Published by <strong>Mark Stewart Greenstein</strong> · Produced by Web4Guru
                     </p>
                 </div>
             </div>

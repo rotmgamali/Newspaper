@@ -3,5 +3,11 @@
   "MONTHLY_SUBSCRIPTION_PRICE_ID": "price_1SuHm1ISyQ3HvBivQoQlMOJI",
   "PATRIOT_SUPPORTER_PRICE_ID": "price_1SuHm2ISyQ3HvBiv3EfKK1Wf",
   "AD_SINGLE_ISSUE_PRICE_ID": "price_1SuIbOISyQ3HvBivmhpf3I2U",
-  "AD_MONTHLY_PRICE_ID": "price_1SuIbOISyQ3HvBivTP1ZdbUj"
+  "AD_MONTHLY_PRICE_ID": "price_1SuIbOISyQ3HvBivTP1ZdbUj",
+  "QUARTERLY_SUBSCRIPTION_PRICE_ID": "price_1ULHIKISyQ3HvBivGQFoFbqR",
+  "PAYMENT_LINKS": {
+    "SINGLE_ISSUE": "https://buy.stripe.com/aFaeVe7xFdoBgIr80M6Ri0H",
+    "QUARTERLY": "https://buy.stripe.com/4gMbJ28BJ3O18bV1Co6Ri0I",
+    "PATRIOT_SUPPORTER": "https://buy.stripe.com/28E7sM2dlbgt2RB6WI6Ri0J"
+  }
 }
