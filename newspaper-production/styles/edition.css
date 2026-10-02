@@ -1,0 +1,122 @@
+/* Common Sense 250 — the modular edition.
+   11 x 17 tabloid, 0.125in bleed, 0.5in margins inside the trim: a 10 x 16in
+   type area. Four 2.35in columns with 0.2in gutters fill the 10in exactly
+   (the publisher's spec, 2026-09-30). Pure black throughout: newsprint is
+   the paper colour, and the press wants K only. */
+
+@page { size: 11.25in 17.25in; margin: 0.625in; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; color: #000; background: #fff; }
+body { font-family: 'Caslon', 'Times New Roman', serif; -webkit-print-color-adjust: exact; }
+
+.page { width: 10in; height: 16in; display: flex; flex-direction: column; overflow: hidden; break-after: page; }
+.page:last-child { break-after: auto; }
+.grid { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(4, 2.35in);
+        column-gap: 0.2in; row-gap: 0.16in; }
+
+/* --- folio and nameplate --------------------------------------------------- */
+
+.folio { display: flex; justify-content: space-between; font: 600 7.5pt/1 'Caslon'; letter-spacing: .14em;
+         text-transform: uppercase; padding-bottom: .06in; border-bottom: 2pt solid #000; margin-bottom: .14in; }
+
+.mast { margin-bottom: .14in; }
+.ears { display: grid; grid-template-columns: 1.55in 1fr 1.55in; align-items: center; column-gap: .15in; }
+.mast h1 { font: 400 60pt/1 'Blackletter'; text-align: center; margin: 0; white-space: nowrap; letter-spacing: -.005em; }
+.ear { border: .75pt solid #000; padding: .07in .09in; font: italic 400 7.6pt/1.3 'Caslon'; text-align: center; }
+.ear span { display: block; font: 600 6.2pt/1.2 'Caslon'; font-style: normal; letter-spacing: .06em; text-transform: uppercase; margin-top: .04in; }
+.ear.right { font: 600 7.4pt/1.35 'Caslon'; font-style: normal; letter-spacing: .1em; text-transform: uppercase; }
+.ear.right b { font: 700 20pt/1.1 'Playfair'; letter-spacing: 0; }
+.tagline { text-align: center; font: 600 9pt/1 'Caslon'; letter-spacing: .5em; text-transform: uppercase;
+           border-top: 3pt double #000; padding: .07in 0 .06in; margin-top: .06in; }
+.dateline { display: flex; justify-content: space-between; font: 700 7.5pt/1 'Caslon'; letter-spacing: .14em; text-transform: uppercase;
+            border-top: .75pt solid #000; border-bottom: 2.5pt solid #000; padding: .06in 0; }
+
+/* --- modules --------------------------------------------------------------- */
+
+.mod { min-height: 0; min-width: 0; display: flex; flex-direction: column; overflow: hidden; }
+.mod-article, .si-article { display: flex; flex-direction: column; }
+.stack-item { display: flex; flex-direction: column; min-height: 0; }
+.stack-item + .stack-item { margin-top: .14in; }
+.stack-item.grow { flex: 1; }
+.mod.ruled { border-top: .75pt solid #000; padding-top: .08in; }
+
+.kicker { font: 700 7pt/1 'Caslon'; letter-spacing: .2em; text-transform: uppercase;
+          border-top: 2.5pt solid #000; padding-top: .05in; margin-bottom: .06in; }
+.hed { font-family: 'Playfair'; font-weight: 800; line-height: 1.03; margin: 0 0 .06in; letter-spacing: -.005em; }
+.hed.xl { font-size: 42pt; line-height: .98; }
+.hed.l  { font-size: 29pt; }
+.hed.m  { font-size: 21pt; }
+.hed.s  { font-size: 15.5pt; }
+.dek { font: italic 400 11.5pt/1.28 'Caslon'; margin: 0 0 .08in; }
+.hed.xl + .dek { font-size: 13.5pt; }
+
+.art { margin: 0 0 .06in; }
+.art img { display: block; width: 100%; object-fit: cover; }
+.art figcaption { font: italic 400 7.2pt/1.3 'Caslon'; margin-top: .035in; }
+.art.missing { border: .75pt dashed #888; display: flex; align-items: center; justify-content: center;
+               text-align: center; font: italic 7pt/1.4 'Caslon'; color: #777; }
+
+.byline { font: 700 6.8pt/1 'Caslon'; letter-spacing: .14em; text-transform: uppercase;
+          padding: .04in 0 .05in; border-bottom: .5pt solid #000; margin-bottom: .07in; }
+
+.body { flex: 1; min-height: 0; column-gap: .2in; column-fill: auto; column-rule: .5pt solid #000; }
+.body p { font: 400 8.7pt/10.8pt 'Caslon'; text-align: justify; hyphens: auto; -webkit-hyphens: auto;
+          text-indent: 1.1em; margin: 0; orphans: 2; widows: 2; }
+.body p:first-child, .body h4 + p { text-indent: 0; }
+.body h4 { font: 700 7.4pt/1.2 'Caslon'; letter-spacing: .14em; text-transform: uppercase; margin: .1in 0 .04in; break-after: avoid; }
+.body p.dropcap::first-letter { float: left; font: 700 40pt/.82 'Playfair'; padding: .04in .05in 0 0; }
+
+/* --- boxes ----------------------------------------------------------------- */
+
+.box { border: .75pt solid #000; outline: .75pt solid #000; outline-offset: -3.5pt; padding: .12in .13in; }
+.box-head { font: 800 12pt/1.1 'Playfair'; text-align: center; margin-bottom: .07in;
+            padding-bottom: .05in; border-bottom: .75pt solid #000; }
+.box p { font: 400 8.6pt/1.35 'Caslon'; margin: 0 0 .06in; }
+.toc { display: flex; justify-content: space-between; gap: .1in; font: 400 8.4pt/1.3 'Caslon';
+       padding: .03in 0; border-bottom: .5pt dotted #000; }
+.toc b { font: 700 8.4pt 'Caslon'; }
+.box.write-back { text-align: center; }
+.box.write-back p { font-size: 9pt; }
+.box.write-back .big { font: italic 600 13pt/1.25 'Playfair'; margin: .04in 0 .08in; }
+
+/* --- advertisements -------------------------------------------------------- */
+
+.mod-ad, .si-ad { display: flex; flex-direction: column; }
+.ad { flex: 1; border: 2pt solid #000; padding: .08in .12in .1in; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center; min-height: 0; }
+.ad-label { font: 600 5.8pt/1 'Caslon'; letter-spacing: .3em; text-transform: uppercase; margin-bottom: .06in; }
+.ad-art { max-height: 58%; max-width: 100%; object-fit: contain; margin-bottom: .06in; filter: grayscale(1); }
+.ad-head { font: 800 19pt/1.05 'Playfair'; margin-bottom: .05in; }
+.ad p { font: 400 8.6pt/1.3 'Caslon'; margin: 0 0 .03in; }
+.ad-url { font: 700 7.2pt/1.2 'Caslon'; letter-spacing: .14em; text-transform: uppercase; margin-top: .05in; }
+
+/* --- Admirable New Englanders ---------------------------------------------- */
+
+.ane { flex: 1; display: flex; flex-direction: column; border-top: 3pt double #000; border-bottom: 3pt double #000; padding: .1in 0; }
+.ane-head { text-align: center; margin-bottom: .1in; }
+.ane-head h2 { font: 400 34pt/1 'Blackletter'; margin: 0; }
+.ane-sub { font: italic 400 11pt/1 'Caslon'; margin-top: .04in; }
+.ane-grid { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); column-gap: .2in; row-gap: .12in; }
+.ane-entry { border-top: .75pt solid #000; padding-top: .06in; min-height: 0; }
+.ane-year { font: 800 20pt/1 'Playfair'; }
+.ane-name { font: 700 9pt/1.25 'Caslon'; letter-spacing: .06em; text-transform: uppercase; margin: .03in 0 .04in; }
+.ane-name span { font-weight: 400; text-transform: none; letter-spacing: 0; font-style: italic; }
+.ane-entry p { font: 400 8.9pt/1.33 'Caslon'; margin: 0; text-align: justify; hyphens: auto; }
+.ane-credit { text-align: right; font: italic 400 7.5pt 'Caslon'; margin-top: .06in; }
+
+/* --- colophon -------------------------------------------------------------- */
+
+.colophon { display: flex; align-items: flex-end; gap: .2in; border-top: 2.5pt solid #000; padding-top: .08in; }
+.colo-text { flex: 1; }
+.colo-title { font: 400 16pt/1 'Blackletter'; margin-bottom: .04in; }
+.colophon p { font: 400 7.2pt/1.35 'Caslon'; margin: 0 0 .02in; }
+.barcode { width: auto; height: auto; flex: none; }
+
+/* A text-only display ad has to fill its box with type, or it reads as an
+   empty frame. Double rule inside the border, display-size headline. */
+.ad:not(.with-art) { outline: .75pt solid #000; outline-offset: -5pt; padding: .16in .2in; }
+.ad:not(.with-art) .ad-head { font-size: 30pt; line-height: 1; margin: .02in 0 .08in; }
+.ad:not(.with-art) .ad-head::after { content: ''; display: block; width: 1.1in; margin: .08in auto 0; border-top: 1.5pt solid #000; }
+.ad:not(.with-art) p { font-size: 10.5pt; line-height: 1.32; max-width: 4.2in; }
+.si-ad .ad:not(.with-art) .ad-head { font-size: 22pt; }
+.si-ad .ad:not(.with-art) p { font-size: 9pt; }
