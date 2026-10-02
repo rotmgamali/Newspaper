@@ -12,7 +12,8 @@
     "issue:html": "node newspaper-production/scripts/generate-issue.js --html-only",
     "issue:live": "node newspaper-production/scripts/generate-issue.js --live",
     "barcode": "node scripts/generate-barcode.js",
-    "test:barcode": "node scripts/lib/ean13.test.js"
+    "test:barcode": "node scripts/lib/ean13.test.js",
+    "edition": "node newspaper-production/scripts/compose.mjs newspaper-production/editions/2026-10.js && python3 newspaper-production/scripts/check-edition.py newspaper-production/output/common-sense-250-vol1-no1-tabloid.html && python3 newspaper-production/scripts/chrome-pdf.py newspaper-production/output/common-sense-250-vol1-no1-tabloid.html && python3 newspaper-production/scripts/press-gray.py newspaper-production/output/common-sense-250-vol1-no1-tabloid.pdf newspaper-production/output/common-sense-250-vol1-no1-PRESS-K.pdf"
   },
   "dependencies": {
     "@fontsource/cinzel": "^5.2.8",
