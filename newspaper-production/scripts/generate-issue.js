@@ -74,8 +74,21 @@ const fill = [];        // per-page: words set against words the page can hold
  * empty" is a number somebody can act on rather than a thing you notice after
  * the proof comes back.
  */
-function capacityWords(wellHeightInches, columns = 4) {
-  const measureIn = (9 - 0.25 * (columns - 1)) / columns;
+// Printable area and column measure, from the press spec rather than assumed.
+const PRINT_W = press.pageWidthIn - 2 * press.marginIn;
+const PRINT_H = press.pageHeightIn - 2 * press.marginIn;
+const MEASURE_IN = (PRINT_W - press.columnGapIn * (press.columns - 1)) / press.columns;
+const LINE_IN = (9 * 1.22) / 72;
+const WORDS_PER_LINE = MEASURE_IN / (4.0 / 72) / 5.8;
+// An illustration sits at the head of its article, one column wide: 4:3 for
+// a story, a shallow 5:2 strip for a brief, so a hundred-word piece is not
+// sitting under a picture taller than itself.
+const BRIEF_WORDS = 250;
+const artHeight = (a) => MEASURE_IN * (countWords(wholeText(a)) < BRIEF_WORDS ? 0.4 : 0.75);
+const artSpace = (a) => artHeight(a) + 0.12;
+
+function capacityWords(wellHeightInches, columns = press.columns) {
+  const measureIn = MEASURE_IN;
   const charsPerLine = measureIn / (4.0 / 72);
   const wordsPerLine = charsPerLine / 5.8;
   const lineHeightIn = (9 * 1.22) / 72;
@@ -88,6 +101,11 @@ function capacityWords(wellHeightInches, columns = 4) {
   const SAFETY = 0.88;
   return Math.round(linesPerColumn * columns * wordsPerLine * SAFETY);
 }
+
+// The whole of a piece. A story once split for a jump has part1/part2 and no
+// full text; on a tabloid page it often fits whole, so join the halves.
+const wholeText = (a) => a.contentFull || a.content ||
+  [a.contentPart1, a.contentPart2].filter(Boolean).join('\n\n');
 
 const countWords = (s) => (s || '').split(/\s+/).filter(Boolean).length;
 
@@ -125,7 +143,7 @@ function renderArticle(block) {
   const part = block.part || 'full';
   const text = part === 'part1' ? article.contentPart1
              : part === 'part2' ? article.contentPart2
-             : (article.contentFull || article.content);
+             : wholeText(article);
 
   if (!text) {
     throw new Error(`Article "${article.id}" has no "${part}" text.`);
@@ -170,7 +188,47 @@ function renderArticle(block) {
   const classes = ['article'];
   if (isFeature) classes.push('article-feature');
 
-  return `<div class="${classes.join(' ')}">${heading}${standfirst}${byline}${body}${jump}</div>`;
+  const art = isContinued ? '' : renderArt(article);
+  // Headline, deck, picture and byline are one unit that must not break across
+  // columns. Left loose, the column flow put "Tariffs: Hurtful, especially in
+  // the" at the foot of one column and "northeast" atop the next.
+  const head = `<div class="article-head">${heading}${standfirst}${art}${byline}</div>`;
+  return `<div class="${classes.join(' ')}">${head}${body}${jump}</div>`;
+}
+
+/**
+ * The illustration for an article: art/<id>.(jpg|png), inlined so the file is
+ * self-contained for any renderer. Without art, a proof shows a marked empty
+ * slot so the page is laid out at its real depth; a live run omits it and
+ * says so, rather than printing a box that reads ART.
+ */
+function renderArt(article) {
+  const dir = path.join(prodRoot, 'art');
+  for (const ext of ['jpg', 'png']) {
+    const f = path.join(dir, `${article.id}.${ext}`);
+    if (fs.existsSync(f)) {
+      const mime = ext === 'jpg' ? 'image/jpeg' : 'image/png';
+      return `<figure class="art"><img style="height:${artHeight(article).toFixed(3)}in" src="data:${mime};base64,${fs.readFileSync(f).toString('base64')}" alt=""></figure>`;
+    }
+  }
+  missingArt.push(article.id);
+  return LIVE ? '' : `<figure class="art art-missing" style="height:${artHeight(article).toFixed(3)}in"><span>illustration — ${esc(article.id)}</span></figure>`;
+}
+const missingArt = [];
+
+function geometryCss() {
+  return `
+/* Generated from config/issue.js press — edit the press, not this. */
+.page-wrapper { width: ${PRINT_W}in; height: ${PRINT_H}in; }
+.page-content { columns: ${press.columns}; column-gap: ${press.columnGapIn}in; }
+.masthead h1 { font-size: ${Math.round(62 * PRINT_W / 10)}pt; white-space: nowrap; }
+.art { margin: 0.04in 0 0.08in; }
+.article-head { break-inside: avoid; page-break-inside: avoid; -webkit-column-break-inside: avoid; display: block; }
+.article-head + p, .article-head + * { break-before: avoid; }
+.art img { display: block; width: 100%; object-fit: cover; filter: grayscale(1); }
+.art-missing { border: 1px dashed #999; display: flex;
+  align-items: center; justify-content: center; font: 7pt sans-serif; color: #999; }
+`;
 }
 
 // --- back-page furniture -----------------------------------------------------
@@ -221,7 +279,7 @@ function renderColophonAndBarcode() {
       <div class="colophon-text">
         <div class="colophon-title">${esc(publication.fullTitle)}</div>
         <p>Vol. ${issue.volume}, No. ${issue.number} · ${esc(issue.date)} · ${esc(publication.origin)}</p>
-        <p>Published by Web4Guru for Common Sense 250. Editorial submissions to
+        <p>Published by Mark Stewart Greenstein. Produced by Web4Guru. Editorial submissions to
            andrew@web4guru.com. Advertising to Mark Stewart Greenstein,
            libertymsg@gmail.com.</p>
         <p>Articles are the opinions of their authors. We welcome a reply from anyone
@@ -262,8 +320,8 @@ function renderPage(page, index) {
   }
 
   // The well shrinks to make room for whatever furniture the page carries.
-  let wellIn = 8.5;
-  if (page.masthead) wellIn -= 1.5;
+  let wellIn = PRINT_H - 0.75;          // less the folio line
+  if (page.masthead) wellIn -= 2.3;
   if (page.ads && page.ads.length) wellIn -= 2.0;
   if (page.candidates) wellIn -= 2.2;
   if (page.colophon || page.barcode) wellIn -= 1.3;
@@ -277,9 +335,11 @@ function renderPage(page, index) {
     const part = b.part || 'full';
     return n + countWords(part === 'part1' ? a.contentPart1
                         : part === 'part2' ? a.contentPart2
-                        : (a.contentFull || a.content));
+                        : wholeText(a));
   }, 0);
-  fill.push({ page: pageNo, words: wordsSet, capacity: capacityWords(wellIn) });
+  const artWords = Math.round((page.blocks || []).filter((b) => !b.continuedFrom)
+    .reduce((n, b) => n + artSpace(byId(b.article)), 0) / LINE_IN * WORDS_PER_LINE);
+  fill.push({ page: pageNo, words: wordsSet + artWords, capacity: capacityWords(wellIn) });
 
   if (page.ads && page.ads.length) {
     const rendered = page.ads.map(renderAd);
@@ -307,13 +367,13 @@ const read = (p) => fs.readFileSync(path.join(prodRoot, p), 'utf8');
 const html = read('templates/newspaper.html')
   .replace('{{PUBLICATION}}', esc(publication.fullTitle))
   .replace('{{ISSUE_DATE}}', esc(issue.date))
-  .replace('{{PAGE_SIZE}}', press.pageSize)
-  .replace('{{PAGE_MARGIN}}', press.margin)
+  .replace('{{PAGE_SIZE}}', `${press.pageWidthIn}in ${press.pageHeightIn}in`)
+  .replace('{{PAGE_MARGIN}}', `${press.marginIn}in`)
   .replace('{{PAGE_BLEED}}', press.bleed)
   .replace('{{PAGE_TRIM}}', press.trim)
   .replace('{{COLORS_CSS}}', read('styles/colors.css'))
   .replace('{{TYPOGRAPHY_CSS}}', read('styles/typography.css'))
-  .replace('{{LAYOUT_CSS}}', read('styles/layout.css'))
+  .replace('{{LAYOUT_CSS}}', read('styles/layout.css') + geometryCss())
   .replace('{{PAGES_HTML}}', issue.pages.map(renderPage).join('\n'));
 
 const stem = `common-sense-250-vol${issue.volume}-no${issue.number}`;
@@ -334,6 +394,8 @@ console.log(rule);
 console.log(`  Pages          ${issue.pages.length}`);
 console.log(`  Articles       ${new Set(issue.pages.flatMap((p) => (p.blocks || []).map((b) => b.article))).size}`);
 console.log(`  Trim           ${press.trim}, bleed ${press.bleed}, ${press.profile}`);
+console.log(`  Sheet          ${press.finished}; ${press.columns} columns of ${MEASURE_IN.toFixed(2)}in, ${press.columnGapIn}in gutters`);
+if (missingArt.length) console.log(`  Art missing    ${missingArt.length}: ${missingArt.join(', ')}`);
 console.log(`  HTML           ${path.relative(prodRoot, htmlPath)}`);
 
 function finish() {

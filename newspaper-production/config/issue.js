@@ -76,39 +76,30 @@ export const issue = {
     {
       masthead: true,
       blocks: [
-        { article: 'no-draft', part: 'part1', feature: true, jumpTo: 2 },
+        { article: 'no-draft', feature: true },
         { article: 'conservatarian' },
-        { article: 'hartford-convention' },
-        { article: 'civics' },
         { article: 'town-hall' },
       ],
     },
     {
       blocks: [
-        { article: 'no-draft', part: 'part2', continuedFrom: 1 },
+        { article: 'ice-deportations', feature: true },
+        { article: 'teach-to-the-tests', feature: true },
+        { article: 'civics' },
       ],
-      ads: ['ivy-bound'],
+      ads: ['ivy-bound', 'impact-health', 'web4guru'],
     },
     {
       blocks: [
-        { article: 'ice-deportations', feature: true },
+        { article: 'health-insurance', feature: true },
+        { article: 'tariffs', feature: true },
+        { article: 'hartford-convention' },
       ],
       ads: ['bahamas-villas', 'bahamas-complex'],
     },
     {
       blocks: [
-        { article: 'health-insurance', feature: true },
-      ],
-      ads: ['impact-health'],
-    },
-    {
-      blocks: [
-        { article: 'tariffs', feature: true },
-      ],
-      ads: ['web4guru'],
-    },
-    {
-      blocks: [
+        { article: 'homelessness-in-connecticut', feature: true },
         { article: 'come-on-up', feature: true },
         { article: 'axe-tax' },
         { article: 'patriot-way' },
@@ -125,19 +116,28 @@ export const issue = {
 // -----------------------------------------------------------------------------
 
 export const press = {
-  /** Finished size after trimming. Documentation only; not passed to CSS. */
-  finished: '10in x 10in',
+  /**
+   * Standard 11 x 17 tabloid, on the publisher's own spec (2026-09-30): four
+   * 2.35in columns across an 11in page. 0.5in margins inside the trim leave
+   * exactly 10in, and four 2.35in columns plus three 0.2in gutters is 10in.
+   *
+   * Until 2026-10-02 this was a 10in square, from a March workflow written
+   * when Maine Printing was the printer. No current printer asked for it, and
+   * a newsprint press expects a tabloid.
+   */
+  finished: '11in x 17in',
   /**
    * The amount trimmed off EACH EDGE, which is what prince-trim means.
    * Setting this to the finished size instead produced a 30.5in sheet with
    * the page floating in the middle of it.
    */
   trim: '0.125in',
-  pageSize: '10.25in 10.25in',
+  pageWidthIn: 11.25,     // finished + bleed both sides
+  pageHeightIn: 17.25,
+  marginIn: 0.625,        // 0.5in inside the trim
   bleed: '0.125in',
-  margin: '0.5in',
   columns: 4,
-  columnGap: '0.25in',
+  columnGapIn: 0.2,
   profile: 'PDF/X-1a:2001',
   /** Two-tone: process black plus one red. Matches the existing house style. */
   inks: { black: 'cmyk(0, 0, 0, 1)', red: 'cmyk(0, 1, 1, 0)' },
