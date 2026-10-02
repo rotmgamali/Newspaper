@@ -40,7 +40,7 @@ export const publication = {
    * then every barcode this project renders is stamped SPECIMEN so that a
    * placeholder can never be mistaken for a registered number on a press sheet.
    */
-  issn: null,          // e.g. '2831-4174'
+  issn: '3144-458X',  // provisional, assigned 2026-09-30 (APPL0008020)
 
   /** Supplied by the publisher, 2026-09-11. Needed for the ISSN application. */
   publisher: 'Mark Stewart Greenstein',
