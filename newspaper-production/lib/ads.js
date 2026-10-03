@@ -173,18 +173,67 @@ export const ads = {
   'whalers': {
     advertiser: 'NHL to Hartford',
     size: 'quarter',
+    image: 'whalers-hockey.jpg',  // FWA painting, early-1900s hockey; public domain (NARA 195788)
     headline: 'Whalers Here!',
     lines: [
       'Make Connecticut skate again.',
-      "Ownership shares for the NHL's next expansion are available this hockey season.",
+      'Own a piece of a returning team.',
     ],
-    authorization: { by: 'Mark S. Greenstein', on: '2026-08-23', note: "Publisher's direction" },
+    url: 'NHLtoHartford.com',
+    authorization: { by: 'Mark S. Greenstein', on: '2026-10-02', note: "Publisher's direction: page 8, or small on page 1" },
     note:
       'The copy offers "ownership shares" in a prospective franchise, which reads ' +
       'as an offer of an equity interest to the public. Raised with him in writing ' +
       'on 2026-09-10 and again on 2026-09-20, recommending the wording be cleared ' +
       'or the ownership-share line struck. He is the publisher and it is his ' +
-      'offer; it runs at his direction. This note is the record that he was told.',
+      'offer; it runs at his direction. This note is the record that he was told. ' +
+      'Also: NHLtoHartford.com (registered 2022, GoDaddy) is a parked page with no ' +
+      'site behind it, measured 2026-10-03.',
+  },
+
+  // --- added at the publisher's direction, 2026-10-02 ---------------------------
+
+  'aspire-schools': {
+    advertiser: 'Aspire Academy for Schools',
+    size: 'quarter',
+    image: 'aspire-academy-logo.png',
+    headline: 'Aspire Academy for Schools',
+    lines: [
+      "Put your district's best teachers in front of more students, online.",
+      'Host classes for other districts, or bring theirs to yours. New funding without new expenses.',
+    ],
+    url: 'ivybound.net/partners-schools',
+    contact: '860-530-6550',
+    // Copy from his own page, as he asked. The page's "$20-30 million" figure
+    // is left out: a dollar promise in print is his to make, not ours to copy.
+    authorization: { by: 'Mark S. Greenstein', on: '2026-10-02', note: "Publisher's own company; he asked for it" },
+  },
+
+  'ybh-eighth': {
+    advertiser: 'Common Sense 250',
+    size: 'eighth',
+    headline: 'Your Business Here',
+    lines: ['Reach the readers of New England’s civics paper.'],
+    url: '860-530-6550 · andrew@web4guru.com',
+    authorization: { by: 'Mark S. Greenstein', on: '2026-10-02', note: 'House ad: one at 1/8, one at 1/16' },
+  },
+
+  'ybh-sixteenth': {
+    advertiser: 'Common Sense 250',
+    size: 'sixteenth',
+    headline: 'Your Business Here',
+    lines: ['Advertise in Common Sense 250.'],
+    url: '860-530-6550 · andrew@web4guru.com',
+    authorization: { by: 'Mark S. Greenstein', on: '2026-10-02', note: 'House ad: one at 1/8, one at 1/16' },
+  },
+
+  'jamie-condos': {
+    advertiser: "Jamie's condos",
+    size: 'eighth',
+    pending: true,
+    headline: "Jamie's Condos",
+    lines: ['Space held. Awaiting the details from the publisher.'],
+    authorization: { by: 'Mark S. Greenstein', on: '2026-10-02', note: '"SOmething for Jamie\'s condos"; who, where and what to say not yet given' },
   },
 };
 

@@ -52,6 +52,7 @@ const whole = (a) => a.contentFull || a.content || [a.contentPart1, a.contentPar
 // --- pictures ------------------------------------------------------------------
 
 const missingArt = [];
+const pendingAds = [];  // spaces held for an ad whose copy has not arrived
 function artUri(name) {
   for (const dir of [path.join(ROOT, 'art'), path.join(ROOT, '..', 'src', 'assets')]) {
     for (const ext of ['jpg', 'png']) {
@@ -115,8 +116,13 @@ function adModule(m) {
   const ad = ads[m.key];
   if (!ad) throw new Error(`no advertisement "${m.key}" in lib/ads.js`);
   const img = ad.image ? artUri(ad.image) : null;
+  if (ad.pending) {
+    pendingAds.push(ad.advertiser);
+    return `<div class="ad pending"><div class="ad-label">Advertisement space held</div>
+      <div class="ad-head">${esc(ad.headline)}</div>${ad.lines.map((l) => `<p>${esc(l)}</p>`).join('')}</div>`;
+  }
   return `
-    <div class="ad ${img ? 'with-art' : ''}">
+    <div class="ad ${img ? 'with-art' : ''} ${ad.size ? 'size-' + ad.size : ''}">
       <div class="ad-label">Advertisement</div>
       ${img ? `<img class="ad-art" src="${img}" alt="">` : ''}
       <div class="ad-copy">
@@ -235,3 +241,4 @@ fs.writeFileSync(out, html);
 console.log(out);
 console.log(`  pages ${edition.pages.length} · articles ${edition.pages.flatMap((p) => p.modules).flatMap((m) => m.type === 'stack' ? m.items : [m]).filter((m) => m.type === 'article').length}`);
 if (missingArt.length) console.log(`  illustrations still to come (${missingArt.length}): ${missingArt.join(', ')}`);
+if (pendingAds.length) console.log(`  ad spaces held, copy not yet in (${pendingAds.length}): ${pendingAds.join(', ')} — not for press`);

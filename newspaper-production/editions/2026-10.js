@@ -7,6 +7,12 @@
  * his, a contributor he named (Sen. Libby, Kemler Samuels), or his paper's
  * statement of purpose.
  *
+ * Advertisements are the publisher's list of 2026-10-02: Impact Health, Ivy
+ * Bound, SerenitySpaces (two), Jamie's condos (space held, copy to come),
+ * Aspire Academy for Schools, Whalers on page 8, and "Your Business Here" at
+ * 1/8 and 1/16. Friendly's, Aldi, the Libby ad and the Web4Guru house ad are
+ * off his list and out of the paper.
+ *
  * Left out, deliberately:
  *  - "Protect Girls Sports": withdrawn by him, 24 Aug.
  *  - The Town Hall, Axe the Tax, Restoring Civics and The Patriot Way briefs:
@@ -57,7 +63,7 @@ export const edition = {
           caption: 'Luke Fildes, The Doctor, 1891.', artHeight: 1.8 },
         { type: 'article', area: 'tar', id: 'tariffs', span: 2, size: 'm',
           artInline: true, caption: '“The fullest dinner pail”: Udo J. Keppler for Puck.' },
-        { type: 'ad', area: 'lib', key: 'jim-libby' },
+        { type: 'ad', area: 'lib', key: 'impact-health' },
       ],
     },
 
@@ -70,7 +76,7 @@ export const edition = {
           caption: 'Immigrants landing at Castle Garden, New York. A. B. Shults for Harper’s Weekly, 1880.', artHeight: 1.75, artPos: 'center 45%' },
         { type: 'article', area: 'imm', id: 'immigrant-families', span: 2, size: 'm',
           caption: 'Joys and sorrows at Ellis Island. Lewis W. Hine, about 1905.', artHeight: 2.4, artPos: 'center 40%' },
-        { type: 'ad', area: 'wha', key: 'whalers' },
+        { type: 'ad', area: 'wha', key: 'aspire-schools' },
       ],
     },
 
@@ -96,8 +102,8 @@ export const edition = {
         { type: 'article', area: 'pol', id: 'police-masks', span: 3, size: 'm',
           artInline: true, caption: 'The night watch and their lanterns. After William Hogarth.' },
         { type: 'stack', area: 'ads', items: [
-          { type: 'ad', key: 'friendlys', grow: true },
-          { type: 'ad', key: 'aldi', grow: true },
+          { type: 'ad', key: 'ybh-sixteenth', grow: true },
+          { type: 'ad', key: 'jamie-condos', grow: true },
         ] },
       ],
     },
@@ -124,20 +130,19 @@ export const edition = {
           caption: 'Ben Shahn’s mural in the Social Security Building, Washington, 1940–42.', artHeight: 2.1 },
         { type: 'article', area: 'wel', id: 'welfare-for-whom', span: 2, size: 'm',
           artInline: true, caption: 'White Angel Breadline, San Francisco, 1932. Dorothea Lange.' },
-        { type: 'ad', area: 'imp', key: 'impact-health' },
+        { type: 'ad', area: 'imp', key: 'ybh-eighth' },
       ],
     },
 
     // 7 ---------------------------------------------------------------------------
     {
-      areas: ['oth oth cou cou', 'oth oth w4g w4g', 'ba1 ba1 ba2 ba2'],
-      rows: ['1fr', '2.6in', '3.0in'],
+      areas: ['oth oth cou cou', 'ba1 ba1 ba2 ba2'],
+      rows: ['1fr', '3.0in'],
       modules: [
         { type: 'article', area: 'oth', id: 'other-half-of-affordability', span: 2, size: 'l', dropcap: true,
           caption: 'An East Side tenement block. From Jacob Riis, How the Other Half Lives, 1890.', artHeight: 2.1 },
         { type: 'article', area: 'cou', id: 'come-on-up', span: 2, size: 'm',
-          caption: 'Currier & Ives, American Homestead: Summer.', artHeight: 2.8, artPos: 'center 40%' },
-        { type: 'ad', area: 'w4g', key: 'web4guru' },
+          caption: 'Currier & Ives, American Homestead: Summer.', artHeight: 3.85, artPos: 'center 45%' },
         { type: 'ad', area: 'ba1', key: 'bahamas-villas' },
         { type: 'ad', area: 'ba2', key: 'bahamas-complex' },
       ],
@@ -151,11 +156,12 @@ export const edition = {
         { type: 'article', area: 'wal', id: 'matt-walsh-reply', span: 3, size: 'l', dropcap: true,
           caption: 'Henry Hintermeister, Foundation of the American Government, 1925.', artHeight: 2.0, artPos: 'center 55%' },
         { type: 'stack', area: 'sid', items: [
-          { type: 'box', class: 'write-back', title: 'Write Back', grow: true, html:
+          { type: 'box', class: 'write-back', title: 'Write Back', html:
             '<p class="big">Every article in these pages invites a reply.</p>' +
             '<p>Disagree with something you read here? Write to us. The best replies run in the next issue, printed beside the article they answer, so readers see both sides of the argument together.</p>' +
             '<p>We will print a reply from anyone named or argued against in these pages.</p>' +
             '<p><b>andrew@web4guru.com</b></p>' },
+          { type: 'ad', key: 'whalers', grow: true },
         ] },
         { type: 'colophon', area: 'col' },
       ],
