@@ -1,0 +1,79 @@
+{
+ "health-insurance": {
+  "file": "File:The Doctor Luke Fildes crop.jpg",
+  "artist": "Luke Fildes",
+  "date": "1891",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:The_Doctor_Luke_Fildes_crop.jpg"
+ },
+ "tariffs": {
+  "file": "File:The fullest dinner pail - Tariff for Graft Only.jpg",
+  "artist": "Keppler, Udo J., 1872-1956, artist",
+  "date": "1908",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:The_fullest_dinner_pail_-_Tariff_for_Graft_Only.jpg"
+ },
+ "ice-deportations": {
+  "file": "File:Immigrants landing at Castle Garden - drawn by A.B. Shults. LCCN90707732.jpg",
+  "artist": "Shults, A. B. (Albert B.), 1868-1913, artist",
+  "date": "1880",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Immigrants_landing_at_Castle_Garden_-_drawn_by_A.B._Shults._LCCN90707732.jpg"
+ },
+ "immigrant-families": {
+  "file": "File:Joys and sorrows at Ellis Island - DPLA - 3e3cb2b7ad757a437b94048b32bd4bcb.jpg",
+  "artist": "Hine, Lewis Wickes, 1874-1940",
+  "date": "1905date QS:P571,+1905-00-00T00:00:00Z/9",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Joys_and_sorrows_at_Ellis_Island_-_DPLA_-_3e3cb2b7ad757a437b94048b32bd4bcb.jpg"
+ },
+ "homelessness-in-connecticut": {
+  "file": "File:Lodgers in a Crowded Bayard Street Tenement.png",
+  "artist": "Jacob Riis",
+  "date": "circa 1890date QS:P,+1890-00-00T00:00:00",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Lodgers_in_a_Crowded_Bayard_Street_Tenement.png"
+ },
+ "other-half-of-affordability": {
+  "file": "File:Jacob Riis - Bird's-Eye View of an East Side Tenement Block.png",
+  "artist": "Jacob Riis (1849-1914)",
+  "date": "1890",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Jacob_Riis_-_Bird%27s-Eye_View_of_an_East_Side_Tenement_Block.png"
+ },
+ "social-security": {
+  "file": "File:Ben Shahn mural located at the Wilbur J. Cohen Federal Building, Washington, D.C LCCN2013634377.tif",
+  "artist": "Ben Shahn",
+  "date": "Taken on\u00a020 October 2011, 04:46\u00a0(accordi",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Ben_Shahn_mural_located_at_the_Wilbur_J._Cohen_Federal_Building,_Washington,_D.C_LCCN2013634377.tif"
+ },
+ "welfare-for-whom": {
+  "file": "File:White Angel Breadline, San Francisco, 1932, by Dorothea Lange, 4.jpg",
+  "artist": "Dorothea Lange",
+  "date": "Taken in\u00a01932",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:White_Angel_Breadline,_San_Francisco,_1932,_by_Dorothea_Lange,_4.jpg"
+ },
+ "come-on-up": {
+  "file": "File:American Homestead Summer - Vanderbilt Fine Arts Gallery - 1988.092.tif",
+  "artist": "Currier and Ives",
+  "date": "1868",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:American_Homestead_Summer_-_Vanderbilt_Fine_Arts_Gallery_-_1988.092.tif"
+ },
+ "police-masks": {
+  "file": "File:The Frolick (BM Cc,2.241).jpg",
+  "artist": "",
+  "date": "1717-1837 (c.)",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:The_Frolick_(BM_Cc,2.241).jpg"
+ },
+ "matt-walsh-reply": {
+  "file": "File:Foundation of the American Government by Henry Hintermeister.jpg",
+  "artist": "Henry Hintermeister",
+  "date": "1925-12-30[2]",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Foundation_of_the_American_Government_by_Henry_Hintermeister.jpg"
+ }
+}

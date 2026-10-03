@@ -120,3 +120,7 @@ body { font-family: 'Caslon', 'Times New Roman', serif; -webkit-print-color-adju
 .ad:not(.with-art) p { font-size: 10.5pt; line-height: 1.32; max-width: 4.2in; }
 .si-ad .ad:not(.with-art) .ad-head { font-size: 22pt; }
 .si-ad .ad:not(.with-art) p { font-size: 9pt; }
+
+/* One-column picture inside the text flow, at the original's own proportions. */
+.art.inline { break-inside: avoid; margin: 0 0 .1in; }
+.art.inline img { width: 100%; height: auto; display: block; }

@@ -53,8 +53,10 @@ export const edition = {
       areas: ['hea hea tar tar', 'hea hea lib lib'],
       rows: ['1fr', '3.3in'],
       modules: [
-        { type: 'article', area: 'hea', id: 'health-insurance', span: 2, size: 'l', artHeight: 2.0, dropcap: true },
-        { type: 'article', area: 'tar', id: 'tariffs', span: 2, size: 'm', artHeight: 1.45 },
+        { type: 'article', area: 'hea', id: 'health-insurance', span: 2, size: 'l', dropcap: true,
+          caption: 'Luke Fildes, The Doctor, 1891.', artHeight: 1.8 },
+        { type: 'article', area: 'tar', id: 'tariffs', span: 2, size: 'm',
+          artInline: true, caption: '“The fullest dinner pail”: Udo J. Keppler for Puck.' },
         { type: 'ad', area: 'lib', key: 'jim-libby' },
       ],
     },
@@ -64,8 +66,10 @@ export const edition = {
       areas: ['ice ice imm imm', 'ice ice wha wha'],
       rows: ['1fr', '3.3in'],
       modules: [
-        { type: 'article', area: 'ice', id: 'ice-deportations', span: 2, size: 'l', artHeight: 1.95, dropcap: false },
-        { type: 'article', area: 'imm', id: 'immigrant-families', span: 2, size: 'm', artHeight: 2.4 },
+        { type: 'article', area: 'ice', id: 'ice-deportations', span: 2, size: 'l', dropcap: false,
+          caption: 'Immigrants landing at Castle Garden, New York. A. B. Shults for Harper’s Weekly, 1880.', artHeight: 1.75, artPos: 'center 45%' },
+        { type: 'article', area: 'imm', id: 'immigrant-families', span: 2, size: 'm',
+          caption: 'Joys and sorrows at Ellis Island. Lewis W. Hine, about 1905.', artHeight: 2.4, artPos: 'center 40%' },
         { type: 'ad', area: 'wha', key: 'whalers' },
       ],
     },
@@ -89,7 +93,8 @@ export const edition = {
           { years: '2025–26', name: 'Drake Maye', place: 'Massachusetts, via North Carolina',
             text: 'Actions speak more than words. The Patriots rebound under Maye after five years in the wilderness.' },
         ] },
-        { type: 'article', area: 'pol', id: 'police-masks', span: 3, size: 'm', artHeight: 1.3 },
+        { type: 'article', area: 'pol', id: 'police-masks', span: 3, size: 'm',
+          artInline: true, caption: 'The night watch and their lanterns. After William Hogarth.' },
         { type: 'stack', area: 'ads', items: [
           { type: 'ad', key: 'friendlys', grow: true },
           { type: 'ad', key: 'aldi', grow: true },
@@ -104,7 +109,8 @@ export const edition = {
       modules: [
         { type: 'article', area: 'tea', id: 'teach-to-the-tests', span: 2, size: 'l', art: 'teach-to-the-tests',
           artHeight: 3.0, dropcap: true },
-        { type: 'article', area: 'hom', id: 'homelessness-in-connecticut', span: 2, size: 'm', artHeight: 1.35 },
+        { type: 'article', area: 'hom', id: 'homelessness-in-connecticut', span: 2, size: 'm',
+          artInline: true, caption: 'Lodgers in a Bayard Street tenement. From Jacob Riis, How the Other Half Lives, 1890.' },
         { type: 'ad', area: 'ivy', key: 'ivy-bound' },
       ],
     },
@@ -114,8 +120,10 @@ export const edition = {
       areas: ['soc soc wel wel', 'soc soc imp imp'],
       rows: ['1fr', '3.3in'],
       modules: [
-        { type: 'article', area: 'soc', id: 'social-security', span: 2, size: 'l', artHeight: 2.3, dropcap: true },
-        { type: 'article', area: 'wel', id: 'welfare-for-whom', span: 2, size: 'm', artHeight: 2.3 },
+        { type: 'article', area: 'soc', id: 'social-security', span: 2, size: 'l', dropcap: true,
+          caption: 'Ben Shahn’s mural in the Social Security Building, Washington, 1940–42.', artHeight: 2.1 },
+        { type: 'article', area: 'wel', id: 'welfare-for-whom', span: 2, size: 'm',
+          artInline: true, caption: 'White Angel Breadline, San Francisco, 1932. Dorothea Lange.' },
         { type: 'ad', area: 'imp', key: 'impact-health' },
       ],
     },
@@ -125,8 +133,10 @@ export const edition = {
       areas: ['oth oth cou cou', 'oth oth w4g w4g', 'ba1 ba1 ba2 ba2'],
       rows: ['1fr', '2.6in', '3.0in'],
       modules: [
-        { type: 'article', area: 'oth', id: 'other-half-of-affordability', span: 2, size: 'l', artHeight: 2.1, dropcap: true },
-        { type: 'article', area: 'cou', id: 'come-on-up', span: 2, size: 'm', artHeight: 2.8 },
+        { type: 'article', area: 'oth', id: 'other-half-of-affordability', span: 2, size: 'l', dropcap: true,
+          caption: 'An East Side tenement block. From Jacob Riis, How the Other Half Lives, 1890.', artHeight: 2.1 },
+        { type: 'article', area: 'cou', id: 'come-on-up', span: 2, size: 'm',
+          caption: 'Currier & Ives, American Homestead: Summer.', artHeight: 2.8, artPos: 'center 40%' },
         { type: 'ad', area: 'w4g', key: 'web4guru' },
         { type: 'ad', area: 'ba1', key: 'bahamas-villas' },
         { type: 'ad', area: 'ba2', key: 'bahamas-complex' },
@@ -138,7 +148,8 @@ export const edition = {
       areas: ['wal wal wal sid', 'col col col col'],
       rows: ['1fr', 'auto'],
       modules: [
-        { type: 'article', area: 'wal', id: 'matt-walsh-reply', span: 3, size: 'l', artHeight: 2.0, dropcap: true },
+        { type: 'article', area: 'wal', id: 'matt-walsh-reply', span: 3, size: 'l', dropcap: true,
+          caption: 'Henry Hintermeister, Foundation of the American Government, 1925.', artHeight: 2.0, artPos: 'center 55%' },
         { type: 'stack', area: 'sid', items: [
           { type: 'box', class: 'write-back', title: 'Write Back', grow: true, html:
             '<p class="big">Every article in these pages invites a reply.</p>' +

@@ -63,8 +63,14 @@ function artUri(name) {
   }
   return null;
 }
-function figure(name, heightIn, caption, pos = 'center') {
+function figure(name, heightIn, caption, pos = 'center', inline = false) {
   const uri = artUri(name);
+  if (uri && inline) {
+    // A one-column picture set into the text at its natural shape: portrait
+    // and square originals, which a wide slot would crop to a strip.
+    return `<figure class="art inline"><img src="${uri}" alt="">` +
+      (caption ? `<figcaption>${esc(caption)}</figcaption>` : '') + `</figure>`;
+  }
   if (!uri) {
     missingArt.push(name);
     return `<figure class="art missing" style="height:${heightIn}in"><span>illustration to come<br>${esc(name)}</span></figure>`;
@@ -92,7 +98,8 @@ function articleModule(m) {
   const deckRepeatsLede = deck && norm(whole(a)).startsWith(norm(deck).slice(0, 60));
   let body = paragraphs(whole(a));
   if (m.dropcap && /^[A-Za-z]/.test(whole(a).trim())) body = body.replace('<p>', '<p class="dropcap">');
-  const art = m.art === false ? '' : figure(m.art || a.id, m.artHeight || 2.2, m.caption, m.artPos);
+  const art = (m.art === false || m.artInline) ? '' : figure(m.art || a.id, m.artHeight || 2.2, m.caption, m.artPos);
+  if (m.artInline) body = figure(m.art || a.id, 0, m.caption, 'center', true) + body;
   return `
     <div class="head">
       ${kicker ? `<div class="kicker">${esc(kicker)}</div>` : ''}
@@ -172,7 +179,7 @@ function colophon() {
         <p>Vol. ${esc(e.volume)}, No. ${esc(e.number)} · ${esc(e.date)} · ${esc(e.place)} · Published quarterly.</p>
         <p>Published by Mark Stewart Greenstein. Produced by Web4Guru. ISSN ${esc(e.issn)}.</p>
         <p>Editorial submissions and replies: andrew@web4guru.com. Advertising: Mark Stewart Greenstein, libertymsg@gmail.com.</p>
-        <p>Articles are the opinions of their authors. Illustrations were made for this paper with AI assistance.</p>
+        <p>Articles are the opinions of their authors. Period illustrations are in the public domain and credited beneath each; six were made for this paper with AI assistance.</p>
       </div>
       <img class="barcode" src="${bar}" alt="ISSN ${esc(e.issn)}">
     </div>`;
