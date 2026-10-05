@@ -83,9 +83,12 @@ function figure(name, heightIn, caption, pos = 'center', inline = false) {
 // --- text ------------------------------------------------------------------------
 
 /** The publisher's short all-capitals lines are section heads, not shouting. */
-function paragraphs(text) {
-  return text.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean).map((p) => {
+function paragraphs(text, setOff = []) {
+  return text.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean).map((p, i) => {
     if (p.length < 70 && p === p.toUpperCase() && /[A-Z]/.test(p)) return `<h4>${esc(p)}</h4>`;
+    // Lines the publisher set off with a 0.5in indent in his Word file: his
+    // emphasis ("Parents. / College admission committees."), kept, not flattened.
+    if (setOff.includes(i)) return `<p class="setoff">${esc(p)}</p>`;
     return `<p>${esc(p)}</p>`;
   }).join('');
 }
@@ -97,7 +100,7 @@ function articleModule(m) {
   const deck = m.deck === false ? '' : (m.deck || a.excerpt);
   const norm = (x) => (x || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
   const deckRepeatsLede = deck && norm(whole(a)).startsWith(norm(deck).slice(0, 60));
-  let body = paragraphs(whole(a));
+  let body = paragraphs(whole(a), a.setOff || []);
   if (m.dropcap && /^[A-Za-z]/.test(whole(a).trim())) body = body.replace('<p>', '<p class="dropcap">');
   const art = (m.art === false || m.artInline) ? '' : figure(m.art || a.id, m.artHeight || 2.2, m.caption, m.artPos);
   if (m.artInline) body = figure(m.art || a.id, 0, m.caption, 'center', true) + body;
@@ -109,7 +112,7 @@ function articleModule(m) {
       ${m.artFirst === false ? '' : art}
       <div class="byline">By ${esc(a.author)}</div>
     </div>
-    <div class="body" style="column-count:${cols}" data-article="${esc(a.id)}">${body}</div>`;
+    <div class="body${m.italic ? ' italic' : ''}" style="column-count:${cols}" data-article="${esc(a.id)}">${body}</div>`;
 }
 
 function adModule(m) {
@@ -139,10 +142,9 @@ function masthead() {
     <div class="mast">
       <div class="ears">
         <div class="ear">“In the following pages I offer nothing more than simple facts, plain arguments, and common sense.”<span>Thomas Paine, 1776</span></div>
-        <h1>Common Sense 250</h1>
+        <div class="nameplate"><h1>Common Sense 250</h1><div class="motto">${esc(e.motto)}</div></div>
         <div class="ear right">${esc(e.frequency)}<br><b>$${e.price.toFixed(2)}</b><span>${esc(e.web)}</span></div>
       </div>
-      <div class="tagline">Civics · Opinions · History</div>
       <div class="dateline"><span>Vol. ${esc(e.volume)} · No. ${esc(e.number)}</span><span>${esc(e.place)}</span><span>${esc(e.date)}</span><span>$${e.price.toFixed(2)}</span></div>
     </div>`;
 }
@@ -185,13 +187,34 @@ function colophon() {
         <p>Vol. ${esc(e.volume)}, No. ${esc(e.number)} · ${esc(e.date)} · ${esc(e.place)} · Published quarterly.</p>
         <p>Published by Mark Stewart Greenstein. Produced by Web4Guru. ISSN ${esc(e.issn)}.</p>
         <p>Editorial submissions and replies: andrew@web4guru.com. Advertising: Mark Stewart Greenstein, libertymsg@gmail.com.</p>
-        <p>Articles are the opinions of their authors. Period illustrations are in the public domain and credited beneath each; six were made for this paper with AI assistance.</p>
+        <p>Articles are the opinions of their authors. Pictures are credited beneath each: period art and U.S. government photographs are in the public domain, licensed photographs name their licence, and some illustrations were made for this paper with AI assistance.</p>
       </div>
       <img class="barcode" src="${bar}" alt="ISSN ${esc(e.issn)}">
     </div>`;
 }
 
-const RENDER = { article: articleModule, ad: adModule, mast: masthead, contents: contentsBox,
+function featureModule(m) {
+  const a = byId(m.id);
+  let body = paragraphs(whole(a), a.setOff || []);
+  if (m.dropcap && /^[A-Za-z]/.test(whole(a).trim())) body = body.replace('<p>', '<p class="dropcap">');
+  const top = figure(m.topArt.name, m.topArt.height, m.topArt.caption, m.topArt.pos);
+  const bottom = figure(m.bottomArt.name, m.bottomArt.height, m.bottomArt.caption, m.bottomArt.pos);
+  return `
+    <div class="head">
+      ${m.kicker ? `<div class="kicker">${esc(m.kicker)}</div>` : ''}
+      <h2 class="hed ${m.size || 'xl'}">${esc(m.title || a.title)}</h2>
+      ${a.excerpt && m.deck !== false ? `<p class="dek">${esc(m.deck || a.excerpt)}</p>` : ''}
+      <div class="byline">By ${esc(a.author)}</div>
+    </div>
+    <div class="feature-grid">
+      <div class="body frame" data-article="${esc(a.id)}" data-chain="${esc(a.id)}" data-order="0" style="grid-area:1/1/4/2;column-count:1">${body}</div>
+      <div class="feature-art" style="grid-area:1/2/2/4">${top}</div>
+      <div class="body frame" data-article="${esc(a.id)}" data-chain="${esc(a.id)}" data-order="1" style="grid-area:2/2/3/4;column-count:2"></div>
+      <div class="feature-art" style="grid-area:3/2/4/4">${bottom}</div>
+    </div>`;
+}
+
+const RENDER = { article: articleModule, feature: featureModule, ad: adModule, mast: masthead, contents: contentsBox,
                  ane: aneModule, box: boxModule, colophon };
 
 function renderModule(m) {
@@ -234,6 +257,43 @@ ${font('Blackletter', 'unifrakturmaguntia__UnifrakturMaguntia-Book.ttf', 'normal
 ${css}
 </style></head><body>
 ${edition.pages.map(renderPage).join('')}
+<script>
+// Pour each chain of linked frames: whatever overflows frame N moves to frame N+1.
+// A paragraph that straddles the boundary is split by words, and its second half
+// is marked .cont so it does not indent like a new paragraph.
+(function () {
+  // A frame is a multicol box even at one column, and multicol overflows
+  // SIDEWAYS into new columns, so width is the test, with height as a backstop.
+  const over = (f) => f.scrollWidth > f.clientWidth + 1 || f.scrollHeight > f.clientHeight + 1;
+  const chains = {};
+  document.querySelectorAll('.frame[data-chain]').forEach((f) => (chains[f.dataset.chain] ||= []).push(f));
+  for (const frames of Object.values(chains)) {
+    frames.sort((a, b) => a.dataset.order - b.dataset.order);
+    for (let i = 0; i < frames.length - 1; i++) {
+      const f = frames[i], next = frames[i + 1];
+      while (over(f) && f.lastElementChild) {
+        const last = f.lastElementChild;
+        next.insertBefore(last, next.firstChild);
+        if (!over(f)) {
+          // It fit without this paragraph: pull back as many words as will fit.
+          if (last.tagName !== 'P') break;
+          const words = last.textContent.split(' ');
+          const head = document.createElement('p'); head.className = last.className.replace('setoff', '').trim();
+          f.appendChild(head);
+          let lo = 0, hi = words.length;
+          while (lo < hi) { const mid = Math.ceil((lo + hi) / 2); head.textContent = words.slice(0, mid).join(' '); if (over(f)) hi = mid - 1; else lo = mid; }
+          if (lo === 0) { head.remove(); break; }
+          head.textContent = words.slice(0, lo).join(' ');
+          last.textContent = words.slice(lo).join(' ');
+          last.classList.remove('dropcap'); last.classList.add('cont');
+          break;
+        }
+      }
+    }
+  }
+  document.body.dataset.poured = '1';
+})();
+</script>
 </body></html>`;
 
 const out = path.join(ROOT, 'output', `${edition.meta.slug}.html`);

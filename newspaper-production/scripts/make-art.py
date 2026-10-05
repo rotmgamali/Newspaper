@@ -7,11 +7,14 @@ it suits a paper named for the 250th, survives coarse newsprint and a cheap
 press far better than a photograph, and needs no colour. No lettering in the
 picture (models misspell it) and no real, identifiable people.
 
-    OPENAI_API_KEY=... python3 newspaper-production/scripts/make-art.py <id> [<id> ...]
-    OPENAI_API_KEY=... python3 newspaper-production/scripts/make-art.py --all
+    GEMINI_API_KEY=$(security find-generic-password -s cs250-gemini-art -w) \
+        python3 newspaper-production/scripts/make-art.py --all
 
-OpenAI rather than Gemini: the Gemini key on this machine is free tier, and
-the free tier's image quota is zero.
+The key lives in the login keychain as cs250-gemini-art: a key on Andrew's
+billed "ultra" Google project, restricted to the Gemini API (2026-10-02).
+The content-factory Gemini key is free tier, whose image quota is zero, and
+both OpenAI keys on this machine are out of credit. OPENAI_API_KEY still
+works here if one is funded again.
 
 Writes art/<id>.png. Skips any id that already has art unless --force.
 """
@@ -20,6 +23,7 @@ import base64, json, os, pathlib, sys, urllib.request
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 ART = ROOT / "art"
 MODEL = "gpt-image-1.5"
+GEMINI_MODEL = "gemini-3-pro-image"
 STYLE = (
     "Black and white pen-and-ink editorial illustration in the style of an 18th-century "
     "American broadside engraving: fine cross-hatching, strong black linework, pure white "
@@ -52,21 +56,38 @@ SUBJECTS = {
 }
 
 
-def generate(aid, key):
-    body = {"model": MODEL, "prompt": f"{STYLE}\n\nSubject: {SUBJECTS[aid]}.",
-            "size": "1536x1024", "quality": "medium", "n": 1}
-    req = urllib.request.Request("https://api.openai.com/v1/images/generations",
-        data=json.dumps(body).encode(),
-        headers={"Content-Type": "application/json", "Authorization": f"Bearer {key}"})
+def generate(aid, key, provider):
+    prompt = f"{STYLE}\n\nSubject: {SUBJECTS[aid]}."
+    if provider == "gemini":
+        body = {"contents": [{"parts": [{"text": prompt}]}],
+                "generationConfig": {"responseModalities": ["IMAGE"], "imageConfig": {"aspectRatio": "4:3"}}}
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent?key={key}"
+        headers = {"Content-Type": "application/json"}
+    else:
+        body = {"model": MODEL, "prompt": prompt, "size": "1536x1024", "quality": "medium", "n": 1}
+        url = "https://api.openai.com/v1/images/generations"
+        headers = {"Content-Type": "application/json", "Authorization": f"Bearer {key}"}
+    req = urllib.request.Request(url, data=json.dumps(body).encode(), headers=headers)
     try:
         d = json.load(urllib.request.urlopen(req, timeout=300))
     except urllib.error.HTTPError as e:
         raise RuntimeError(f"HTTP {e.code}: {e.read().decode()[:200]}")
+    if provider == "gemini":
+        for part in d["candidates"][0]["content"]["parts"]:
+            inline = part.get("inlineData") or part.get("inline_data")
+            if inline:
+                return base64.b64decode(inline["data"])
+        raise RuntimeError(f"no image returned: {json.dumps(d)[:200]}")
     return base64.b64decode(d["data"][0]["b64_json"])
 
 
 def main():
-    key = os.environ.get("OPENAI_API_KEY") or sys.exit("OPENAI_API_KEY not set")
+    if os.environ.get("GEMINI_API_KEY"):
+        key, provider = os.environ["GEMINI_API_KEY"], "gemini"
+    elif os.environ.get("OPENAI_API_KEY"):
+        key, provider = os.environ["OPENAI_API_KEY"], "openai"
+    else:
+        sys.exit("set GEMINI_API_KEY or OPENAI_API_KEY")
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     ids = list(SUBJECTS) if "--all" in sys.argv else args
     ART.mkdir(exist_ok=True)
@@ -75,7 +96,7 @@ def main():
         if out.exists() and "--force" not in sys.argv:
             print(f"  skip {aid} (exists)"); continue
         try:
-            out.write_bytes(generate(aid, key)); print(f"  ok   {aid}  {out.stat().st_size:,} bytes")
+            out.write_bytes(generate(aid, key, provider)); print(f"  ok   {aid}  {out.stat().st_size:,} bytes")
         except Exception as e:
             print(f"  FAIL {aid}: {str(e)[:160]}")
 

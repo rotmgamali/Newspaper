@@ -1,73 +1,10 @@
 {
- "health-insurance": {
-  "file": "File:The Doctor Luke Fildes crop.jpg",
-  "artist": "Luke Fildes",
-  "date": "1891",
-  "license": "Public domain",
-  "source": "https://commons.wikimedia.org/wiki/File:The_Doctor_Luke_Fildes_crop.jpg"
- },
- "tariffs": {
-  "file": "File:The fullest dinner pail - Tariff for Graft Only.jpg",
-  "artist": "Keppler, Udo J., 1872-1956, artist",
-  "date": "1908",
-  "license": "Public domain",
-  "source": "https://commons.wikimedia.org/wiki/File:The_fullest_dinner_pail_-_Tariff_for_Graft_Only.jpg"
- },
- "ice-deportations": {
-  "file": "File:Immigrants landing at Castle Garden - drawn by A.B. Shults. LCCN90707732.jpg",
-  "artist": "Shults, A. B. (Albert B.), 1868-1913, artist",
-  "date": "1880",
-  "license": "Public domain",
-  "source": "https://commons.wikimedia.org/wiki/File:Immigrants_landing_at_Castle_Garden_-_drawn_by_A.B._Shults._LCCN90707732.jpg"
- },
- "immigrant-families": {
-  "file": "File:Joys and sorrows at Ellis Island - DPLA - 3e3cb2b7ad757a437b94048b32bd4bcb.jpg",
-  "artist": "Hine, Lewis Wickes, 1874-1940",
-  "date": "1905date QS:P571,+1905-00-00T00:00:00Z/9",
-  "license": "Public domain",
-  "source": "https://commons.wikimedia.org/wiki/File:Joys_and_sorrows_at_Ellis_Island_-_DPLA_-_3e3cb2b7ad757a437b94048b32bd4bcb.jpg"
- },
- "homelessness-in-connecticut": {
-  "file": "File:Lodgers in a Crowded Bayard Street Tenement.png",
-  "artist": "Jacob Riis",
-  "date": "circa 1890date QS:P,+1890-00-00T00:00:00",
-  "license": "Public domain",
-  "source": "https://commons.wikimedia.org/wiki/File:Lodgers_in_a_Crowded_Bayard_Street_Tenement.png"
- },
- "other-half-of-affordability": {
-  "file": "File:Jacob Riis - Bird's-Eye View of an East Side Tenement Block.png",
-  "artist": "Jacob Riis (1849-1914)",
-  "date": "1890",
-  "license": "Public domain",
-  "source": "https://commons.wikimedia.org/wiki/File:Jacob_Riis_-_Bird%27s-Eye_View_of_an_East_Side_Tenement_Block.png"
- },
  "social-security": {
   "file": "File:Ben Shahn mural located at the Wilbur J. Cohen Federal Building, Washington, D.C LCCN2013634377.tif",
   "artist": "Ben Shahn",
   "date": "Taken on\u00a020 October 2011, 04:46\u00a0(accordi",
   "license": "Public domain",
   "source": "https://commons.wikimedia.org/wiki/File:Ben_Shahn_mural_located_at_the_Wilbur_J._Cohen_Federal_Building,_Washington,_D.C_LCCN2013634377.tif"
- },
- "welfare-for-whom": {
-  "file": "File:White Angel Breadline, San Francisco, 1932, by Dorothea Lange, 4.jpg",
-  "artist": "Dorothea Lange",
-  "date": "Taken in\u00a01932",
-  "license": "Public domain",
-  "source": "https://commons.wikimedia.org/wiki/File:White_Angel_Breadline,_San_Francisco,_1932,_by_Dorothea_Lange,_4.jpg"
- },
- "come-on-up": {
-  "file": "File:American Homestead Summer - Vanderbilt Fine Arts Gallery - 1988.092.tif",
-  "artist": "Currier and Ives",
-  "date": "1868",
-  "license": "Public domain",
-  "source": "https://commons.wikimedia.org/wiki/File:American_Homestead_Summer_-_Vanderbilt_Fine_Arts_Gallery_-_1988.092.tif"
- },
- "police-masks": {
-  "file": "File:The Frolick (BM Cc,2.241).jpg",
-  "artist": "",
-  "date": "1717-1837 (c.)",
-  "license": "Public domain",
-  "source": "https://commons.wikimedia.org/wiki/File:The_Frolick_(BM_Cc,2.241).jpg"
  },
  "matt-walsh-reply": {
   "file": "File:Foundation of the American Government by Henry Hintermeister.jpg",
@@ -81,5 +18,140 @@
   "artist": "\nUnknown authorUnknown author or not provided",
   "license": "Public domain",
   "source": "https://commons.wikimedia.org/wiki/File:FWA-PBA-Paintings_and_Sculptures_for_Public_Buildings-painting_depicting_hockey_players_from_early_1900%27s_in..._-_NARA_-_195788.tif"
+ },
+ "tariffs-period": {
+  "file": "File:The fullest dinner pail - Tariff for Graft Only.jpg",
+  "artist": "Keppler, Udo J., 1872-1956, artist",
+  "date": "1908",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:The_fullest_dinner_pail_-_Tariff_for_Graft_Only.jpg"
+ },
+ "tariffs": {
+  "file": "File:U S Customs & Border Protection Port of New York - Newark Conduct First Cargo Container Inspection After Hurricane Sandy (8167432227).jpg",
+  "artist": "CBP Photography",
+  "date": "Taken on\u00a05 November 2012, 09:4",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:U_S_Customs_%26_Border_Protection_Port_of_New_York_-_Newark_Conduct_First_Cargo_Container_Inspection_After_Hurricane_Sandy_(8167432227).jpg",
+  "modern": true
+ },
+ "ice-deportations-period": {
+  "file": "File:Immigrants landing at Castle Garden - drawn by A.B. Shults. LCCN90707732.jpg",
+  "artist": "Shults, A. B. (Albert B.), 1868-1913, artist",
+  "date": "1880",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Immigrants_landing_at_Castle_Garden_-_drawn_by_A.B._Shults._LCCN90707732.jpg"
+ },
+ "ice-deportations": {
+  "file": "File:20250128 ICE ERO New York Targeted Enforcement CB (1) (55357575367).jpg",
+  "artist": "usicegov",
+  "date": "Taken on\u00a028 January 2025, 06:2",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:20250128_ICE_ERO_New_York_Targeted_Enforcement_CB_(1)_(55357575367).jpg",
+  "modern": true
+ },
+ "police-masks-period": {
+  "file": "File:The Frolick (BM Cc,2.241).jpg",
+  "artist": "",
+  "date": "1717-1837 (c.)",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:The_Frolick_(BM_Cc,2.241).jpg"
+ },
+ "police-masks": {
+  "file": "File:Immigration and Customs Enforcement (ICE) Enforcement and Removal Operations (ERO) in Los Angeles, California, June 12, 2025 - 43.jpg",
+  "artist": "DHSgov",
+  "date": "2025-06-12 06:45:45",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Immigration_and_Customs_Enforcement_(ICE)_Enforcement_and_Removal_Operations_(ERO)_in_Los_Angeles,_California,_June_12,_2025_-_43.jpg",
+  "modern": true
+ },
+ "immigrant-families-period": {
+  "file": "File:Joys and sorrows at Ellis Island - DPLA - 3e3cb2b7ad757a437b94048b32bd4bcb.jpg",
+  "artist": "Hine, Lewis Wickes, 1874-1940",
+  "date": "1905date QS:P571,+1905-00-00T00:00:00Z/9",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Joys_and_sorrows_at_Ellis_Island_-_DPLA_-_3e3cb2b7ad757a437b94048b32bd4bcb.jpg"
+ },
+ "immigrant-families": {
+  "file": "File:2023 Naturalization Ceremony- oath of citizenship (53196655504).jpg",
+  "artist": "YellowstoneNPS",
+  "date": "Taken on\u00a014 September 2023, 11",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:2023_Naturalization_Ceremony-_oath_of_citizenship_(53196655504).jpg",
+  "modern": true
+ },
+ "homelessness-in-connecticut-period": {
+  "file": "File:Lodgers in a Crowded Bayard Street Tenement.png",
+  "artist": "Jacob Riis",
+  "date": "circa 1890date QS:P,+1890-00-00T00:00:00",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Lodgers_in_a_Crowded_Bayard_Street_Tenement.png"
+ },
+ "homelessness-in-connecticut": {
+  "file": "File:Homeless Tents Encampment at Columbus Circle at Union Station 01.jpg",
+  "artist": "Elvert Barnes",
+  "date": "2021-10-16 10:50:33",
+  "license": "CC BY-SA 2.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Homeless_Tents_Encampment_at_Columbus_Circle_at_Union_Station_01.jpg",
+  "modern": true
+ },
+ "welfare-for-whom-period": {
+  "file": "File:White Angel Breadline, San Francisco, 1932, by Dorothea Lange, 4.jpg",
+  "artist": "Dorothea Lange",
+  "date": "Taken in\u00a01932",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:White_Angel_Breadline,_San_Francisco,_1932,_by_Dorothea_Lange,_4.jpg"
+ },
+ "welfare-for-whom": {
+  "file": "File:Capital Area Food Bank (20211202-FNS-LSC-0346).jpg",
+  "artist": "USDAgov",
+  "date": "Taken on\u00a02 December 2021, 14:0",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Capital_Area_Food_Bank_(20211202-FNS-LSC-0346).jpg",
+  "modern": true
+ },
+ "come-on-up-period": {
+  "file": "File:American Homestead Summer - Vanderbilt Fine Arts Gallery - 1988.092.tif",
+  "artist": "Currier and Ives",
+  "date": "1868",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:American_Homestead_Summer_-_Vanderbilt_Fine_Arts_Gallery_-_1988.092.tif"
+ },
+ "come-on-up": {
+  "file": "File:Hartford, Connecticut skyline.jpg",
+  "artist": "Quintin Soloviev",
+  "date": "2025-10-31 16:20:18",
+  "license": "CC BY 4.0",
+  "source": "https://commons.wikimedia.org/wiki/File:Hartford,_Connecticut_skyline.jpg",
+  "modern": true
+ },
+ "health-insurance-period": {
+  "file": "File:The Doctor Luke Fildes crop.jpg",
+  "artist": "Luke Fildes",
+  "date": "1891",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:The_Doctor_Luke_Fildes_crop.jpg"
+ },
+ "health-insurance": {
+  "file": "File:LAMAT 25 Augments Kittitian Emergency Room Capabilities (8967845).jpg",
+  "artist": "U.S. Air Force photo by Julian Hernandez",
+  "date": "Taken on\u00a01 April 2025, 10:25:0",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:LAMAT_25_Augments_Kittitian_Emergency_Room_Capabilities_(8967845).jpg",
+  "modern": true
+ },
+ "other-half-of-affordability-period": {
+  "file": "File:Jacob Riis - Bird's-Eye View of an East Side Tenement Block.png",
+  "artist": "Jacob Riis (1849-1914)",
+  "date": "1890",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Jacob_Riis_-_Bird%27s-Eye_View_of_an_East_Side_Tenement_Block.png"
+ },
+ "other-half-of-affordability": {
+  "file": "File:Ramstein job fair launches overseas spouse direct-hire authority pilot program (7665444).jpg",
+  "artist": "U.S. Air Force photo by Airman 1st Class Jordan Lazaro",
+  "date": "Taken on\u00a03 March 2023",
+  "license": "Public domain",
+  "source": "https://commons.wikimedia.org/wiki/File:Ramstein_job_fair_launches_overseas_spouse_direct-hire_authority_pilot_program_(7665444).jpg",
+  "modern": true
  }
 }

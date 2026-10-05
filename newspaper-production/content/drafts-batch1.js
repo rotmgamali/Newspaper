@@ -1,11 +1,12 @@
-// teach-to-the-tests and homelessness-in-connecticut carry the publisher's own
+// All seven carry the publisher's own revisions, returned 2026-09-30 and 2026-10-04,
+// taken verbatim from his Word files. Earlier note: teach-to-the-tests and homelessness-in-connecticut carry the publisher's own
 // rewrite, returned 2026-09-30 ("I re-did the first two"), taken verbatim from
 // his Word file. Paragraph indents are the stylesheet's job, so his leading
 // spaces are not carried.
 export const drafts = [
   {
     id: 'teach-to-the-tests',
-    title: 'Teach To The Tests',
+    title: "Teach To The Tests",
     author: 'Mark Stewart Greenstein',
     date: 'October 1, 2026',
     category: 'Education',
@@ -33,12 +34,14 @@ export const drafts = [
       "For most students we should dispense with teaching it. I came to love Shakespeare as an adult. But as a tenth grader, I did not. Shakespeare was taught badly. We had to plod through line after line, word after word, of four-hundred-year-old words. It couldn't be enjoyable. It was a chore, until I saw a play, which is funny. Just having a video in school for act one will get so many more students engaged and wanting to read more. What are the words behind this? Shakespeare is humorous. It is hard to be humorous even in our own time, and this guy is funny, and it has lasted 425 years. Absolutely amazing. That would give great appreciation.",
       "But it is off standard. Don't make it a requirement. Make it optional. Kids can become Shakespearean scholars in college, maybe even near the end of high school if they have really latched on to it. Until then: be practical, be enjoyable, and teach to the tests, so that the practicing — and the enjoyability that kids gain from school — gives them long-term success.",
     ].join('\n\n'),
+    // Paragraphs he set off with a 0.5in first-line indent in his Word file.
+    setOff: [2, 5, 6, 7, 12, 18],
     sourceVideo: 'https://youtu.be/YmGiCZzeGHE',
     sourceWords: 682,
   },
   {
     id: 'homelessness-in-connecticut',
-    title: 'Homelessness Begins In The Mindset',
+    title: "Homelessness Begins In The Mindset",
     author: 'Mark Stewart Greenstein',
     date: 'October 1, 2026',
     category: 'Civics',
@@ -59,27 +62,39 @@ export const drafts = [
       "Any well-balanced adult can get decent work. This is not 1931 and a deep recession. Any adult who wants to work can find employment in this state somewhere, including remunerative online work from where they are. Even at minimum wage, you work 50 to 55 hours a week and it yields at least $3,000. So spending $1,000 of that on your housing still leaves you $2,000 a month. And one of those two jobs — because 50 hours a week probably takes two jobs to do — is likely to pay well above minimum wage when you do well for them. Six months later you are into a raise, maybe a 40-hours-plus-benefits type of work situation.",
       "That can be the on-ramp for those who are homeless but not permanently mentally ill.",
     ].join('\n\n'),
+    // Paragraphs he set off with a 0.5in first-line indent in his Word file.
+    setOff: [5, 8],
     sourceVideo: 'https://youtu.be/5rBt4XIou_Q',
     sourceWords: 776,
   },
   {
     id: 'welfare-for-whom',
-    title: 'Aid The Individual, Not The Group',
+    title: "Aid The Individual, Not The Group",
     author: 'Mark Stewart Greenstein',
     date: 'October 1, 2026',
     category: 'Liberty & Politics',
     excerpt: 'Advocates want Connecticut to feed 36,000 people in three groups after SNAP ends, but charity that judges groups instead of individuals fails both the giver and the needy.',
     contentFull: [
-      'As reported in the Connecticut Mirror, the ending of the SNAP benefit has advocates for 36,000 people in Connecticut asking us to spend money to feed them. They come in three groups: young adults, veterans, and immigrants. Three groups, and a big difference among them. Let me parse them.',
-      'Which one is not worthy? As a group, not as individuals, I think you have to say immigrants, who are supposed to be working if they are here, and thus not starving. If they are here on a green card, they are working. If they are here with a sponsor, the sponsor is pledging to take care of them in case bad things befall their economics. So an immigrant who is not taking care of himself should not be calling on government welfare.',
-      'Now, there is a place for private welfare, because a lot of them are nice people. A lot of them, after they get over a hump, will be very productive people, good Americans in the making. But look to private. That might be their own employer. If an employer knows a man is on the verge of starving, almost any employer is going to find some bonus turkey each week, some extra to get this guy fed and to work. If not, there is family, there are neighbors, there are churches, there are other charities that are not government — which means it is not forced from our pocketbooks.',
-      'The other groups, veterans and young people, often have disasters befall them, so that they are less capable of helping themselves. Our immigration system, as we know, is totally screwed up. But at the core, people who come here are not here to take, at the outset or even long term. They are here because they are productive. They can take care of themselves.',
-      'Now, as I think you know, I am not a big fan of giving welfare dollars, private or government, on a group-by-group basis. We should be more discerning, down to individuals. This is Trump\'s big failing in my mind on the immigration front: that it is a whole country he is going to say no to, everyone from there, including very good people. The parsing of good from not-so-good is something that even government can do.',
-      'Again, I think private should have the first crack. They do it very well. I am part of a Jewish charitable group where they know the people who have been applying for aid, or maybe not even applying — they are really down and out, and somebody else is applying for them. They scrutinize the situation. Is this a good person to be aiding? Or is this a person we give money, clothes and food to who is just going to buy booze? Discernment is right. It is the right thing to do for them, and for us, to feel good about where our private and, yes, our public welfare dollars are going.',
-      'Even government can do this. Make individualized decisions with it. You uplift almost everyone who is needy, because they need to step up as individuals. Yes, I am down right now, but I am not out. I want to rebound, and I have gratitude for the agency or the individuals who are helping me.',
-      'When somebody is classified as just part of a group, they are suddenly entitled. They don\'t have to justify. They are not even likely to try. Oh, I am part of a designated group: veteran, young, immigrant. And because they are not escaping the group to a higher status, they stay as a group in what I think is a lower status.',
-      'Individualism uplifts, even when it comes to charity.',
+      "As reported in the Connecticut Mirror, the ending of the SNAP benefit in Connecticut has advocates for asking us to spend money to feed three “needy” groups:",
+      "young adults,",
+      "veterans, and",
+      "immigrants.",
+      "There is a big difference among them. To the extent individuals are to be amalgamated (already reprehensible) let us explore each group’s worthiness for receiving widespread charity.",
+      "“Young adults” include many who are one job offer away from a career that will lead them to out-earn the vast majority of us. But until they have a footing, those without family members to help are on the precipice of failing to feed themselves adequately. Food banks exist, but they typically carry not-so-nutritious food-stuffs.",
+      "“Veterans” are another widely divergent group – some vets are earning nicely with second careers on top of a large serviceman’s pension. But others are facing a low pension, especially those who volunteered for service. Still others disabled from their service are truly hurting financially as well as physically.",
+      "“Immigrants”, however, should not be needy. Recent immigrants are supposed to be working if they are here, and thus not starving. If they are here on a green card, they are working. If they are here with a sponsor, the sponsor is pledging to take care of them in case bad things befall their economics. So an immigrant who is not taking care of himself should not be calling on government welfare.",
+      "Now, there is a place for private welfare, and it should be the first call. Most recent immigrants are nice people. A lot of them, after they get over a hump, will be very productive people, good Americans in the making. But look to private. That might be their own employer. If an employer knows a man is on the verge of starving, almost any employer is going to find some bonus turkey each week, some extra to get this guy fed and to work. If not, there is family, there are neighbors, there are churches, there are other charities that are not government — which means it is not forced from our pocketbooks.",
+      "The other groups, veterans and young people, often have disasters befall them, so that they are less capable of helping themselves. Our immigration system, as we know, is totally screwed up. But at the core, people who come here are not here to take, at the outset or even long term. They are here because they are productive. They have the ability and the mindset to take care of themselves.",
+      "Now, giving welfare dollars, private or government, on a group-by-group basis is abhorrent. The government does classifications because current bureaucracies are incapable of examining individually. We should be more discerning, down to individuals. If a state government can’t make a nimble bureaucracy to assess the “worthiness” of receiving a benefit, it should not offer the benefit.",
+      "Donald Trump's failing on the immigration front: disqualifying a whole country’s would-be-immigrants. Even nations with vile governments have some very good people. Indeed, the best people living under vile regimes, are among the one MOST likely to want to immigrate here. We can and should parse them. The parsing of good from not-so-good is something that even government can do.",
+      "Again, private donors should have the first crack. They do it very well. They scrutinize the situation. Is this a good person to be aiding? Or is this a person we give money, clothes and food to who is just going to buy booze? Jewish charitable groups know the people who have been applying for aid, or maybe not even applying — they are really down and out, and somebody else is applying for them.",
+      "Discernment is right. It is the right thing to do for them, and for us, to feel good about where our private and, yes, our public welfare dollars are going.",
+      "Even government can do this. Make individualized decisions with it. You uplift almost everyone who is needy, because they (usually) step up as individuals. “Yes, I am down right now, but I am not out. I want to rebound, and I have gratitude for the agency or the individuals who are helping me”.",
+      "When somebody is classified as just part of a group, they are suddenly entitled. They don't have to justify. They are not even likely to try. “Oh, I am part of a designated group: veteran, young, immigrant.” And because they are not escaping the group to a higher status, they stay as a group in a lower status.",
+      "Individualism uplifts, even when it comes to charity.",
     ].join('\n\n'),
+    // Paragraphs he set off with a 0.5in first-line indent in his Word file.
+    setOff: [1, 2, 3],
     sourceVideo: 'https://youtu.be/N6_aTedMrZY',
     sourceWords: 603,
   },

@@ -179,7 +179,7 @@ export const ads = {
       'Make Connecticut skate again.',
       'Own a piece of a returning team.',
     ],
-    url: 'NHLtoHartford.com',
+    url: 'NHLtoHartford.org',   // publisher, 2026-10-04: the .org is the live site (the .com is parked)
     authorization: { by: 'Mark S. Greenstein', on: '2026-10-02', note: "Publisher's direction: page 8, or small on page 1" },
     note:
       'The copy offers "ownership shares" in a prospective franchise, which reads ' +
@@ -187,8 +187,8 @@ export const ads = {
       'on 2026-09-10 and again on 2026-09-20, recommending the wording be cleared ' +
       'or the ownership-share line struck. He is the publisher and it is his ' +
       'offer; it runs at his direction. This note is the record that he was told. ' +
-      'Also: NHLtoHartford.com (registered 2022, GoDaddy) is a parked page with no ' +
-      'site behind it, measured 2026-10-03.',
+      'URL corrected to NHLtoHartford.org (live: Whaler Land store) by the publisher ' +
+      '2026-10-04; the .com is a parked page.',
   },
 
   // --- added at the publisher's direction, 2026-10-02 ---------------------------

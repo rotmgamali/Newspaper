@@ -28,8 +28,10 @@ export const edition = {
   meta: {
     slug: 'common-sense-250-vol1-no1-tabloid',
     volume: 'I', number: '1', variant: '01',
-    date: 'October 1, 2026',
-    place: 'Vernon, Connecticut',
+    // Publisher, 2026-10-04: "Hartford Connecticut and October 2026 (not Oct 1)".
+    date: 'October 2026',
+    place: 'Hartford, Connecticut',
+    motto: 'Civics · Opinions · Ethics',
     frequency: 'Published quarterly',
     price: 2.5,
     web: 'commonsense250.news',
@@ -43,11 +45,16 @@ export const edition = {
       areas: ['lead lead lead side'],
       rows: ['1fr'],
       modules: [
-        { type: 'article', area: 'lead', id: 'no-draft', span: 3, size: 'xl', dropcap: true,
-          kicker: 'Liberty & Politics', art: 'no-draft', artHeight: 2.8, artPos: 'center 58%',
-          caption: "Volunteers, not conscripts: Ethan Allen's militia takes Fort Ticonderoga, May 10, 1775." },
+        // Publisher, 2026-10-04: a two-column illustration of a frightened young
+        // conscript held at gunpoint by his officer; Ticonderoga smaller, two
+        // columns, bottom right, keeping its caption.
+        { type: 'feature', area: 'lead', id: 'no-draft', size: 'xl', dropcap: true, kicker: 'Liberty & Politics', deck: false,
+          topArt: { name: 'no-draft-conscript', height: 2.8,
+                    caption: 'The draft does not ask. Illustration for Common Sense 250.' },
+          bottomArt: { name: 'no-draft', height: 1.75, pos: 'center 55%',
+                       caption: "Volunteers, not conscripts: Ethan Allen's militia takes Fort Ticonderoga, May 10, 1775." } },
         { type: 'stack', area: 'side', items: [
-          { type: 'article', id: 'conservatarian', size: 's', art: false, kicker: 'Our Purpose', deck: false, grow: true },
+          { type: 'article', id: 'conservatarian', size: 's', art: false, kicker: 'Our Purpose', deck: false, grow: true, italic: true },
           { type: 'article', id: 'hartford-convention', size: 's', art: 'hartford-convention', artHeight: 1.5,
             kicker: 'Coming in November', deck: false },
         ] },
@@ -60,9 +67,9 @@ export const edition = {
       rows: ['1fr', '3.3in'],
       modules: [
         { type: 'article', area: 'hea', id: 'health-insurance', span: 2, size: 'l', dropcap: true,
-          caption: 'Luke Fildes, The Doctor, 1891.', artHeight: 1.8 },
+          caption: 'An emergency-room team at work, 2025. U.S. Air Force photo.', artHeight: 1.8, artPos: 'center 40%' },
         { type: 'article', area: 'tar', id: 'tariffs', span: 2, size: 'm',
-          artInline: true, caption: '“The fullest dinner pail”: Udo J. Keppler for Puck.' },
+          caption: 'Customs officers inspect imported cargo, Port of New York. U.S. Customs and Border Protection photo.', artHeight: 1.3 },
         { type: 'ad', area: 'lib', key: 'impact-health' },
       ],
     },
@@ -73,9 +80,9 @@ export const edition = {
       rows: ['1fr', '3.3in'],
       modules: [
         { type: 'article', area: 'ice', id: 'ice-deportations', span: 2, size: 'l', dropcap: false,
-          caption: 'Immigrants landing at Castle Garden, New York. A. B. Shults for Harper’s Weekly, 1880.', artHeight: 1.75, artPos: 'center 45%' },
+          caption: 'Federal agents on an ICE enforcement operation in New York, January 2025. ICE photo.', artHeight: 1.75, artPos: 'center 40%' },
         { type: 'article', area: 'imm', id: 'immigrant-families', span: 2, size: 'm',
-          caption: 'Joys and sorrows at Ellis Island. Lewis W. Hine, about 1905.', artHeight: 2.4, artPos: 'center 40%' },
+          caption: 'New citizens take the oath, 2023. National Park Service photo.', artHeight: 2.4, artPos: 'center 55%' },
         { type: 'ad', area: 'wha', key: 'aspire-schools' },
       ],
     },
@@ -100,7 +107,7 @@ export const edition = {
             text: 'Actions speak more than words. The Patriots rebound under Maye after five years in the wilderness.' },
         ] },
         { type: 'article', area: 'pol', id: 'police-masks', span: 3, size: 'm',
-          artInline: true, caption: 'The night watch and their lanterns. After William Hogarth.' },
+          caption: 'A masked federal agent on an enforcement operation, 2025. Department of Homeland Security photo.', artHeight: 1.15, artPos: 'center 32%' },
         { type: 'stack', area: 'ads', items: [
           { type: 'ad', key: 'ybh-sixteenth', grow: true },
           { type: 'ad', key: 'jamie-condos', grow: true },
@@ -116,7 +123,7 @@ export const edition = {
         { type: 'article', area: 'tea', id: 'teach-to-the-tests', span: 2, size: 'l', art: 'teach-to-the-tests',
           artHeight: 3.0, dropcap: true },
         { type: 'article', area: 'hom', id: 'homelessness-in-connecticut', span: 2, size: 'm',
-          artInline: true, caption: 'Lodgers in a Bayard Street tenement. From Jacob Riis, How the Other Half Lives, 1890.' },
+          caption: 'Tents outside Union Station, Washington, 2021. Photo: Elvert Barnes, CC BY-SA 2.0.', artHeight: 1.2 },
         { type: 'ad', area: 'ivy', key: 'ivy-bound' },
       ],
     },
@@ -124,12 +131,12 @@ export const edition = {
     // 6 ---------------------------------------------------------------------------
     {
       areas: ['soc soc wel wel', 'soc soc imp imp'],
-      rows: ['1fr', '3.3in'],
+      rows: ['1fr', '3.0in'],
       modules: [
         { type: 'article', area: 'soc', id: 'social-security', span: 2, size: 'l', dropcap: true,
           caption: 'Ben Shahn’s mural in the Social Security Building, Washington, 1940–42.', artHeight: 2.1 },
         { type: 'article', area: 'wel', id: 'welfare-for-whom', span: 2, size: 'm',
-          artInline: true, caption: 'White Angel Breadline, San Francisco, 1932. Dorothea Lange.' },
+          caption: 'A food bank warehouse, 2021. U.S. Department of Agriculture photo.', artHeight: 1.6 },
         { type: 'ad', area: 'imp', key: 'ybh-eighth' },
       ],
     },
@@ -137,12 +144,12 @@ export const edition = {
     // 7 ---------------------------------------------------------------------------
     {
       areas: ['oth oth cou cou', 'ba1 ba1 ba2 ba2'],
-      rows: ['1fr', '3.0in'],
+      rows: ['1fr', '2.7in'],
       modules: [
-        { type: 'article', area: 'oth', id: 'other-half-of-affordability', span: 2, size: 'l', dropcap: true,
-          caption: 'An East Side tenement block. From Jacob Riis, How the Other Half Lives, 1890.', artHeight: 2.1 },
+        { type: 'article', area: 'oth', id: 'other-half-of-affordability', span: 2, size: 'm', dropcap: true,
+          caption: 'Résumé in hand at a hiring fair, 2023. U.S. Air Force photo.', artHeight: 1.5 },
         { type: 'article', area: 'cou', id: 'come-on-up', span: 2, size: 'm',
-          caption: 'Currier & Ives, American Homestead: Summer.', artHeight: 3.85, artPos: 'center 45%' },
+          caption: 'Hartford in October. Photo: Quintin Soloviev, CC BY 4.0.', artHeight: 3.85, artPos: 'center 45%' },
         { type: 'ad', area: 'ba1', key: 'bahamas-villas' },
         { type: 'ad', area: 'ba2', key: 'bahamas-complex' },
       ],
