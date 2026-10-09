@@ -49,8 +49,12 @@ export const edition = {
         // conscript held at gunpoint by his officer; Ticonderoga smaller, two
         // columns, bottom right, keeping its caption.
         { type: 'feature', area: 'lead', id: 'no-draft', size: 'xl', dropcap: true, kicker: 'Liberty & Politics', deck: false,
-          topArt: { name: 'no-draft-conscript', height: 2.8,
-                    caption: 'The draft does not ask. Illustration for Common Sense 250.' },
+          // The publisher's illustration (a frightened conscript, his officer's
+          // pistol at his head) has not arrived. Until it does, a U.S. Army
+          // photograph holds the space; swap the name back to
+          // 'no-draft-conscript' when his picture comes.
+          topArt: { name: 'no-draft-recruit', height: 2.65, pos: 'center 30%',
+                    caption: 'First day of basic training, Fort Jackson, S.C., 2016. U.S. Army photo.' },
           bottomArt: { name: 'no-draft', height: 1.75, pos: 'center 55%',
                        caption: "Volunteers, not conscripts: Ethan Allen's militia takes Fort Ticonderoga, May 10, 1775." } },
         // Right column, publisher 2026-10-09: his revised Our Purpose (a size
@@ -73,8 +77,10 @@ export const edition = {
       areas: ['hea hea tar tar', 'hea hea lib lib'],
       rows: ['1fr', '3.3in'],
       modules: [
-        { type: 'article', area: 'hea', id: 'health-insurance', span: 2, size: 'l', dropcap: true,
-          caption: 'An emergency-room team at work, 2025. U.S. Air Force photo.', artHeight: 1.8, artPos: 'center 40%' },
+        // Publisher, 2026-10-09: the caption says "team" and the old photo
+        // showed one man; he wants three, four or five.
+        { type: 'article', area: 'hea', id: 'health-insurance', span: 2, size: 'l', dropcap: true, art: 'health-insurance-er-team',
+          caption: 'A hospital trauma team works a simulated patient in a drill, 2010. Photo: Robert Couse-Baker, CC BY 2.0.', artHeight: 1.8, artPos: 'center 45%' },
         { type: 'article', area: 'tar', id: 'tariffs', span: 2, size: 'm',
           caption: 'Customs officers inspect imported cargo, Port of New York. U.S. Customs and Border Protection photo.', artHeight: 1.3 },
         { type: 'ad', area: 'lib', key: 'impact-health' },
@@ -95,8 +101,8 @@ export const edition = {
           { type: 'article', id: 'immigrant-families', span: 2, size: 'm', grow: true,
             caption: 'New citizens take the oath, 2023. National Park Service photo.', artHeight: 1.45, artPos: 'center 55%' },
           { type: 'box', class: 'students', title: 'For Students',
-            art: [ { name: 'students-old', height: 1.5, caption: 'Then.' },
-                   { name: 'students-new', height: 1.5, caption: 'Now.' } ],
+            art: [ { name: 'students-old', height: 1.5, caption: 'Then: newsboys and newsgirls, Hartford, 1909. Lewis Hine, National Archives.' },
+                   { name: 'students-new', height: 1.5, caption: 'Now: students at their laptops. Photo: Erikareuter, CC BY-SA 4.0.' } ],
             html:
             '<p class="big">Join CS250. Spread the word.</p>' +
             '<p>Your words, other influential people’s words. Internships, paid and volunteer, are now offered in media, marketing, finance, sales &amp; “influence”.</p>' +
@@ -112,17 +118,21 @@ export const edition = {
       rows: ['9.2in', '1fr'],
       modules: [
         { type: 'ane', area: 'ane', entries: [
-          { years: '1775–76', name: 'Ethan Allen', place: 'Connecticut',
+          // Publisher, 2026-10-09: pictures for Allen, Coolidge and Maye too.
+          { years: '1775–76', name: 'Ethan Allen', place: 'Connecticut', art: 'ane-ethan-allen', artHeight: 2.0,
+            caption: 'Allen and the Green Mountain Boys, 1858. Library of Congress.',
             text: "Leads a group of 40 militiamen to invade British-held Fort Ticonderoga, capturing all the fort's defenders by surprise without firing a shot. The 70 cannons captured were transported overland under Henry Knox's leadership and quietly installed on the hilltops surrounding Boston, forcing the British who were occupying Boston to evacuate on March 17, 1776." },
-          { years: '1826', name: 'Gridley Bryant', place: 'Massachusetts', art: 'ane-granite-railway', artHeight: 2.3,
+          { years: '1826', name: 'Gridley Bryant', place: 'Massachusetts', art: 'ane-granite-railway', artHeight: 2.0, caption: 'Illustration for Common Sense 250.',
             text: 'Constructs the Granite Railway, widely recognized as the first chartered, industrial or commercial line built for business. Its inaugural mission: carrying granite from the quarries to build the Bunker Hill Monument, on the fiftieth anniversary of the battle there.' },
-          { years: '1875–76', name: 'Alexander Graham Bell', place: 'Massachusetts', art: 'ane-bell', artHeight: 2.3,
+          { years: '1875–76', name: 'Alexander Graham Bell', place: 'Massachusetts', art: 'ane-bell', artHeight: 2.0, caption: 'Illustration for Common Sense 250.',
             text: 'Working with Elisha Gray, the transplant from Scotland invents and then patents the telephone.' },
-          { years: '1926', name: 'Calvin Coolidge', place: 'Vermont',
+          { years: '1926', name: 'Calvin Coolidge', place: 'Vermont', art: 'ane-coolidge', artHeight: 1.7, artPos: 'center 30%',
+            caption: 'Coolidge, 1927. Harris & Ewing, Library of Congress.',
             text: 'The Vermont native gives a most-American speech at Arlington for the Presidential Memorial Day address: “As a people we have not sought military glory. Because of our fortunate circumstances, such wars as we have waged have been for the purpose of securing conditions under which peace would be more permanent, liberty would be more secure, and justice would be more certain.”' },
-          { years: '1975–76', name: 'Meldrim Thomson', place: 'New Hampshire', art: 'ane-axe-the-tax', artHeight: 2.0,
+          { years: '1975–76', name: 'Meldrim Thomson', place: 'New Hampshire', art: 'ane-axe-the-tax', artHeight: 1.7, caption: 'Illustration for Common Sense 250.',
             text: 'The Governor endorses the motto “Live Free or Die” for every New Hampshire license plate. It fits his long-standing minimalist creed, which appeared most prominently in his “Axe the Tax” platform.' },
-          { years: '2025–26', name: 'Drake Maye', place: 'Massachusetts, via North Carolina',
+          { years: '2025–26', name: 'Drake Maye', place: 'Massachusetts, via North Carolina', art: 'ane-drake-maye', artHeight: 1.7, artPos: 'center 25%',
+            caption: 'Maye, November 2024. Photo: Tennessee Titans, CC BY 3.0.',
             text: 'Actions speak more than words. The Patriots rebound under Maye after five years in the wilderness.' },
         ] },
         { type: 'article', area: 'pol', id: 'police-masks', span: 3, size: 'm',

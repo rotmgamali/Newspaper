@@ -136,6 +136,7 @@ function adModule(m) {
         ${ad.sub ? `<div class="ad-sub">${esc(ad.sub)}</div>` : ''}
         ${ad.lines.map((l) => `<p>${esc(l)}</p>`).join('')}
         ${img2 ? `<img class="ad-art second" src="${img2}" alt="">` : ''}
+        ${ad.fine ? `<div class="ad-fine">${esc(ad.fine)}</div>` : ''}
         ${ad.url || ad.contact ? `<div class="ad-url">${[ad.url, ad.contact].flat().filter(Boolean).map((l, i, all) => Array.isArray(ad.url) ? `<span class="ad-url-line">${esc(l)}</span>` : esc(l) + (i < all.length - 1 ? ' · ' : '')).join('')}</div>` : ''}
       </div>
     </div>`;
@@ -166,7 +167,7 @@ function aneModule(m) {
       <div class="ane-grid">
         ${m.entries.map((x) => `
           <div class="ane-entry">
-            ${x.art ? figure(x.art, x.artHeight || 1.9, null, x.artPos) : ''}
+            ${x.art ? figure(x.art, x.artHeight || 1.9, x.caption || null, x.artPos) : ''}
             <div class="ane-year">${esc(x.years)}</div>
             <div class="ane-name">${esc(x.name)} <span>· ${esc(x.place)}</span></div>
             <p>${esc(x.text)}</p>

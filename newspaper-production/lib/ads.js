@@ -135,9 +135,15 @@ export const ads = {
   'impact-health': {
     advertiser: 'Impact Health Sharing',
     size: 'quarter',
-    image: 'impact_health_ad_bw.png',
-    headline: 'Impact Health Sharing',
-    lines: ['An alternative to traditional health insurance.'],
+    style: 'logo',
+    // Publisher, 2026-10-09: "The Impact should be modern. You can use their
+    // logo." Logo, page title, phone and the not-insurance notice are all from
+    // their own site, www.impacthealthsharing.com, as of 2026-10-10.
+    image: 'impact-health-logo',
+    headline: 'An Affordable Alternative to Health Insurance',
+    lines: ['Phone hotline: (855) 378-6777'],
+    url: 'www.impacthealthsharing.com',
+    fine: 'Impact Health Sharing is not insurance. Not available in RI and WA.',
     authorization: { by: 'Mark S. Greenstein', on: '2026-09-11', note: "Publisher's direction; he calls them a loosely affiliated firm" },
     note: 'No written agreement from the company itself is on file. Raised with him 2026-09-20; he directed it to run.',
   },

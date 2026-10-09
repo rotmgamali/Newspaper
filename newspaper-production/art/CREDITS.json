@@ -175,5 +175,82 @@
   "license": "Supplied by the advertiser, 2026-10-08",
   "source": "email from Jamie Lythgoe via the publisher, 2026-10-08",
   "modern": true
+ },
+ "ane-coolidge": {
+  "file": "Calvin Coolidge (LCCN 2016888669)",
+  "artist": "Harris & Ewing, photographer",
+  "date": "1927",
+  "license": "Public domain (Commons tags PD-Harris-Ewing, PD-US-no notice); Library of Congress: no known restrictions on publication",
+  "source": "https://commons.wikimedia.org/wiki/File:Calvin_Coolidge_LCCN2016888669.jpg",
+  "caption": "Calvin Coolidge, 1927. Harris & Ewing, Library of Congress.",
+  "modern": false,
+  "fetched": "2026-10-10"
+ },
+ "ane-ethan-allen": {
+  "file": "Ethan Allen, 1738-1789, full-length portrait, standing, before 'the Green Mountain Boys in Council', examining map (LCCN 2005688179)",
+  "artist": "Unknown wood engraver (1858 periodical page headed 'ETHAN ALLEN. 725'); Library of Congress",
+  "date": "1858",
+  "license": "Public domain (Commons tags PD-old-100-expired, PD-US-expired; CC Public Domain Mark)",
+  "source": "https://commons.wikimedia.org/wiki/File:Ethan_Allen,_1738-1789,_full-length_portrait,_standing,_before_%22the_Green_Mountain_Boays_in_Council%22,_examining_map_LCCN2005688179.tif",
+  "caption": "Ethan Allen and the Green Mountain Boys in council. Wood engraving, 1858. Library of Congress.",
+  "modern": false,
+  "fetched": "2026-10-10"
+ },
+ "ane-drake-maye": {
+  "file": "Drake Maye Patriots vs Titans NOV2024 (still from Tennessee Titans YouTube video, ~00:48)",
+  "artist": "Tennessee Titans (YouTube channel; video 'Patriots vs. Titans | Sunday's Game Experience')",
+  "date": "game 2024-11-03; still uploaded 2024-11-09",
+  "license": "CC BY 3.0 (Creative Commons Attribution 3.0 Unported, YouTube CC-BY option) - https://creativecommons.org/licenses/by/3.0/. Commons flags this particular file 'License review needed' (not yet human-verified); its two sister stills from the same video have passed review.",
+  "source": "https://commons.wikimedia.org/wiki/File:Drake_Maye_Patriots_vs_Titans_NOV2024.png",
+  "caption": "Drake Maye, November 2024. Photo: Tennessee Titans, CC BY 3.0.",
+  "modern": true,
+  "fetched": "2026-10-10"
+ },
+ "health-insurance-er-team": {
+  "file": "Emergency medicine simulation training exercise in Balad, Iraq",
+  "artist": "Robert Couse-Baker (Flickr); scene at the U.S. Air Force Theater Hospital, Joint Base Balad",
+  "date": "2010-10-16",
+  "license": "CC BY 2.0 (Creative Commons Attribution 2.0 Generic) - https://creativecommons.org/licenses/by/2.0/",
+  "source": "https://commons.wikimedia.org/wiki/File:Emergency_medicine_simulation_training_exercise_in_Balad,_Iraq.jpg",
+  "caption": "A hospital trauma team works a simulated patient in a drill, 2010. Photo: Robert Couse-Baker, CC BY 2.0.",
+  "modern": true,
+  "fetched": "2026-10-10"
+ },
+ "students-old": {
+  "file": "Hartford newsboys and girls. Girl in middle, Nellie, is 9 years old. Hartford, Conn. (NARA 523180)",
+  "artist": "Lewis Hine, National Child Labor Committee",
+  "date": "1909-03-06",
+  "license": "Public domain (Commons tags PD-USGov, CC Public Domain Mark; NARA holding; also pre-1931)",
+  "source": "https://commons.wikimedia.org/wiki/File:Hartford_newsboys_and_girls._Girl_in_middle,_Nellie,_is_9_years_old._Hartford,_Conn._-_NARA_-_523180.jpg",
+  "caption": "Then: newsboys and newsgirls, Hartford, 1909. Lewis Hine, National Archives.",
+  "modern": false,
+  "fetched": "2026-10-10"
+ },
+ "students-new": {
+  "file": "Estia students (Etudiants de l'ESTIA en train de travailler)",
+  "artist": "Erikareuter (Wikimedia Commons user)",
+  "date": "2015-12-11",
+  "license": "CC BY-SA 4.0 (Creative Commons Attribution-ShareAlike 4.0 International) - https://creativecommons.org/licenses/by-sa/4.0/",
+  "source": "https://commons.wikimedia.org/wiki/File:Estia_students.jpg",
+  "caption": "Now: students at their laptops. Photo: Erikareuter, CC BY-SA 4.0.",
+  "modern": true,
+  "fetched": "2026-10-10"
+ },
+ "no-draft-recruit": {
+  "file": "160819-A-OY832-017 - New Soldiers 'welcomed' by drill sergeants on their first day of Basic Combat Training, Fort Jackson, S.C.",
+  "artist": "Sgt. 1st Class Brian Hamilton, 108th Training Command (Initial Entry Training), U.S. Army Reserve",
+  "date": "2016-08-19",
+  "license": "Public domain - work of the U.S. federal government (Commons tag PD-USGov-Military)",
+  "source": "https://commons.wikimedia.org/wiki/File:160819-A-OY832-017_(28898048370).jpg",
+  "caption": "First day of basic training, Fort Jackson, S.C., 2016. U.S. Army photo.",
+  "modern": true,
+  "fetched": "2026-10-10"
+ },
+ "impact-health-logo (ad)": {
+  "file": "Impact Health Sharing logo",
+  "artist": "Impact Health Sharing",
+  "license": "Advertiser's trademark, in its own advertisement at the publisher's direction",
+  "source": "https://www.impacthealthsharing.com/",
+  "fetched": "2026-10-10"
  }
 }
