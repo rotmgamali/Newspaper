@@ -4,7 +4,7 @@ import './Header.css';
 
 // The only per-issue strings on the site. Change these two, nothing else.
 const EDITION = 'Vol. 1, No. 1';
-const ISSUE_DATE = 'October 1, 2026';
+const ISSUE_DATE = 'October 2026';  // publisher, 2026-10-04: "October 2026 (not Oct 1)"
 
 const formatIssueDate = (date) => date.toLocaleDateString('en-US', {
   weekday: 'long',
@@ -27,7 +27,7 @@ const Header = () => {
         <div className="header-main">
           <Link to="/"><h1>COMMON SENSE 250</h1></Link>
           <div className="separator-line"></div>
-          <p className="tagline">CIVICS • OPINIONS • HISTORY</p>
+          <p className="tagline">CIVICS • OPINIONS • ETHICS</p>
           <div className="separator-line-double"></div>
         </div>
 

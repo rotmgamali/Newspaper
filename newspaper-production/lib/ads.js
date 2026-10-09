@@ -52,14 +52,18 @@ export const ads = {
   'ivy-bound': {
     advertiser: 'Ivy Bound',
     size: 'half',
-    image: 'ivybound_ad_bw.png',
+    style: 'side',
+    // Publisher, 2026-10-09: "Ivy Bound" is two words (the old engraving read
+    // "Ivybound"), add his tagline, and his "Graduation Girl", which he
+    // especially likes: "Sort of shows success". His own photograph.
+    image: 'ivy-bound-graduation-girl',
     headline: 'Ivy Bound',
     lines: [
-      'Helping Students Succeed since 2001',
+      'Get the Ivy Bound Advantage! Propelling students since 2001!',
       'Tutors for all STEM subjects · SAT preparation · College guidance',
+      '$130,000 avg. college award',
     ],
-    url: 'www.ivybound.net',
-    contact: '860-530-6550',
+    url: ['www.ivybound.net · 860-530-6550', 'Email us: msg@ivybound.net'],
     // The publisher's own company. Consent is not in question.
     authorization: { by: 'Mark S. Greenstein', on: '2026-08-23', note: "Publisher's own company" },
   },

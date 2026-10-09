@@ -9,6 +9,7 @@ import ArticleDetail from './pages/ArticleDetail';
 import Campaigns from './pages/Campaigns';
 import CampaignDetail from './pages/CampaignDetail';
 import Submit from './pages/Submit';
+import Join from './pages/Join';
 
 import './App.css';
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/campaigns" element={<Campaigns />} />
           <Route path="/campaign/:id" element={<CampaignDetail />} />
           <Route path="/submit" element={<Submit />} />
+          <Route path="/join" element={<Join />} />
 
         </Routes>
         <Footer />

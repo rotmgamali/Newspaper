@@ -53,10 +53,17 @@ export const edition = {
                     caption: 'The draft does not ask. Illustration for Common Sense 250.' },
           bottomArt: { name: 'no-draft', height: 1.75, pos: 'center 55%',
                        caption: "Volunteers, not conscripts: Ethan Allen's militia takes Fort Ticonderoga, May 10, 1775." } },
+        // Right column, publisher 2026-10-09: his revised Our Purpose (a size
+        // smaller to make room, as he allowed), a starred box for students,
+        // and the Convention now "Coming in 2027".
         { type: 'stack', area: 'side', items: [
-          { type: 'article', id: 'conservatarian', size: 's', art: false, kicker: 'Our Purpose', deck: false, grow: true, italic: true },
-          { type: 'article', id: 'hartford-convention', size: 's', art: 'hartford-convention', artHeight: 1.5,
-            kicker: 'Coming in November', deck: false },
+          { type: 'article', id: 'conservatarian', size: 's', art: false, kicker: 'Our Purpose', deck: false, grow: true, italic: true, class: 'small' },
+          { type: 'box', class: 'stars', html:
+            '<p class="byob">Old + new Media Managed by the YOUNGER or the BETTER (bYoB). Hear here!</p>' +
+            '<p class="byob-url">commonsense250.news/join</p>' +
+            '<p>CS 250 welcomes students, paid and volunteer. See p3.</p>' },
+          { type: 'article', id: 'hartford-convention', size: 's', art: 'hartford-convention', artHeight: 1.2,
+            kicker: 'Coming in 2027', deck: false },
         ] },
       ],
     },
@@ -77,12 +84,24 @@ export const edition = {
     // 3 ---------------------------------------------------------------------------
     {
       areas: ['ice ice imm imm', 'ice ice wha wha'],
-      rows: ['1fr', '3.3in'],
+      rows: ['1fr', '3.0in'],
       modules: [
         { type: 'article', area: 'ice', id: 'ice-deportations', span: 2, size: 'l', dropcap: false,
           caption: 'Federal agents on an ICE enforcement operation in New York, January 2025. ICE photo.', artHeight: 1.75, artPos: 'center 40%' },
-        { type: 'article', area: 'imm', id: 'immigrant-families', span: 2, size: 'm',
-          caption: 'New citizens take the oath, 2023. National Park Service photo.', artHeight: 2.4, artPos: 'center 55%' },
+        // Publisher, 2026-10-09: fill the space at the foot of this column with
+        // a box for students — then (a newspaper held up to a crowd) and now
+        // (screens) — and his own wording.
+        { type: 'stack', area: 'imm', items: [
+          { type: 'article', id: 'immigrant-families', span: 2, size: 'm', grow: true,
+            caption: 'New citizens take the oath, 2023. National Park Service photo.', artHeight: 1.45, artPos: 'center 55%' },
+          { type: 'box', class: 'students', title: 'For Students',
+            art: [ { name: 'students-old', height: 1.5, caption: 'Then.' },
+                   { name: 'students-new', height: 1.5, caption: 'Now.' } ],
+            html:
+            '<p class="big">Join CS250. Spread the word.</p>' +
+            '<p>Your words, other influential people’s words. Internships, paid and volunteer, are now offered in media, marketing, finance, sales &amp; “influence”.</p>' +
+            '<p>CS250 staff collaborate each Friday evening. Join us! Email <b>andrew@web4guru.com</b>.</p>' },
+        ] },
         { type: 'ad', area: 'wha', key: 'aspire-schools' },
       ],
     },

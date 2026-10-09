@@ -177,7 +177,10 @@ function aneModule(m) {
 }
 
 function boxModule(m) {
-  return `<div class="box ${m.class || ''}">${m.title ? `<div class="box-head">${esc(m.title)}</div>` : ''}${m.html}</div>`;
+  // Pictures in a box sit in a row above the copy, each with a short caption.
+  const pics = (m.art || []).map((x) => figure(x.name, x.height || 1.4, x.caption, x.pos)).join('');
+  return `<div class="box ${m.class || ''}">${m.title ? `<div class="box-head">${esc(m.title)}</div>` : ''}` +
+    `${pics ? `<div class="box-art">${pics}</div><div class="box-copy">${m.html}</div>` : m.html}</div>`;
 }
 
 function colophon() {
@@ -224,7 +227,7 @@ const RENDER = { article: articleModule, feature: featureModule, ad: adModule, m
 
 function renderModule(m) {
   const inner = m.type === 'stack'
-    ? m.items.map((x) => `<div class="stack-item ${x.grow ? 'grow' : ''} si-${x.type}"${x.height ? ` style="flex:none;height:${x.height}in"` : ''}>${RENDER[x.type](x)}</div>`).join('')
+    ? m.items.map((x) => `<div class="stack-item ${x.grow ? 'grow' : ''} si-${x.type} ${x.type === 'article' ? x.class || '' : ''}"${x.height ? ` style="flex:none;height:${x.height}in"` : ''}>${RENDER[x.type](x)}</div>`).join('')
     : RENDER[m.type](m);
   // Wrapper classes are prefixed: a wrapper named "ad" around a div named "ad"
   // drew every border twice and pushed the colophon off its left edge.

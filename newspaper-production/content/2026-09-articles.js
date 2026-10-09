@@ -109,17 +109,40 @@ const hartfordConvention = {
   author: 'Common Sense 250',
   date: 'September 15, 2026',
   category: 'Events',
-  excerpt: 'Civic-minded adults and teenagers from the six New England states are invited to Hartford in late November.',
+  // Publisher, 2026-10-09: "Coming in 2027", and start the piece with 2027.
+  excerpt: 'Civic-minded adults and teenagers from the six New England states are invited to Hartford in 2027.',
   contentFull: [
-    'In late November, civic-minded adults and teenagers from the six New England states are invited to Hartford, Connecticut, where space is being rented to once again discuss our relations with the federal union. It was done before, in 1814.',
+    'In 2027, civic-minded adults and teenagers from the six New England states are invited to Hartford, Connecticut, where space is being rented to once again discuss our relations with the federal union. It was done before, in 1814.',
     'New England is especially ripe for a concerted statement of republican and democratic values. The region was at the forefront of the freedom of the 1770s, the emancipation drives of the 1850s, and the freedom festivals of the 1960s.',
     'Details will be published here as they are settled. Readers who wish to attend, speak or help with the arrangements should write to the publisher.',
   ].join('\n\n'),
 };
 
+/**
+ * The publisher's revised statement of purpose, 2026-10-09 ("Issue 1 pg 1 We
+ * welcome articles about civics.docx"). His words, with three slips set right
+ * and reported to him: "Conserva-Taran" (Conserva-Tarian, as he spells it a
+ * paragraph earlier), "want American to succeed" (America), and "It melds ...
+ * that very well; it and decently defines" (melds ... very well, and decently
+ * defines).
+ */
+const conservatarian = {
+  ...carriedOver('conservatarian'),
+  date: 'October 9, 2026',
+  excerpt: 'We welcome articles about civics, both public and private.',
+  contentFull: [
+    'We welcome articles about civics, both public and private. With an expanding readership, we hope to influence our national civics and politics.',
+    'Contributors should email using firmconnect@gmail.com. These are especially welcome from those with intimate knowledge in a subject, but pure opinion pieces backed by reasoning are solid too.',
+    'Articles are edited with a “Conserva-Tarian” overlay. Since American families, American businesses, American universities, American religiosity, and American government can and should again influence the world, our direct focus is the USA, and in particular New England, where America’s “leading lights” still burn.',
+    'Conserva-Tarian is a term we trace to 2014. It melds “conservative” and “libertarian” very well, and decently defines the American creed. Since 1776, thoughtful Americans have generally shared a strong belief in: Tolerance for others, Individualism (not groups), merit-ocracy (not blood lines), property rights (not forced socialism), and Deism (at minimum, that we have a Creator). This creed envelops almost all of us, from center-left Democrats, to Libertarians, to far-right Republicans. Though our elected leaders may squabble, we the people generally hold the above tenets.',
+    'The far-left, are not among “We the People”. They are by our definition, those who do not want America to succeed. Though they may profess patriotism, they are, by this definition un-American.',
+    'Common Sense 250 is for the rest of us. It is meant to extol virtuous Civics to Americans for the NEXT 250 years. We trace to Thomas Paine, but invoke modernity in having an online version follow the paper version 5 to 7 days later. The online version includes ripostes which all readers (even leftists) can get published. May this herald resurgent journalism, and a resurgent United States of America.',
+  ].join('\n\n'),
+};
+
 export const articlesV2 = [
   noDraft,
-  carriedOver('conservatarian'),
+  conservatarian,
   carriedOver('tariffs'),
   carriedOver('health-insurance'),
   carriedOver('social-security'),
