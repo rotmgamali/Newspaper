@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Prove a composed edition fits: no story runs past its module, nothing spills
-off a page. Prints how full each story's text block is, and screenshots every
+Prove a composed edition fits: no story runs past its module, no advertisement
+or box runs out of its frame, nothing spills off a page. Prints how full each story's text block is, and screenshots every
 page.
 
 A multi-column block that overflows does not clip downwards; it grows extra
@@ -41,13 +41,21 @@ with sync_playwright() as p:
         out.items.push({id: b.dataset.article, over, fill: Math.round(fill * 100), h: (r.height/96).toFixed(2)});
       });
       pgEl.querySelectorAll('.mod').forEach(m => { if (m.scrollHeight > m.clientHeight + 2) out.items.push({id: 'module ' + (m.style.gridArea||'').split(' ')[0], over: true, fill: 0, h: (m.clientHeight/96).toFixed(2)}); });
+      // Boxed things (advertisements, boxes, the New Englanders entries) do not
+      // flow: copy that is too long simply runs out of the frame and over
+      // whatever sits below. Measure the contents against the frame itself.
+      pgEl.querySelectorAll('.ad, .box, .ane-entry, .stack-item').forEach(box => {
+        const br = box.getBoundingClientRect(); let worst = 0;
+        box.querySelectorAll('*').forEach(e => { const r = e.getBoundingClientRect(); if (r.height && r.width) worst = Math.max(worst, r.bottom - br.bottom, br.top - r.top, r.right - br.right, br.left - r.left); });
+        if (worst > 1.5) { const name = (box.querySelector('.ad-head, .box-head, .ane-name') || {}).textContent || box.className; out.items.push({id: 'frame: ' + name.trim().slice(0, 22), over: true, fill: 0, h: (worst/96).toFixed(2)}); }
+      });
       pgEl.querySelectorAll('*').forEach(e => { const r = e.getBoundingClientRect(); if (r.height && r.bottom > pr.bottom + 1) out.spill = Math.max(out.spill, r.bottom - pr.bottom); });
       return out;
     })""")
     for r in rows:
         print(f"page {r['page']}" + (f"   SPILLS {r['spill']/96:.2f}in off the page" if r['spill'] else ""))
         for it in r["items"]:
-            flag = "OVERFLOWS" if it["over"] else ("thin" if it["fill"] < 70 else "ok")
+            flag = (f"RUNS {it['h']}in OUT OF ITS FRAME" if it["id"].startswith("frame: ") else "OVERFLOWS") if it["over"] else ("thin" if it["fill"] < 70 else "ok")
             if it["over"] or r["spill"]: bad += 1
             print(f"    {it['id']:<30} {str(it['fill']) + '%':>6}  {flag}")
     for i, el in enumerate(pg.query_selector_all(".page")):

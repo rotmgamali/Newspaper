@@ -119,19 +119,24 @@ function adModule(m) {
   const ad = ads[m.key];
   if (!ad) throw new Error(`no advertisement "${m.key}" in lib/ads.js`);
   const img = ad.image ? artUri(ad.image) : null;
+  const img2 = ad.image2 ? artUri(ad.image2) : null;
+  // A placement may fix the picture's height (a tall picture in a short slot).
+  const artStyle = m.artHeight ? ` style="height:${m.artHeight}in;object-fit:cover;object-position:${m.artPos || 'center'}"` : '';
   if (ad.pending) {
     pendingAds.push(ad.advertiser);
     return `<div class="ad pending"><div class="ad-label">Advertisement space held</div>
       <div class="ad-head">${esc(ad.headline)}</div>${ad.lines.map((l) => `<p>${esc(l)}</p>`).join('')}</div>`;
   }
   return `
-    <div class="ad ${img ? 'with-art' : ''} ${ad.size ? 'size-' + ad.size : ''}">
+    <div class="ad ${img ? 'with-art' : ''} ${ad.size ? 'size-' + ad.size : ''} ${ad.style || ''} ${m.class || ''}">
       <div class="ad-label">Advertisement</div>
-      ${img ? `<img class="ad-art" src="${img}" alt="">` : ''}
+      ${img ? `<img class="ad-art" src="${img}"${artStyle} alt="">` : ''}
       <div class="ad-copy">
         <div class="ad-head">${esc(ad.headline)}</div>
+        ${ad.sub ? `<div class="ad-sub">${esc(ad.sub)}</div>` : ''}
         ${ad.lines.map((l) => `<p>${esc(l)}</p>`).join('')}
-        ${ad.url || ad.contact ? `<div class="ad-url">${esc([ad.url, ad.contact].filter(Boolean).join(' · '))}</div>` : ''}
+        ${img2 ? `<img class="ad-art second" src="${img2}" alt="">` : ''}
+        ${ad.url || ad.contact ? `<div class="ad-url">${[ad.url, ad.contact].flat().filter(Boolean).map((l, i, all) => Array.isArray(ad.url) ? `<span class="ad-url-line">${esc(l)}</span>` : esc(l) + (i < all.length - 1 ? ' · ' : '')).join('')}</div>` : ''}
       </div>
     </div>`;
 }
@@ -219,7 +224,7 @@ const RENDER = { article: articleModule, feature: featureModule, ad: adModule, m
 
 function renderModule(m) {
   const inner = m.type === 'stack'
-    ? m.items.map((x) => `<div class="stack-item ${x.grow ? 'grow' : ''} si-${x.type}">${RENDER[x.type](x)}</div>`).join('')
+    ? m.items.map((x) => `<div class="stack-item ${x.grow ? 'grow' : ''} si-${x.type}"${x.height ? ` style="flex:none;height:${x.height}in"` : ''}>${RENDER[x.type](x)}</div>`).join('')
     : RENDER[m.type](m);
   // Wrapper classes are prefixed: a wrapper named "ad" around a div named "ad"
   // drew every border twice and pushed the colophon off its left edge.

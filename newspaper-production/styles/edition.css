@@ -172,3 +172,29 @@ body, .body p, .dek, .ear, figcaption { font-variant-ligatures: common-ligatures
    rule above is not enough for italic text: no ligatures at all in italic. */
 .body.italic p, .dek, figcaption, .ear, .box .big, .ad.pending p, .ane-sub, .ane-credit, .ane-name span {
   font-variant-ligatures: none; font-feature-settings: "liga" 0, "clig" 0, "calt" 0, "dlig" 0, "hlig" 0; }
+
+/* A copy-led advertisement in one column: the advertiser's own paragraphs set
+   centred like every other advertisement here (justified, a column this narrow
+   opened rivers), under a modest headline, with a second picture under the copy.
+   Jamie Lythgoe's two: Columbine Inn (page 4), Powder Mountain West (page 8). */
+.si-ad .ad.listing { justify-content: center; outline: none; padding: .1in .12in .11in; }
+.si-ad .ad.listing .ad-art { width: 100%; height: 1.05in; max-height: none; object-fit: cover; object-position: center 45%; margin: 0 0 .1in; }
+.si-ad .ad.listing .ad-art.second { height: 1.22in; object-position: center 55%; margin: .06in 0 .04in; }
+.si-ad .ad.listing .ad-head { font-size: 19.5pt; line-height: 1; margin: 0 0 .03in; white-space: nowrap; }
+.si-ad .ad.listing .ad-head::after { content: none; }
+.ad-sub { font: 600 7pt/1.1 'Caslon'; letter-spacing: .22em; text-transform: uppercase; margin: .02in 0 .08in;
+          padding-bottom: .07in; border-bottom: 1pt solid #000; align-self: stretch; }
+.si-ad .ad.listing p { font-size: 8.7pt; line-height: 1.27; text-align: center; text-wrap: pretty;
+                       hyphens: manual; margin: 0 0 .05in; max-width: none; }
+.si-ad .ad.listing .ad-url { font-size: 7.1pt; letter-spacing: .1em; margin-top: .06in; }
+.ad-url-line { display: block; white-space: nowrap; }
+.si-ad .ad.listing:not(.with-art) .ad-head { font-size: 19pt; white-space: normal; margin-bottom: .08in; padding-bottom: .08in;
+                                             border-bottom: 1pt solid #000; align-self: stretch; }
+
+/* The same tall picture ad in a shorter slot: the Whalers once the column
+   under it carries two more advertisements. */
+.si-ad .ad.with-art.compact .ad-art { margin: .02in 0 .1in; }
+.si-ad .ad.with-art.compact .ad-head { font-size: 30pt; margin: 0 0 .08in; }
+.si-ad .ad.with-art.compact .ad-head::after { margin-top: .08in; }
+.si-ad .ad.with-art.compact p { font-size: 11pt; margin-bottom: .04in; }
+.si-ad .ad.with-art.compact .ad-url { margin-top: .1in; }

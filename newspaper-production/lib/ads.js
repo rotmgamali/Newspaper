@@ -227,13 +227,46 @@ export const ads = {
     authorization: { by: 'Mark S. Greenstein', on: '2026-10-02', note: 'House ad: one at 1/8, one at 1/16' },
   },
 
-  'jamie-condos': {
-    advertiser: "Jamie's condos",
+  // --- Jamie Lythgoe's two advertisements --------------------------------------
+  // The publisher asked on 2026-10-02 for "something for Jamie's condos" and
+  // held the space. Jamie sent the copy on 2026-10-08; he answered "Good
+  // descriptions" and "yes, we have space" for the Powder Mountain West
+  // listings as well. Her words run as she wrote them, with four slips set
+  // right: "homeites", "Crossrads", "$300000", and a missing full stop after
+  // "ski spot". Phone and site checked against the inn's own booking page
+  // (powmow.com), 2026-10-09.
+
+  'columbine-inn': {
+    advertiser: 'Columbine Inn',
     size: 'eighth',
-    pending: true,
-    headline: "Jamie's Condos",
-    lines: ['Space held. Awaiting the details from the publisher.'],
-    authorization: { by: 'Mark S. Greenstein', on: '2026-10-02', note: '"SOmething for Jamie\'s condos"; who, where and what to say not yet given' },
+    style: 'listing',
+    // Top: the powder photograph Jamie sent. Under the copy: a room. The
+    // publisher asked her for beds, kitchenettes and bathrooms rather than
+    // scenery; none came with her email, so the room is from the inn's own
+    // booking page. Hers to confirm or replace.
+    image: 'powder-mountain-snowboarder',
+    image2: 'columbine-inn-room',
+    headline: 'Columbine Inn',
+    sub: 'Powder Mountain, Utah',
+    lines: [
+      'Columbine Inn is ground zero for Utah’s best powder. Enjoy beautiful panoramas as you explore Powder Country. This is where legendary powder meets legendary hospitality!',
+      'We are still proudly owned and operated by the Powder Mountain founders, the Cobabes, whose motto has always been: “You’re only a stranger once, and then you are part of the family!” Powder Mountain was selected #1 by Ski Magazine. Bring your fat skis to skiing’s yesteryear where you can find fresh tracks a week after a storm. Simply wake up and ski!',
+    ],
+    url: ['Call to book: 801-745-1414', 'PowMow.com'],   // an array sets one line each, so a phone number never breaks
+    authorization: { by: 'Mark S. Greenstein', on: '2026-10-08', note: 'Copy from Jamie Lythgoe, 2026-10-08; publisher: "Good descriptions"' },
+  },
+
+  'powder-mountain-west': {
+    advertiser: 'Doug and Jamie Lythgoe, RE/MAX Crossroads',
+    size: 'sixteenth',
+    style: 'listing',
+    headline: 'Powder Mountain West',
+    lines: [
+      'Ski-in/ski-out Powder Mountain West properties starting at $795,000. Cabins start under $1.9M. Scenic homesites at Utah’s ideal ski spot. Dry light powder and uncrowded skiing an hour from the airport.',
+      'Beautiful Ogden Valley features condos and homes starting under $300,000 that are ten minutes from Powder Mountain and Nordic Valley.',
+    ],
+    url: ['Doug and Jamie Lythgoe', 'RE/MAX Crossroads · 801-430-6465'],
+    authorization: { by: 'Mark S. Greenstein', on: '2026-10-08', note: 'Offered by Jamie Lythgoe "if you need to fill a space"; publisher: "yes, we have space"' },
   },
 };
 

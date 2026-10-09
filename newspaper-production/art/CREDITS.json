@@ -153,5 +153,27 @@
   "license": "Public domain",
   "source": "https://commons.wikimedia.org/wiki/File:Ramstein_job_fair_launches_overseas_spouse_direct-hire_authority_pilot_program_(7665444).jpg",
   "modern": true
+ },
+ "columbine-inn-room (ad)": {
+  "file": "Room photograph from the Columbine Inn's own booking page",
+  "artist": "Columbine Inn",
+  "license": "Advertiser's own photograph, used in the advertiser's own advertisement; Jamie Lythgoe to confirm",
+  "source": "https://book.hostfully.com/columbine-inn (powmow.com)",
+  "modern": true,
+  "fetched": "2026-10-09"
+ },
+ "powder-mountain-west-homes (ad, not placed)": {
+  "file": "6774 Chaparral Dr_5.jpg",
+  "artist": "Supplied by Jamie Lythgoe",
+  "license": "Supplied by the advertiser, 2026-10-08",
+  "source": "email from Jamie Lythgoe via the publisher, 2026-10-08",
+  "modern": true
+ },
+ "powder-mountain-snowboarder (ad)": {
+  "file": "6774 Chaparral Dr_6 (1).jpg",
+  "artist": "Supplied by Jamie Lythgoe",
+  "license": "Supplied by the advertiser, 2026-10-08",
+  "source": "email from Jamie Lythgoe via the publisher, 2026-10-08",
+  "modern": true
  }
 }

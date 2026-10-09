@@ -8,7 +8,7 @@
  * statement of purpose.
  *
  * Advertisements are the publisher's list of 2026-10-02: Impact Health, Ivy
- * Bound, SerenitySpaces (two), Jamie's condos (space held, copy to come),
+ * Bound, SerenitySpaces (two), Jamie's (Columbine Inn and Powder Mountain West),
  * Aspire Academy for Schools, Whalers on page 8, and "Your Business Here" at
  * 1/8 and 1/16. Friendly's, Aldi, the Libby ad and the Web4Guru house ad are
  * off his list and out of the paper.
@@ -108,9 +108,10 @@ export const edition = {
         ] },
         { type: 'article', area: 'pol', id: 'police-masks', span: 3, size: 'm',
           caption: 'A masked federal agent on an enforcement operation, 2025. Department of Homeland Security photo.', artHeight: 1.15, artPos: 'center 32%' },
+        // Jamie Lythgoe's Columbine Inn has the column the publisher held for
+        // "Jamie's condos". Her Powder Mountain West listings are on page 8.
         { type: 'stack', area: 'ads', items: [
-          { type: 'ad', key: 'ybh-sixteenth', grow: true },
-          { type: 'ad', key: 'jamie-condos', grow: true },
+          { type: 'ad', key: 'columbine-inn', grow: true },
         ] },
       ],
     },
@@ -168,7 +169,13 @@ export const edition = {
             '<p>Disagree with something you read here? Write to us. The best replies run in the next issue, printed beside the article they answer, so readers see both sides of the argument together.</p>' +
             '<p>We will print a reply from anyone named or argued against in these pages.</p>' +
             '<p><b>andrew@web4guru.com</b></p>' },
-          { type: 'ad', key: 'whalers', grow: true },
+          // Publisher, 2026-10-08: "yes, we have space" for Jamie's Powder
+          // Mountain West listings. The space is this column: the Whalers ad
+          // gives up its empty margins, and the 1/16 "Your Business Here"
+          // moves here from page 4, which is now all Columbine Inn.
+          { type: 'ad', key: 'whalers', grow: true, class: 'compact', artHeight: 2.0, artPos: 'center 30%' },
+          { type: 'ad', key: 'powder-mountain-west' },
+          { type: 'ad', key: 'ybh-sixteenth', height: 2.7 },
         ] },
         { type: 'colophon', area: 'col' },
       ],
