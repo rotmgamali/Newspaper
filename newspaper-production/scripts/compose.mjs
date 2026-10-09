@@ -132,10 +132,11 @@ function adModule(m) {
       <div class="ad-label">Advertisement</div>
       ${img ? `<img class="ad-art" src="${img}"${artStyle} alt="">` : ''}
       <div class="ad-copy">
-        <div class="ad-head">${esc(ad.headline)}</div>
+        ${ad.logo && artUri(ad.logo) ? `<img class="ad-logo" src="${artUri(ad.logo)}" alt="${esc(ad.headline)}">` : `<div class="ad-head">${esc(ad.headline)}</div>`}
         ${ad.sub ? `<div class="ad-sub">${esc(ad.sub)}</div>` : ''}
         ${ad.lines.map((l) => `<p>${esc(l)}</p>`).join('')}
         ${img2 ? `<img class="ad-art second" src="${img2}" alt="">` : ''}
+        ${ad.pair ? `<div class="ad-pair">${ad.pair.map((n) => artUri(n)).filter(Boolean).map((u) => `<img src="${u}" alt="">`).join('')}</div>` : ''}
         ${ad.fine ? `<div class="ad-fine">${esc(ad.fine)}</div>` : ''}
         ${ad.url || ad.contact ? `<div class="ad-url">${[ad.url, ad.contact].flat().filter(Boolean).map((l, i, all) => Array.isArray(ad.url) ? `<span class="ad-url-line">${esc(l)}</span>` : esc(l) + (i < all.length - 1 ? ' · ' : '')).join('')}</div>` : ''}
       </div>

@@ -250,12 +250,13 @@ export const ads = {
     advertiser: 'Columbine Inn',
     size: 'eighth',
     style: 'listing',
-    // Top: the powder photograph Jamie sent. Under the copy: a room. The
-    // publisher asked her for beds, kitchenettes and bathrooms rather than
-    // scenery; none came with her email, so the room is from the inn's own
-    // booking page. Hers to confirm or replace.
-    image: 'powder-mountain-snowboarder',
-    image2: 'columbine-inn-room',
+    // The publisher asked for beds, kitchenettes and bathrooms; Jamie, 2026-10-09:
+    // her photos "didn't attach right", so "harvest some off PowMow.com". All
+    // four pictures are the inn's own, from its booking site: the logo, a
+    // studio bedroom, the 2-bedroom condo's kitchen and dining area, a bath.
+    logo: 'columbine-inn-logo',
+    image: 'columbine-inn-bed',
+    pair: ['columbine-inn-kitchen', 'columbine-inn-bath'],
     headline: 'Columbine Inn',
     sub: 'Powder Mountain, Utah',
     lines: [

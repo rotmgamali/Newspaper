@@ -252,5 +252,55 @@
   "license": "Advertiser's trademark, in its own advertisement at the publisher's direction",
   "source": "https://www.impacthealthsharing.com/",
   "fetched": "2026-10-10"
+ },
+ "columbine-inn-bed (ad)": {
+  "file": "property image",
+  "artist": "Columbine Inn",
+  "license": "Advertiser's own photograph, from its booking site; Jamie Lythgoe asked us to take them from PowMow.com (2026-10-09)",
+  "source": "https://iac-prod-orbirental-images-bucket.s3.amazonaws.com/e5122629-a208-4830-b1c2-da5ff76e3797",
+  "listing": [
+   "Studio 101"
+  ],
+  "fetched": "2026-10-10",
+  "modern": true
+ },
+ "columbine-inn-kitchen (ad)": {
+  "file": "Full Kitchen and Dining area",
+  "artist": "Columbine Inn",
+  "license": "Advertiser's own photograph, from its booking site; Jamie Lythgoe asked us to take them from PowMow.com (2026-10-09)",
+  "source": "https://orbirental-images.s3.amazonaws.com/9f38bc82-8471-4869-b25d-4c19cbc7aac3",
+  "listing": [
+   "2BDRM Condo"
+  ],
+  "fetched": "2026-10-10",
+  "modern": true
+ },
+ "columbine-inn-bath (ad)": {
+  "file": "property image",
+  "artist": "Columbine Inn",
+  "license": "Advertiser's own photograph, from its booking site; Jamie Lythgoe asked us to take them from PowMow.com (2026-10-09)",
+  "source": "https://orbirental-images.s3.amazonaws.com/fd49b256-5497-45ec-b39e-9ab3849c0d94",
+  "listing": [
+   "Studio 102"
+  ],
+  "fetched": "2026-10-10",
+  "modern": true
+ },
+ "columbine-inn-logo (ad)": {
+  "file": "Columbine Inn logo",
+  "artist": "Columbine Inn",
+  "license": "Advertiser's own photograph, from its booking site; Jamie Lythgoe asked us to take them from PowMow.com (2026-10-09)",
+  "source": "https://orbirental-images.s3.amazonaws.com/f6309b3b-8d47-4b61-9df4-8dfe6ef5712d",
+  "listing": [
+   "2BDRM Condo",
+   "3BDRM Condo",
+   "Studio 101",
+   "Studio 102",
+   "Studio 103",
+   "Studio 104",
+   "Studio 105"
+  ],
+  "fetched": "2026-10-10",
+  "modern": true
  }
 }

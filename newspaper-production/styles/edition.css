@@ -242,3 +242,10 @@ body, .body p, .dek, .ear, figcaption { font-variant-ligatures: common-ligatures
 
 /* Picture credits under the New Englanders entries. */
 .ane-entry figcaption { font-size: 6.6pt; }
+
+/* The advertiser's own logo in place of a set headline, and two pictures side
+   by side under the copy (Columbine Inn, page 4: bed above; kitchen, bath below). */
+.ad-logo { width: 100%; height: auto; display: block; margin: .02in 0 .04in; }
+.ad-pair { display: grid; grid-template-columns: 1fr 1fr; column-gap: .07in; align-self: stretch; margin: .06in 0 .02in; }
+.ad-pair img { width: 100%; height: .95in; object-fit: cover; display: block; }
+.si-ad .ad.listing .ad-art { height: 1.3in; }
