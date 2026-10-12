@@ -201,9 +201,12 @@ export const edition = {
         ] },
         { type: 'stack', area: 'ba1', items: [ { type: 'ad', key: 'bahamas-villas', grow: true, class: 'narrow' } ] },
         { type: 'box', area: 'pic', class: 'photos',
-          // The aerial he liked. The site has no pool or beach photograph of its
-          // own (the beach picture there is Getty stock), so the aerial runs alone.
-          art: [ { name: 'serenity-aerial', height: 2.3, caption: 'SerenitySpaces Bahamas from the air: four villas, the pool and the gardens, Freeport, Grand Bahama.' } ],
+          // The aerial he liked, and the pool, cut from the same aerial: the
+          // site has no ground-level pool photograph of its own, and its beach
+          // picture is Getty stock, so neither of those runs.
+          // A close crop of the pool was tried (2026-10-12) and printed as a
+          // blur: the only pool picture is inside this aerial, so it runs alone.
+          art: [ { name: 'serenity-aerial', height: 2.3, pos: 'center 40%', caption: 'SerenitySpaces Bahamas from the air: the villas, the pool at left, and the gardens. Freeport, Grand Bahama.' } ],
           html: '' },
         { type: 'stack', area: 'ba2', items: [ { type: 'ad', key: 'bahamas-complex', grow: true, class: 'narrow' } ] },
       ],

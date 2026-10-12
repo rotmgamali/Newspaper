@@ -282,3 +282,6 @@ body, .body p, .dek, .ear, figcaption { font-variant-ligatures: common-ligatures
 .si-ad .ad.logo .ad-url { font-size: 7.2pt; margin-top: .04in; }
 /* The Whalers logo inside the compact page 8 ad. */
 .si-ad .ad.with-art.compact .ad-art { max-height: 1.5in; width: auto; max-width: 100%; object-fit: contain; }
+
+/* Page 7 photographs: the aerial wide, the pool beside it. */
+.box.photos .box-art { grid-auto-columns: auto; grid-template-columns: 2.4fr 1fr; column-gap: .1in; }
