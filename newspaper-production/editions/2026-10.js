@@ -191,7 +191,7 @@ export const edition = {
         { type: 'article', area: 'oth', id: 'other-half-of-affordability', span: 2, size: 'm', dropcap: true,
           caption: 'Résumé in hand at a hiring fair, 2023. U.S. Air Force photo.', artHeight: 1.55 },
         { type: 'article', area: 'cou', id: 'come-on-up', span: 2, size: 'm',
-          caption: 'Hartford in October. Photo: Quintin Soloviev, CC BY 4.0.', artHeight: 3.0, artPos: 'center 45%' },
+          caption: 'Hartford in October. Photo: Quintin Soloviev, CC BY 4.0.', artHeight: 2.7, artPos: 'center 45%' },
         { type: 'box', area: 'pic', class: 'photos',
           art: [ { name: 'serenity-aerial', height: 2.45, pos: 'center 40%', caption: 'SerenitySpaces Bahamas from the air: the four villas, the pool and the gardens. Freeport, Grand Bahama.' } ],
           html: '' },
