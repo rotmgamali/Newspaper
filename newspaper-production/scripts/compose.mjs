@@ -188,7 +188,13 @@ function aneModule(m) {
 
 function boxModule(m) {
   // Pictures in a box sit in a row above the copy, each with a short caption.
-  const pics = (m.art || []).map((x) => figure(x.name, x.height || 1.4, x.caption, x.pos)).join('');
+  const figs = (m.art || []).map((x) => figure(x.name, x.height || 1.4, x.caption, x.pos));
+  const pics = figs.join('');
+  if (m.class && m.class.includes('middle') && figs.length === 2) {
+    // The copy in the middle, a picture either side (publisher, 2026-10-13: balance).
+    return `<div class="box ${m.class}">${m.title ? `<div class="box-head">${esc(m.title)}</div>` : ''}` +
+      `<div class="box-row">${figs[0]}<div class="box-copy">${m.html}</div>${figs[1]}</div></div>`;
+  }
   return `<div class="box ${m.class || ''}">${m.title ? `<div class="box-head">${esc(m.title)}</div>` : ''}` +
     `${pics ? `<div class="box-art">${pics}</div><div class="box-copy">${m.html}</div>` : m.html}</div>`;
 }

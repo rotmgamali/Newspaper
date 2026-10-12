@@ -301,3 +301,9 @@ body, .body p, .dek, .ear, figcaption { font-variant-ligatures: common-ligatures
 .stack-item.si-box.grow .box.stars.tall { flex: 1; }
 .box.stars.tall .byob { font-size: 12pt; }
 .box.stars.tall p { font-size: 9pt; margin-bottom: .08in; }
+
+/* The students' box with the words between two pictures (publisher, 2026-10-13). */
+.box.students.middle { display: block; }
+.box.students.middle .box-row { display: grid; grid-template-columns: 1fr 1.15fr 1fr; column-gap: .12in; align-items: center; }
+.box.students.middle .box-row .art { margin: 0; }
+.box.students.middle .box-copy { text-align: center; }

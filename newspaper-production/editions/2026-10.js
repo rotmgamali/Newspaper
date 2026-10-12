@@ -100,10 +100,11 @@ export const edition = {
         // (screens) — and his own wording.
         { type: 'stack', area: 'imm', items: [
           { type: 'article', id: 'immigrant-families', span: 2, size: 'm', grow: true,
-            caption: 'New citizens take the oath, 2023. National Park Service photo.', artHeight: 1.15, artPos: 'center 55%' },
-          { type: 'box', class: 'students', title: 'For Students',
-            art: [ { name: 'students-old', height: 1.1, caption: 'Then: newsboys and newsgirls, Hartford, 1909. Lewis Hine, National Archives.' },
-                   { name: 'students-new', height: 1.1, caption: 'Now: students at their laptops. Photo: Erikareuter, CC BY-SA 4.0.' } ],
+            caption: 'New citizens take the oath, 2023. National Park Service photo.', artHeight: 1.85, artPos: 'center 55%' },
+          // Publisher, 2026-10-13: the words in the MIDDLE of the box, between two taller photos. Balance.
+          { type: 'box', class: 'students middle', title: 'For Students',
+            art: [ { name: 'students-old', height: 1.55, caption: 'Then: newsboys and newsgirls, Hartford, 1909. Lewis Hine, National Archives.' },
+                   { name: 'students-new', height: 1.55, caption: 'Now: students at their laptops. Photo: Erikareuter, CC BY-SA 4.0.' } ],
             html:
             '<p class="big">Join CS250. Spread the word.</p>' +
             '<p>Your words, other influential people’s words. Internships, paid and volunteer, are now offered in media, marketing, finance, sales &amp; “influence”.</p>' +
