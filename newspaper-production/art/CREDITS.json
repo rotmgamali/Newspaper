@@ -177,14 +177,14 @@
   "modern": true
  },
  "ane-coolidge": {
-  "file": "Calvin Coolidge (LCCN 2016888669)",
-  "artist": "Harris & Ewing, photographer",
-  "date": "1927",
-  "license": "Public domain (Commons tags PD-Harris-Ewing, PD-US-no notice); Library of Congress: no known restrictions on publication",
-  "source": "https://commons.wikimedia.org/wiki/File:Calvin_Coolidge_LCCN2016888669.jpg",
-  "caption": "Calvin Coolidge, 1927. Harris & Ewing, Library of Congress.",
+  "file": "Calvin Coolidge, half-length portrait, standing, facing left, tipping his hat",
+  "artist": "National Photo Company Collection",
+  "date": "1924-10-22",
+  "license": "Public domain (Library of Congress: no known restrictions), LCCN 94505222",
+  "source": "https://www.loc.gov/pictures/item/94505222/",
+  "caption": "Coolidge, October 1924. National Photo Company, Library of Congress.",
   "modern": false,
-  "fetched": "2026-10-10"
+  "fetched": "2026-10-12"
  },
  "ane-ethan-allen": {
   "file": "Ethan Allen, 1738-1789, full-length portrait, standing, before 'the Green Mountain Boys in Council', examining map (LCCN 2005688179)",
@@ -302,5 +302,28 @@
   ],
   "fetched": "2026-10-10",
   "modern": true
+ },
+ "whalers-logo (ad)": {
+  "file": "Hartford Whalers logo, 1979-92",
+  "artist": "NHL / Carolina Hurricanes (trademark); editor's trace from Wikipedia",
+  "license": "Registered trademark; runs in the NHLtoHartford.org advertisement at the publisher's direction, 2026-10-10",
+  "source": "https://en.wikipedia.org/wiki/File:Hartford_Whalers_Logo-79-92.svg",
+  "fetched": "2026-10-12"
+ },
+ "serenity-aerial (ad)": {
+  "file": "SerenitySpaces Bahamas from the air",
+  "artist": "SerenitySpaces (advertiser's own photograph)",
+  "license": "Advertiser's own, from its site",
+  "source": "https://www.firmconnectus.net/images/firmconnect/Aeerial__from_East_IMG-20240225-WA0023-CU5chfyA.jpg",
+  "modern": true,
+  "fetched": "2026-10-12",
+  "note": "The site's beach picture is Getty stock (Denis Tangney Jr) and the hero is Unsplash: neither is the advertiser's, so neither runs."
+ },
+ "shiftai-logo (ad)": {
+  "file": "SHIFT AI wordmark",
+  "artist": "SHIFT Capital, LLC (trademark)",
+  "license": "Advertiser's brand asset from its public site; the publisher's affiliate advertisement",
+  "source": "https://shiftai.club/cdn/shop/t/64/assets/shift-ai-on-light.svg",
+  "fetched": "2026-10-12"
  }
 }

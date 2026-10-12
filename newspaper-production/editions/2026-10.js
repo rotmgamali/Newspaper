@@ -64,7 +64,7 @@ export const edition = {
           { type: 'article', id: 'conservatarian', size: 's', art: false, kicker: 'Our Purpose', deck: false, grow: true, italic: true, class: 'small' },
           { type: 'box', class: 'stars', html:
             '<p class="byob">Old + new Media Managed by the YOUNGER or the BETTER (bYoB). Hear here!</p>' +
-            '<p class="byob-url">commonsense250.news/join</p>' +
+            '<p class="byob-url">commonsense250.news/hear</p>' +   // forwards to his video (vercel.json)
             '<p>CS 250 welcomes students, paid and volunteer. See p3.</p>' },
           { type: 'article', id: 'hartford-convention', size: 's', art: 'hartford-convention', artHeight: 1.2,
             kicker: 'Coming in 2027', deck: false },
@@ -90,7 +90,7 @@ export const edition = {
     // 3 ---------------------------------------------------------------------------
     {
       areas: ['ice ice imm imm', 'ice ice wha wha'],
-      rows: ['1fr', '3.0in'],
+      rows: ['1fr', '2.75in'],
       modules: [
         { type: 'article', area: 'ice', id: 'ice-deportations', span: 2, size: 'l', dropcap: false,
           caption: 'Federal agents on an ICE enforcement operation in New York, January 2025. ICE photo.', artHeight: 1.75, artPos: 'center 40%' },
@@ -99,14 +99,17 @@ export const edition = {
         // (screens) — and his own wording.
         { type: 'stack', area: 'imm', items: [
           { type: 'article', id: 'immigrant-families', span: 2, size: 'm', grow: true,
-            caption: 'New citizens take the oath, 2023. National Park Service photo.', artHeight: 1.45, artPos: 'center 55%' },
+            caption: 'New citizens take the oath, 2023. National Park Service photo.', artHeight: 1.15, artPos: 'center 55%' },
           { type: 'box', class: 'students', title: 'For Students',
-            art: [ { name: 'students-old', height: 1.5, caption: 'Then: newsboys and newsgirls, Hartford, 1909. Lewis Hine, National Archives.' },
-                   { name: 'students-new', height: 1.5, caption: 'Now: students at their laptops. Photo: Erikareuter, CC BY-SA 4.0.' } ],
+            art: [ { name: 'students-old', height: 1.1, caption: 'Then: newsboys and newsgirls, Hartford, 1909. Lewis Hine, National Archives.' },
+                   { name: 'students-new', height: 1.1, caption: 'Now: students at their laptops. Photo: Erikareuter, CC BY-SA 4.0.' } ],
             html:
             '<p class="big">Join CS250. Spread the word.</p>' +
             '<p>Your words, other influential people’s words. Internships, paid and volunteer, are now offered in media, marketing, finance, sales &amp; “influence”.</p>' +
-            '<p>CS250 staff collaborate each Friday evening. Join us! Email <b>andrew@web4guru.com</b>.</p>' },
+            '<p>CS250 staff collaborate each Friday evening. Join us! Email <b>andrew@web4guru.com</b>.</p>' +
+            // Publisher, 2026-10-10: pages 7 and 8 are set with space between
+            // paragraphs instead of indents, to see which readers prefer.
+            '<p class="poll"><b>A poll:</b> which layout is easier on the eyes, pages 4 and 5, or pages 7 and 8? Tell us at the same address.</p>' },
         ] },
         { type: 'ad', area: 'wha', key: 'aspire-schools' },
       ],
@@ -126,8 +129,8 @@ export const edition = {
             text: 'Constructs the Granite Railway, widely recognized as the first chartered, industrial or commercial line built for business. Its inaugural mission: carrying granite from the quarries to build the Bunker Hill Monument, on the fiftieth anniversary of the battle there.' },
           { years: '1875–76', name: 'Alexander Graham Bell', place: 'Massachusetts', art: 'ane-bell', artHeight: 2.0, caption: 'Illustration for Common Sense 250.',
             text: 'Working with Elisha Gray, the transplant from Scotland invents and then patents the telephone.' },
-          { years: '1926', name: 'Calvin Coolidge', place: 'Vermont', art: 'ane-coolidge', artHeight: 1.7, artPos: 'center 30%',
-            caption: 'Coolidge, 1927. Harris & Ewing, Library of Congress.',
+          { years: '1926', name: 'Calvin Coolidge', place: 'Vermont', art: 'ane-coolidge', artHeight: 1.7, artPos: 'center 20%',
+            caption: 'Coolidge, October 1924. National Photo Company, Library of Congress.',
             text: 'The Vermont native gives a most-American speech at Arlington for the Presidential Memorial Day address: “As a people we have not sought military glory. Because of our fortunate circumstances, such wars as we have waged have been for the purpose of securing conditions under which peace would be more permanent, liberty would be more secure, and justice would be more certain.”' },
           { years: '1975–76', name: 'Meldrim Thomson', place: 'New Hampshire', art: 'ane-axe-the-tax', artHeight: 1.7, caption: 'Illustration for Common Sense 250.',
             text: 'The Governor endorses the motto “Live Free or Die” for every New Hampshire license plate. It fits his long-standing minimalist creed, which appeared most prominently in his “Axe the Tax” platform.' },
@@ -150,8 +153,12 @@ export const edition = {
       areas: ['tea tea hom hom', 'tea tea ivy ivy'],
       rows: ['1fr', '3.3in'],
       modules: [
-        { type: 'article', area: 'tea', id: 'teach-to-the-tests', span: 2, size: 'l', art: 'teach-to-the-tests',
-          artHeight: 3.0, dropcap: true },
+        // Publisher, 2026-10-10: the space at the foot of this column goes to ShiftAI.
+        { type: 'stack', area: 'tea', items: [
+          { type: 'article', id: 'teach-to-the-tests', span: 2, size: 'l', art: 'teach-to-the-tests',
+            artHeight: 2.4, dropcap: true, grow: true },
+          { type: 'ad', key: 'shiftai', height: 1.75 },
+        ] },
         { type: 'article', area: 'hom', id: 'homelessness-in-connecticut', span: 2, size: 'm',
           caption: 'Tents outside Union Station, Washington, 2021. Photo: Elvert Barnes, CC BY-SA 2.0.', artHeight: 1.2 },
         { type: 'ad', area: 'ivy', key: 'ivy-bound' },
@@ -163,8 +170,10 @@ export const edition = {
       areas: ['soc soc wel wel', 'soc soc imp imp'],
       rows: ['1fr', '3.0in'],
       modules: [
-        { type: 'article', area: 'soc', id: 'social-security', span: 2, size: 'l', dropcap: true,
-          caption: 'Ben Shahn’s mural in the Social Security Building, Washington, 1940–42.', artHeight: 2.1 },
+        // Publisher, 2026-10-10: "add Greenstein to the byline of the first", and
+        // move one of the two pictures below its article.
+        { type: 'article', area: 'soc', id: 'social-security', span: 2, size: 'l', dropcap: true, author: 'Mark Stewart Greenstein',
+          artBottom: true, caption: 'Ben Shahn’s mural in the Social Security Building, Washington, 1940–42.', artHeight: 2.1 },
         { type: 'article', area: 'wel', id: 'welfare-for-whom', span: 2, size: 'm',
           caption: 'A food bank warehouse, 2021. U.S. Department of Agriculture photo.', artHeight: 1.6 },
         { type: 'ad', area: 'imp', key: 'ybh-eighth' },
@@ -172,26 +181,43 @@ export const edition = {
     },
 
     // 7 ---------------------------------------------------------------------------
+    // Publisher, 2026-10-10: space between paragraphs on 7 and 8 ("let's see if
+    // it's superior"); photos of SerenitySpaces bottom centre with the two ads
+    // either side; and a second starred box for students where there is room.
     {
-      areas: ['oth oth cou cou', 'ba1 ba1 ba2 ba2'],
+      class: 'spaced',
+      areas: ['oth oth cou cou', 'ba1 pic pic ba2'],
       rows: ['1fr', '2.7in'],
       modules: [
         { type: 'article', area: 'oth', id: 'other-half-of-affordability', span: 2, size: 'm', dropcap: true,
-          caption: 'Résumé in hand at a hiring fair, 2023. U.S. Air Force photo.', artHeight: 1.5 },
-        { type: 'article', area: 'cou', id: 'come-on-up', span: 2, size: 'm',
-          caption: 'Hartford in October. Photo: Quintin Soloviev, CC BY 4.0.', artHeight: 3.85, artPos: 'center 45%' },
-        { type: 'ad', area: 'ba1', key: 'bahamas-villas' },
-        { type: 'ad', area: 'ba2', key: 'bahamas-complex' },
+          caption: 'Résumé in hand at a hiring fair, 2023. U.S. Air Force photo.', artHeight: 1.15 },
+        { type: 'stack', area: 'cou', items: [
+          { type: 'article', id: 'come-on-up', span: 2, size: 'm', grow: true,
+            caption: 'Hartford in October. Photo: Quintin Soloviev, CC BY 4.0.', artHeight: 3.0, artPos: 'center 45%' },
+          { type: 'box', class: 'stars', html:
+            '<p class="byob">For Students, part II: Earn big $ with CS 250!</p>' +
+            '<p class="byob-url">commonsense250.news/earn</p>' +
+            '<p>Become a paid influencer via CS250. Influence for GOOD. Steer others to your favorite places, services, and goods.</p>' },
+        ] },
+        { type: 'stack', area: 'ba1', items: [ { type: 'ad', key: 'bahamas-villas', grow: true, class: 'narrow' } ] },
+        { type: 'box', area: 'pic', class: 'photos',
+          // The aerial he liked. The site has no pool or beach photograph of its
+          // own (the beach picture there is Getty stock), so the aerial runs alone.
+          art: [ { name: 'serenity-aerial', height: 2.3, caption: 'SerenitySpaces Bahamas from the air: four villas, the pool and the gardens, Freeport, Grand Bahama.' } ],
+          html: '' },
+        { type: 'stack', area: 'ba2', items: [ { type: 'ad', key: 'bahamas-complex', grow: true, class: 'narrow' } ] },
       ],
     },
 
     // 8 ---------------------------------------------------------------------------
     {
+      class: 'spaced',
       areas: ['wal wal wal sid', 'col col col col'],
       rows: ['1fr', 'auto'],
       modules: [
-        { type: 'article', area: 'wal', id: 'matt-walsh-reply', span: 3, size: 'l', dropcap: true,
-          caption: 'Henry Hintermeister, Foundation of the American Government, 1925.', artHeight: 2.0, artPos: 'center 55%' },
+        // Publisher, 2026-10-10: "for the pg 8 header, call it LIBERTY and ETHICS".
+        { type: 'article', area: 'wal', id: 'matt-walsh-reply', span: 3, size: 'l', dropcap: true, kicker: 'Liberty and Ethics',
+          caption: 'Henry Hintermeister, Foundation of the American Government, 1925.', artHeight: 1.6, artPos: 'center 55%' },
         { type: 'stack', area: 'sid', items: [
           { type: 'box', class: 'write-back', title: 'Write Back', html:
             '<p class="big">Every article in these pages invites a reply.</p>' +

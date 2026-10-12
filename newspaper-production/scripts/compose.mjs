@@ -83,9 +83,12 @@ function figure(name, heightIn, caption, pos = 'center', inline = false) {
 // --- text ------------------------------------------------------------------------
 
 /** The publisher's short all-capitals lines are section heads, not shouting. */
-function paragraphs(text, setOff = []) {
+function paragraphs(text, setOff = [], subheads = []) {
   return text.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean).map((p, i) => {
     if (p.length < 70 && p === p.toUpperCase() && /[A-Z]/.test(p)) return `<h4>${esc(p)}</h4>`;
+    // A line the publisher asked to set as "a bold LINE break, and not the
+    // start for the paragraph" (ICE piece, 2026-10-10).
+    if (subheads.includes(p)) return `<h4 class="sub">${esc(p)}</h4>`;
     // Lines the publisher set off with a 0.5in indent in his Word file: his
     // emphasis ("Parents. / College admission committees."), kept, not flattened.
     if (setOff.includes(i)) return `<p class="setoff">${esc(p)}</p>`;
@@ -100,19 +103,22 @@ function articleModule(m) {
   const deck = m.deck === false ? '' : (m.deck || a.excerpt);
   const norm = (x) => (x || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
   const deckRepeatsLede = deck && norm(whole(a)).startsWith(norm(deck).slice(0, 60));
-  let body = paragraphs(whole(a), a.setOff || []);
+  let body = paragraphs(whole(a), a.setOff || [], a.subheads || []);
   if (m.dropcap && /^[A-Za-z]/.test(whole(a).trim())) body = body.replace('<p>', '<p class="dropcap">');
   const art = (m.art === false || m.artInline) ? '' : figure(m.art || a.id, m.artHeight || 2.2, m.caption, m.artPos);
   if (m.artInline) body = figure(m.art || a.id, 0, m.caption, 'center', true) + body;
+  // artBottom: the picture under the text instead of under the headline
+  // (publisher, 2026-10-10: "move one of the two graphics to BELOW the article").
   return `
     <div class="head">
       ${kicker ? `<div class="kicker">${esc(kicker)}</div>` : ''}
       <h2 class="hed ${m.size || 'm'}">${esc(m.title || a.title)}</h2>
       ${deck && !deckRepeatsLede ? `<p class="dek">${esc(deck)}</p>` : ''}
-      ${m.artFirst === false ? '' : art}
-      <div class="byline">By ${esc(a.author)}</div>
+      ${m.artFirst === false || m.artBottom ? '' : art}
+      <div class="byline">By ${esc(m.author || a.author)}</div>
     </div>
-    <div class="body${m.italic ? ' italic' : ''}" style="column-count:${cols}" data-article="${esc(a.id)}">${body}</div>`;
+    <div class="body${m.italic ? ' italic' : ''}" style="column-count:${cols}" data-article="${esc(a.id)}">${body}</div>
+    ${m.artBottom ? `<div class="art-bottom">${art}</div>` : ''}`;
 }
 
 function adModule(m) {
@@ -240,7 +246,7 @@ function renderPage(p, i) {
   const n = i + 1;
   const folio = p.masthead ? '' : `<div class="folio"><span>Common Sense 250</span><span>${esc(edition.meta.date)}</span><span>Page ${n}</span></div>`;
   return `
-  <div class="page" id="p${n}">
+  <div class="page ${p.class || ''}" id="p${n}">
     ${p.masthead ? masthead() : folio}
     <div class="grid" style="grid-template-areas:${p.areas.map((r) => `'${r}'`).join(' ')};grid-template-rows:${p.rows.join(' ')}">
       ${p.modules.map(renderModule).join('')}

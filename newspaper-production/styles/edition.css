@@ -249,3 +249,36 @@ body, .body p, .dek, .ear, figcaption { font-variant-ligatures: common-ligatures
 .ad-pair { display: grid; grid-template-columns: 1fr 1fr; column-gap: .07in; align-self: stretch; margin: .06in 0 .02in; }
 .ad-pair img { width: 100%; height: .95in; object-fit: cover; display: block; }
 .si-ad .ad.listing .ad-art { height: 1.3in; }
+
+/* Pages 7 and 8: a space between paragraphs instead of an indent (publisher,
+   2026-10-10, to see which readers prefer; the poll is on page 3). */
+.page.spaced .body p { text-indent: 0; margin-bottom: .05in; }
+.page.spaced .body p.setoff { margin-left: .32in; }
+
+/* A subhead in the publisher's own words, set as a bold line, not capitals. */
+.body h4.sub { text-transform: none; letter-spacing: 0; font: 700 9.4pt/1.2 'Caslon'; margin: .06in 0 .03in; }
+
+/* A picture under the text (Social Security, page 6). */
+.art-bottom .art { margin: .08in 0 0; }
+.art-bottom figcaption { margin-bottom: 0; }
+
+/* Photographs between two advertisements (page 7, SerenitySpaces). */
+.box.photos { border: none; outline: none; padding: 0; display: flex; flex-direction: column; justify-content: center; }
+.box.photos .box-art { margin: 0; }
+.box.students .poll { font-size: 8.2pt; margin-top: .05in; padding-top: .05in; border-top: .5pt solid #000; }
+
+/* A text advertisement squeezed to one column (the Bahamas pair, page 7). */
+.si-ad .ad.narrow:not(.with-art) { padding: .1in .12in; }
+.si-ad .ad.narrow:not(.with-art) .ad-head { font-size: 17pt; margin: 0 0 .06in; }
+.si-ad .ad.narrow:not(.with-art) .ad-head::after { margin-top: .06in; }
+.si-ad .ad.narrow:not(.with-art) p { font-size: 8.4pt; line-height: 1.28; margin-bottom: .03in; }
+.si-ad .ad.narrow .ad-url { font-size: 6.8pt; letter-spacing: .08em; margin-top: .04in; }
+
+/* ShiftAI (page 5): wordmark small over the publisher's headline. */
+.si-ad .ad.logo { padding: .08in .2in; }
+.si-ad .ad.logo .ad-art { width: 1.5in; margin: .02in 0 .08in; }
+.si-ad .ad.logo .ad-head { font-size: 17pt; margin-bottom: .05in; }
+.si-ad .ad.logo p { font: 400 8.6pt/1.3 'Caslon'; letter-spacing: 0; margin-bottom: .03in; }
+.si-ad .ad.logo .ad-url { font-size: 7.2pt; margin-top: .04in; }
+/* The Whalers logo inside the compact page 8 ad. */
+.si-ad .ad.with-art.compact .ad-art { max-height: 1.5in; width: auto; max-width: 100%; object-fit: contain; }

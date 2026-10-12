@@ -146,7 +146,11 @@ export const articlesV2 = [
   carriedOver('tariffs'),
   carriedOver('health-insurance'),
   carriedOver('social-security'),
-  joined('ice-deportations'),
+  // Publisher, 2026-10-10: «"hill to die on"?» is a bold line break, not the
+  // start of a paragraph.
+  { ...joined('ice-deportations'),
+    contentFull: joined('ice-deportations').contentFull.replace('A “hill to die on”?\n', 'A “hill to die on”?\n\n'),
+    subheads: ['A “hill to die on”?'] },
   carriedOver('town-hall'),
   carriedOver('axe-tax'),
   carriedOver('civics'),

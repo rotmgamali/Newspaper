@@ -183,7 +183,11 @@ export const ads = {
   'whalers': {
     advertiser: 'NHL to Hartford',
     size: 'quarter',
-    image: 'whalers-hockey.jpg',  // FWA painting, early-1900s hockey; public domain (NARA 195788)
+    // Publisher, 2026-10-10: "we want an actual photo or at least an actual
+    // Hartford Whalers logo". The logo is the NHL's trademark; it runs in a
+    // fan campaign's advertisement at the publisher's direction (noted below).
+    // The old picture (FWA painting, NARA 195788) stays in art/ as whalers-hockey.jpg.
+    image: 'whalers-logo',
     headline: 'Whalers Here!',
     lines: [
       'Make Connecticut skate again.',
@@ -198,7 +202,8 @@ export const ads = {
       'or the ownership-share line struck. He is the publisher and it is his ' +
       'offer; it runs at his direction. This note is the record that he was told. ' +
       'URL corrected to NHLtoHartford.org (live: Whaler Land store) by the publisher ' +
-      '2026-10-04; the .com is a parked page.',
+      '2026-10-04; the .com is a parked page. The Whalers logo is a registered mark ' +
+      '(NHL / Carolina Hurricanes); it runs at the publisher\'s direction, 2026-10-10.',
   },
 
   // --- added at the publisher's direction, 2026-10-02 ---------------------------
@@ -217,6 +222,26 @@ export const ads = {
     // Copy from his own page, as he asked. The page's "$20-30 million" figure
     // is left out: a dollar promise in print is his to make, not ours to copy.
     authorization: { by: 'Mark S. Greenstein', on: '2026-10-02', note: "Publisher's own company; he asked for it" },
+  },
+
+  // Publisher, 2026-10-10: "With the space on Pg 5, please grab material for
+  // ShiftAI.club. 'MAKE your AI even BETTER!' Use my url at the bottom" (his
+  // referral link; the https:// dropped for print, as he said). It is his
+  // affiliate advertisement; the copy lines come from the site itself.
+  'shiftai': {
+    advertiser: 'ShiftAI.club',
+    size: 'eighth',
+    style: 'logo',
+    image: 'shiftai-logo',
+    headline: 'MAKE your AI even BETTER!',
+    // From shiftai.club, 2026-10-12: "AI Studios for Video, Images, Voice,
+    // Music & Chat" ... "Priced per use, and you see the cost before you create."
+    lines: [
+      'AI studios for video, images, voice, music and chat. Write it, pick the face, publish the same afternoon.',
+      'Priced per use, and you see the cost before you create.',
+    ],
+    url: 'shiftai.club/?ref=stewartforliberty',   // the plain address forwards to https and keeps the ref (checked 2026-10-12)
+    authorization: { by: 'Mark S. Greenstein', on: '2026-10-10', note: "Publisher's affiliate link; he asked for it" },
   },
 
   'ybh-eighth': {
