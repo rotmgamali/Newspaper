@@ -180,6 +180,7 @@ function aneModule(m) {
             <div class="ane-year">${esc(x.years)}</div>
             <div class="ane-name">${esc(x.name)} <span>· ${esc(x.place)}</span></div>
             <p>${esc(x.text)}</p>
+            ${x.more ? `<p class="more">${esc(x.more)}</p>` : ''}
           </div>`).join('')}
       </div>
       <div class="ane-credit">Selected by Mark Stewart Greenstein</div>

@@ -307,3 +307,6 @@ body, .body p, .dek, .ear, figcaption { font-variant-ligatures: common-ligatures
 .box.students.middle .box-row { display: grid; grid-template-columns: 1fr 1.15fr 1fr; column-gap: .12in; align-items: center; }
 .box.students.middle .box-row .art { margin: 0; }
 .box.students.middle .box-copy { text-align: center; }
+
+/* A separate closing sentence under a New Englanders entry (publisher, 2026-10-13). */
+.ane-entry p.more { margin-top: .07in; }
