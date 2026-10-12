@@ -255,14 +255,18 @@ export const ads = {
     advertiser: 'GoBabyTrade',
     size: 'quarter',
     style: 'side',
-    image: 'gobabytrade-report',
+    // Publisher, 2026-10-13 17:39Z: "Make a bar graph that ascends somewhat each day, from a
+    // base at $10,000 ... an 8 day ascending bar graph with 'Portfolio total' that runs from
+    // $10,000 start to 10,042 10,061, 10102, to 10127, to 10154, to 10188, to 10209." The
+    // chart (art/gobabytrade-chart.png) is drawn from those eight figures; the words are his.
+    image: 'gobabytrade-chart',
     headline: 'GoBabyTrade',
     lines: [
-      'Automated trading software for crypto, with you in control of your settings, funds and assets.',
-      'One flat fee. No automatic renewals. Non-custodial by design.',
+      'The bot that never takes losses.',
+      'See it at work:',
     ],
     url: ['crypto.gobabytrade.com/?RID=531A8DB2'],
-    authorization: { by: 'Mark S. Greenstein', on: '2026-10-13', note: 'His new advertiser; "use GoBabyTrade in that space" (page 7, 17:28Z)' },
+    authorization: { by: 'Mark S. Greenstein', on: '2026-10-13', note: 'His new advertiser; "use GoBabyTrade in that space" (page 7, 17:28Z); chart figures and copy 17:39Z' },
   },
 
   'ybh-eighth': {

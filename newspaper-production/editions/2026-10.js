@@ -201,9 +201,10 @@ export const edition = {
         { type: 'article', area: 'oth', id: 'other-half-of-affordability', span: 2, size: 'm', dropcap: true, art: false },
         { type: 'article', area: 'cou', id: 'come-on-up', span: 2, size: 'm',
           caption: 'Hartford in October. Photo: Quintin Soloviev, CC BY 4.0.', artHeight: 2.2, artPos: 'center 45%' },
-        { type: 'ad', area: 'gbt', key: 'gobabytrade' },
+        { type: 'ad', area: 'gbt', key: 'gobabytrade', class: 'chart' },
+        // Publisher, 2026-10-13 17:39Z: "fill the bottom 1/3 inch below the serenity graphic".
         { type: 'box', area: 'pic', class: 'photos tall',
-          art: [ { name: 'serenity-aerial', height: 3.85, pos: 'center 45%', caption: 'SerenitySpaces Bahamas from the air: the four villas, the pool and the gardens. Freeport, Grand Bahama.' } ],
+          art: [ { name: 'serenity-aerial', height: 4.18, pos: 'center 45%', caption: 'SerenitySpaces Bahamas from the air: the four villas, the pool and the gardens. Freeport, Grand Bahama.' } ],
           html: '' },
         { type: 'box', area: 'stu', class: 'stars', html:
           '<p class="byob">For Students, part II: Earn big $ with CS 250!</p>' +

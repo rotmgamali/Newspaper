@@ -353,3 +353,10 @@ body, .body p, .dek, .ear, figcaption { font-variant-ligatures: common-ligatures
 .mod-ad .ad.side p:first-of-type { font: 400 8.8pt/1.28 'Caslon'; }
 .mod-ad .ad.side .ad-url { font-size: 7.4pt; margin-top: .05in; }
 .mod-ad .ad.side .ad-art { max-width: 40%; }
+
+/* The GoBabyTrade bar chart (page 7, publisher 2026-10-13): the picture is the figures, so it
+   takes more than the usual side-ad share and the headline gives up a little size. */
+.ad.side.chart .ad-art { height: auto; max-height: 100%; width: 50%; max-width: 50%; object-fit: contain; align-self: center; }
+.ad.side.chart .ad-url { font-size: 6.6pt; letter-spacing: .04em; }
+.ad.side.chart .ad-head { font-size: 24pt; }
+.ad.side.chart p:first-of-type { font-size: 11pt; }
