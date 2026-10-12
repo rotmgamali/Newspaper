@@ -325,5 +325,13 @@
   "license": "Advertiser's brand asset from its public site; the publisher's affiliate advertisement",
   "source": "https://shiftai.club/cdn/shop/t/64/assets/shift-ai-on-light.svg",
   "fetched": "2026-10-12"
+ },
+ "no-draft-conscript": {
+  "file": "The conscript: a vector woodcut drawn for the paper from Mark Greenstein's sketch",
+  "artist": "Common Sense 250 (drawn for the paper, 2026-10-12)",
+  "license": "Made for this paper",
+  "source": "the publisher's sketch, Jobs/Mark/from-mark/2026-10-12-texts/01-IMG_7718.jpeg",
+  "modern": true,
+  "fetched": "2026-10-12"
  }
 }

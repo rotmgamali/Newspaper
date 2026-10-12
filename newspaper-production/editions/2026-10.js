@@ -49,12 +49,13 @@ export const edition = {
         // conscript held at gunpoint by his officer; Ticonderoga smaller, two
         // columns, bottom right, keeping its caption.
         { type: 'feature', area: 'lead', id: 'no-draft', size: 'xl', dropcap: true, kicker: 'Liberty & Politics', deck: false,
-          // The publisher's illustration (a frightened conscript, his officer's
-          // pistol at his head) has not arrived. Until it does, a U.S. Army
-          // photograph holds the space; swap the name back to
-          // 'no-draft-conscript' when his picture comes.
-          topArt: { name: 'no-draft-recruit', height: 2.65, pos: 'center 30%',
-                    caption: 'First day of basic training, Fort Jackson, S.C., 2016. U.S. Army photo.' },
+          // The publisher's picture, drawn for the paper from his own sketch of
+          // 2026-10-12 (a frightened conscript, his officer's pistol at his head,
+          // a family on its knees). No image service could draw it; it is a
+          // hand-built vector woodcut, art/no-draft-conscript.svg. The Army
+          // photograph that held the space is art/no-draft-recruit.jpg.
+          topArt: { name: 'no-draft-conscript', height: 2.65,
+                    caption: 'The draft does not ask. Drawn for Common Sense 250 from the publisher’s sketch.' },
           bottomArt: { name: 'no-draft', height: 1.75, pos: 'center 55%',
                        caption: "Volunteers, not conscripts: Ethan Allen's militia takes Fort Ticonderoga, May 10, 1775." } },
         // Right column, publisher 2026-10-09: his revised Our Purpose (a size
