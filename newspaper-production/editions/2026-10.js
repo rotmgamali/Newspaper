@@ -129,7 +129,7 @@ export const edition = {
           // Publisher, 2026-10-13: a separate final sentence under three entries, "to balance the six graphics".
           { years: '1875–76', name: 'Alexander Graham Bell', place: 'Massachusetts', art: 'ane-bell', artHeight: 2.0, caption: 'Illustration for Common Sense 250.',
             text: 'Working with Elisha Gray, the transplant from Scotland invents and then patents the telephone.',
-            more: 'New Englander Dan Riccio (Revere MA native) helped perfect the “I-Phone” in the late 1990s.' },
+            more: 'New Englander Dan Riccio (Revere MA native) helped perfect the “I-Phone” in the 2000s.' },   // his word, 2026-10-13 17:27Z
           { years: '1926', name: 'Calvin Coolidge', place: 'Vermont', art: 'ane-coolidge', artHeight: 1.7, artPos: 'center 20%',
             caption: 'Coolidge, October 1924. National Photo Company, Library of Congress.',
             text: 'The Vermont native gives a most-American speech at Arlington for the Presidential Memorial Day address: “As a people we have not sought military glory. Because of our fortunate circumstances, such wars as we have waged have been for the purpose of securing conditions under which peace would be more permanent, liberty would be more secure, and justice would be more certain.”' },

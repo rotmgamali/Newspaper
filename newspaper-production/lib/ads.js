@@ -188,10 +188,14 @@ export const ads = {
     // fan campaign's advertisement at the publisher's direction (noted below).
     // The old picture (FWA painting, NARA 195788) stays in art/ as whalers-hockey.jpg.
     image: 'whalers-logo',
+    // Publisher, 2026-10-13 17:26Z: a second graphic inside (his 1974 harpoon
+    // logo), and the text below in his words.
+    image2: 'whalers-harpoon-1974',
     headline: 'Whalers Here!',
     lines: [
-      'Make Connecticut skate again.',
-      'Own a piece of a returning team.',
+      'Make Connecticut SKATE Again!',
+      'You can own (yes!) a piece of a returning NHL team.',
+      '(A great Christmas gift for any athletics-minded kid)',
     ],
     url: 'NHLtoHartford.org',   // publisher, 2026-10-04: the .org is the live site (the .com is parked)
     authorization: { by: 'Mark S. Greenstein', on: '2026-10-02', note: "Publisher's direction: page 8, or small on page 1" },

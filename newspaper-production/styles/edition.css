@@ -341,3 +341,7 @@ body, .body p, .dek, .ear, figcaption { font-variant-ligatures: common-ligatures
 .mod-box .box.stars .byob { font-size: 12pt; }
 .mod-box .box.stars p { font-size: 9.2pt; margin-bottom: .05in; }
 .mod-box .box.stars .byob-url { font-size: 8.4pt; margin: .03in 0 .08in; }
+
+/* The Whalers ad's second logo (publisher, 2026-10-13). */
+.si-ad .ad.with-art.compact .ad-art.second { max-height: 1.35in; width: auto; max-width: 85%; margin: .12in 0 .06in; }
+.si-ad .ad.with-art.compact p:first-of-type { font: 700 13pt/1.2 'Playfair'; margin-bottom: .08in; }
