@@ -310,3 +310,18 @@ body, .body p, .dek, .ear, figcaption { font-variant-ligatures: common-ligatures
 
 /* A separate closing sentence under a New Englanders entry (publisher, 2026-10-13). */
 .ane-entry p.more { margin-top: .07in; }
+
+/* Page 7: the aerial standing taller than the ads beside its foot. */
+.box.photos.tall { justify-content: flex-start; }
+.box.photos.tall .box-art { grid-template-columns: 1fr; }
+.mod-box .box.stars { height: 100%; display: flex; flex-direction: column; justify-content: center; }
+.mod-box .box.stars .byob { font-size: 10.5pt; }
+.mod-box .box.stars p { font-size: 8.4pt; margin-bottom: .04in; }
+.mod-box .box.stars .byob-url { font-size: 7.6pt; margin: .02in 0 .06in; }
+
+/* The 1/16 house ad in a short cell (page 7). */
+.si-ad .ad.tiny { padding: .06in .1in; }
+.si-ad .ad.tiny .ad-head { font-size: 14pt; margin: 0 0 .04in; }
+.si-ad .ad.tiny .ad-head::after { margin-top: .04in; width: .8in; }
+.si-ad .ad.tiny p { font-size: 7.8pt; line-height: 1.25; margin-bottom: .02in; }
+.si-ad .ad.tiny .ad-url { font-size: 6.4pt; margin-top: .03in; letter-spacing: .06em; }

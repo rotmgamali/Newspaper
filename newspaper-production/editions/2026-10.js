@@ -184,24 +184,31 @@ export const edition = {
     },
 
     // 7 ---------------------------------------------------------------------------
-    // Publisher by phone, 2026-10-13: no 'Advertisement' labels anywhere; no blank
-    // space; the SerenitySpaces photo bigger; indents on every page (the paragraph
-    // spacing experiment on 7 and 8 is over, so the poll on page 3 goes too); the
-    // ads uniform. Andrew, 2026-10-12: the students' box tall on the right (it is
-    // now the right-hand column of page 8, where it stands full height).
+    // Publisher, 2026-10-13 16:51Z: the SerenitySpaces photo larger in height and
+    // width, two columns, a bit higher than the two flanking Bahamas ads; the
+    // students' message on the right. So: the two articles on top; then the
+    // photo in the middle two columns standing taller than the ads either side
+    // of its foot; the starred students' box top right; the small house ad top
+    // left (it came off page 8 for room and fits this cell).
     {
-      areas: ['oth oth cou cou', 'oth oth pic pic', 'ba1 ba1 ba2 ba2'],
-      rows: ['1fr', '2.75in', '2.8in'],
+      areas: ['oth oth cou cou', 'ybh pic pic stu', 'ba1 pic pic ba2'],
+      rows: ['1fr', '1.35in', '2.75in'],
       modules: [
-        { type: 'article', area: 'oth', id: 'other-half-of-affordability', span: 2, size: 'm', dropcap: true,
-          caption: 'Résumé in hand at a hiring fair, 2023. U.S. Air Force photo.', artHeight: 1.55 },
+        // The hiring-fair photograph came out of this article to make its column
+        // height: the page keeps two modern photographs (Hartford, the villas).
+        { type: 'article', area: 'oth', id: 'other-half-of-affordability', span: 2, size: 'm', dropcap: true, art: false },
         { type: 'article', area: 'cou', id: 'come-on-up', span: 2, size: 'm',
-          caption: 'Hartford in October. Photo: Quintin Soloviev, CC BY 4.0.', artHeight: 2.7, artPos: 'center 45%' },
-        { type: 'box', area: 'pic', class: 'photos',
-          art: [ { name: 'serenity-aerial', height: 2.45, pos: 'center 40%', caption: 'SerenitySpaces Bahamas from the air: the four villas, the pool and the gardens. Freeport, Grand Bahama.' } ],
+          caption: 'Hartford in October. Photo: Quintin Soloviev, CC BY 4.0.', artHeight: 3.0, artPos: 'center 45%' },
+        { type: 'box', area: 'pic', class: 'photos tall',
+          art: [ { name: 'serenity-aerial', height: 3.85, pos: 'center 45%', caption: 'SerenitySpaces Bahamas from the air: the four villas, the pool and the gardens. Freeport, Grand Bahama.' } ],
           html: '' },
-        { type: 'ad', area: 'ba1', key: 'bahamas-villas' },
-        { type: 'ad', area: 'ba2', key: 'bahamas-complex' },
+        { type: 'box', area: 'stu', class: 'stars', html:
+          '<p class="byob">For Students, part II: Earn big $ with CS 250!</p>' +
+          '<p class="byob-url">commonsense250.news/earn</p>' +
+          '<p>Become a paid influencer via CS250. Influence for GOOD. Steer others to your favorite places, services, and goods.</p>' },
+        { type: 'stack', area: 'ybh', items: [ { type: 'ad', key: 'ybh-sixteenth', grow: true, class: 'tiny' } ] },
+        { type: 'stack', area: 'ba1', items: [ { type: 'ad', key: 'bahamas-villas', grow: true, class: 'narrow' } ] },
+        { type: 'stack', area: 'ba2', items: [ { type: 'ad', key: 'bahamas-complex', grow: true, class: 'narrow' } ] },
       ],
     },
 
@@ -223,15 +230,10 @@ export const edition = {
           // Mountain West listings. The space is this column: the Whalers ad
           // gives up its empty margins, and the 1/16 "Your Business Here"
           // moves here from page 4, which is now all Columbine Inn.
-          { type: 'ad', key: 'whalers', class: 'compact', artHeight: 1.6, artPos: 'center 30%', height: 4.2 },
+          // Publisher, 2026-10-13: the students' box is back on page 7; the Whalers
+          // takes the room. The 1/16 'Your Business Here' is on page 7 too.
+          { type: 'ad', key: 'whalers', grow: true, class: 'compact', artHeight: 2.0, artPos: 'center 30%' },
           { type: 'ad', key: 'powder-mountain-west' },
-          { type: 'box', class: 'stars tall', grow: true, html:
-            '<p class="byob">For Students, part II</p>' +
-            '<p class="byob">Earn big $ with CS 250!</p>' +
-            '<p class="byob-url">commonsense250.news/earn</p>' +
-            '<p>Become a paid influencer via CS250. Influence for GOOD.</p>' +
-            '<p>Steer others to your favorite places, services, and goods.</p>' },
-          // The 1/16 'Your Business Here' gave way to the students' box; the 1/8 stays on page 6.
         ] },
         { type: 'colophon', area: 'col' },
       ],
