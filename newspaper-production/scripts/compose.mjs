@@ -104,6 +104,8 @@ function articleModule(m) {
   const norm = (x) => (x || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
   const deckRepeatsLede = deck && norm(whole(a)).startsWith(norm(deck).slice(0, 60));
   let body = paragraphs(whole(a), a.setOff || [], a.subheads || []);
+  // Inline emphasis the publisher asks for: each {find, html} swaps the escaped text once.
+  for (const e of a.emphasis || []) body = body.replace(esc(e.find), e.html);
   if (m.dropcap && /^[A-Za-z]/.test(whole(a).trim())) body = body.replace('<p>', '<p class="dropcap">');
   const art = (m.art === false || m.artInline) ? '' : figure(m.art || a.id, m.artHeight || 2.2, m.caption, m.artPos);
   if (m.artInline) body = figure(m.art || a.id, 0, m.caption, 'center', true) + body;

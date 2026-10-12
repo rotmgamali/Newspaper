@@ -293,3 +293,11 @@ body, .body p, .dek, .ear, figcaption { font-variant-ligatures: common-ligatures
 .box.stars.tall .byob-url { font-size: 8pt; letter-spacing: .04em; margin: .04in 0 .14in; overflow-wrap: anywhere; }
 .box.stars.tall p { font-size: 9.6pt; line-height: 1.35; margin-bottom: .1in; }
 .box.photos .box-art { grid-template-columns: 1fr; }
+
+/* Publisher, 2026-10-13: no 'Advertisement' labels on any ad. */
+.ad-label, .ad.side .ad-copy::before { display: none; }
+.ad { padding-top: .12in; }
+.si-box { display: flex; flex-direction: column; }
+.stack-item.si-box.grow .box.stars.tall { flex: 1; }
+.box.stars.tall .byob { font-size: 12pt; }
+.box.stars.tall p { font-size: 9pt; margin-bottom: .08in; }

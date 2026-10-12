@@ -107,10 +107,7 @@ export const edition = {
             html:
             '<p class="big">Join CS250. Spread the word.</p>' +
             '<p>Your words, other influential people’s words. Internships, paid and volunteer, are now offered in media, marketing, finance, sales &amp; “influence”.</p>' +
-            '<p>CS250 staff collaborate each Friday evening. Join us! Email <b>andrew@web4guru.com</b>.</p>' +
-            // Publisher, 2026-10-10: pages 7 and 8 are set with space between
-            // paragraphs instead of indents, to see which readers prefer.
-            '<p class="poll"><b>A poll:</b> which layout is easier on the eyes, pages 4 and 5, or pages 7 and 8? Tell us at the same address.</p>' },
+            '<p>CS250 staff collaborate each Friday evening. Join us! Email <b>andrew@web4guru.com</b>.</p>' },
         ] },
         { type: 'ad', area: 'wha', key: 'aspire-schools' },
       ],
@@ -182,30 +179,22 @@ export const edition = {
     },
 
     // 7 ---------------------------------------------------------------------------
-    // Publisher, 2026-10-10: space between paragraphs on 7 and 8; SerenitySpaces
-    // photos bottom centre with the ads either side; a second starred box for
-    // students. Andrew, 2026-10-12: the students' box vertical on the right-hand
-    // side, the Bahamas ads bigger and higher, everything more uniform. So: the
-    // two articles on top, a middle band with the aerial and the tall starred
-    // box, and the two Bahamas ads the same size across the foot.
+    // Publisher by phone, 2026-10-13: no 'Advertisement' labels anywhere; no blank
+    // space; the SerenitySpaces photo bigger; indents on every page (the paragraph
+    // spacing experiment on 7 and 8 is over, so the poll on page 3 goes too); the
+    // ads uniform. Andrew, 2026-10-12: the students' box tall on the right (it is
+    // now the right-hand column of page 8, where it stands full height).
     {
-      class: 'spaced',
-      areas: ['oth oth cou cou', 'oth oth pic stu', 'ba1 ba1 ba2 ba2'],
-      rows: ['1fr', '3.2in', '2.8in'],
+      areas: ['oth oth cou cou', 'oth oth pic pic', 'ba1 ba1 ba2 ba2'],
+      rows: ['1fr', '2.75in', '2.8in'],
       modules: [
         { type: 'article', area: 'oth', id: 'other-half-of-affordability', span: 2, size: 'm', dropcap: true,
-          caption: 'Résumé in hand at a hiring fair, 2023. U.S. Air Force photo.', artHeight: 1.15 },
+          caption: 'Résumé in hand at a hiring fair, 2023. U.S. Air Force photo.', artHeight: 1.55 },
         { type: 'article', area: 'cou', id: 'come-on-up', span: 2, size: 'm',
-          caption: 'Hartford in October. Photo: Quintin Soloviev, CC BY 4.0.', artHeight: 1.9, artPos: 'center 45%' },
+          caption: 'Hartford in October. Photo: Quintin Soloviev, CC BY 4.0.', artHeight: 3.0, artPos: 'center 45%' },
         { type: 'box', area: 'pic', class: 'photos',
-          art: [ { name: 'serenity-aerial', height: 2.75, pos: '28% center', caption: 'SerenitySpaces Bahamas from the air: the villas, the pool and the gardens. Freeport, Grand Bahama.' } ],
+          art: [ { name: 'serenity-aerial', height: 2.45, pos: 'center 40%', caption: 'SerenitySpaces Bahamas from the air: the four villas, the pool and the gardens. Freeport, Grand Bahama.' } ],
           html: '' },
-        { type: 'box', area: 'stu', class: 'stars tall', html:
-          '<p class="byob">For Students, part II</p>' +
-          '<p class="byob">Earn big $ with CS 250!</p>' +
-          '<p class="byob-url">commonsense250.news/earn</p>' +
-          '<p>Become a paid influencer via CS250. Influence for GOOD.</p>' +
-          '<p>Steer others to your favorite places, services, and goods.</p>' },
         { type: 'ad', area: 'ba1', key: 'bahamas-villas' },
         { type: 'ad', area: 'ba2', key: 'bahamas-complex' },
       ],
@@ -213,13 +202,12 @@ export const edition = {
 
     // 8 ---------------------------------------------------------------------------
     {
-      class: 'spaced',
       areas: ['wal wal wal sid', 'col col col col'],
       rows: ['1fr', 'auto'],
       modules: [
         // Publisher, 2026-10-10: "for the pg 8 header, call it LIBERTY and ETHICS".
         { type: 'article', area: 'wal', id: 'matt-walsh-reply', span: 3, size: 'l', dropcap: true, kicker: 'Liberty and Ethics',
-          caption: 'Henry Hintermeister, Foundation of the American Government, 1925.', artHeight: 1.6, artPos: 'center 55%' },
+          caption: 'Henry Hintermeister, Foundation of the American Government, 1925.', artHeight: 2.0, artPos: 'center 55%' },
         { type: 'stack', area: 'sid', items: [
           { type: 'box', class: 'write-back', title: 'Write Back', html:
             '<p class="big">Every article in these pages invites a reply.</p>' +
@@ -230,9 +218,15 @@ export const edition = {
           // Mountain West listings. The space is this column: the Whalers ad
           // gives up its empty margins, and the 1/16 "Your Business Here"
           // moves here from page 4, which is now all Columbine Inn.
-          { type: 'ad', key: 'whalers', grow: true, class: 'compact', artHeight: 2.0, artPos: 'center 30%' },
+          { type: 'ad', key: 'whalers', class: 'compact', artHeight: 1.6, artPos: 'center 30%', height: 4.2 },
           { type: 'ad', key: 'powder-mountain-west' },
-          { type: 'ad', key: 'ybh-sixteenth', height: 2.7 },
+          { type: 'box', class: 'stars tall', grow: true, html:
+            '<p class="byob">For Students, part II</p>' +
+            '<p class="byob">Earn big $ with CS 250!</p>' +
+            '<p class="byob-url">commonsense250.news/earn</p>' +
+            '<p>Become a paid influencer via CS250. Influence for GOOD.</p>' +
+            '<p>Steer others to your favorite places, services, and goods.</p>' },
+          // The 1/16 'Your Business Here' gave way to the students' box; the 1/8 stays on page 6.
         ] },
         { type: 'colophon', area: 'col' },
       ],
