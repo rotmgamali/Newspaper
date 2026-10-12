@@ -345,3 +345,11 @@ body, .body p, .dek, .ear, figcaption { font-variant-ligatures: common-ligatures
 /* The Whalers ad's second logo (publisher, 2026-10-13). */
 .si-ad .ad.with-art.compact .ad-art.second { max-height: 1.35in; width: auto; max-width: 85%; margin: .12in 0 .06in; }
 .si-ad .ad.with-art.compact p:first-of-type { font: 700 13pt/1.2 'Playfair'; margin-bottom: .08in; }
+
+/* GoBabyTrade (page 7): the side style in a short wide cell. */
+.mod-ad .ad.side { padding: .1in .12in; gap: .14in; }
+.mod-ad .ad.side .ad-head { font-size: 24pt; margin-bottom: .06in; padding-bottom: .05in; }
+.mod-ad .ad.side p { font-size: 8.8pt; line-height: 1.28; margin-bottom: .03in; }
+.mod-ad .ad.side p:first-of-type { font: 400 8.8pt/1.28 'Caslon'; }
+.mod-ad .ad.side .ad-url { font-size: 7.4pt; margin-top: .05in; }
+.mod-ad .ad.side .ad-art { max-width: 40%; }

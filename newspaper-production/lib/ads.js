@@ -248,6 +248,23 @@ export const ads = {
     authorization: { by: 'Mark S. Greenstein', on: '2026-10-10', note: "Publisher's affiliate link; he asked for it" },
   },
 
+  // Publisher, 2026-10-12/13: a new advertiser, GoBabyTrade.com; "the middle
+  // graphic might be good" (their Top 50 traders report) with his referral link.
+  // Copy lines are the advertiser's own words from its pricing page.
+  'gobabytrade': {
+    advertiser: 'GoBabyTrade',
+    size: 'quarter',
+    style: 'side',
+    image: 'gobabytrade-report',
+    headline: 'GoBabyTrade',
+    lines: [
+      'Automated trading software for crypto, with you in control of your settings, funds and assets.',
+      'One flat fee. No automatic renewals. Non-custodial by design.',
+    ],
+    url: ['crypto.gobabytrade.com/?RID=531A8DB2'],
+    authorization: { by: 'Mark S. Greenstein', on: '2026-10-13', note: 'His new advertiser; "use GoBabyTrade in that space" (page 7, 17:28Z)' },
+  },
+
   'ybh-eighth': {
     advertiser: 'Common Sense 250',
     size: 'eighth',

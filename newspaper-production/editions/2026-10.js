@@ -191,14 +191,17 @@ export const edition = {
     // of its foot; the starred students' box top right; the small house ad top
     // left (it came off page 8 for room and fits this cell).
     {
-      areas: ['oth oth cou cou', 'ybh pic pic stu', 'ba1 pic pic ba2'],
-      rows: ['1fr', '1.6in', '2.75in'],
+      // 17:28Z: "That space on the right is still annoying. Let's use my new
+      // advertiser GoBabyTrade in that space": the gap under Come On Up.
+      areas: ['oth oth cou cou', 'oth oth gbt gbt', 'ybh pic pic stu', 'ba1 pic pic ba2'],
+      rows: ['1fr', '1.5in', '1.6in', '2.75in'],
       modules: [
         // The hiring-fair photograph came out of this article to make its column
         // height: the page keeps two modern photographs (Hartford, the villas).
         { type: 'article', area: 'oth', id: 'other-half-of-affordability', span: 2, size: 'm', dropcap: true, art: false },
         { type: 'article', area: 'cou', id: 'come-on-up', span: 2, size: 'm',
-          caption: 'Hartford in October. Photo: Quintin Soloviev, CC BY 4.0.', artHeight: 3.0, artPos: 'center 45%' },
+          caption: 'Hartford in October. Photo: Quintin Soloviev, CC BY 4.0.', artHeight: 2.2, artPos: 'center 45%' },
+        { type: 'ad', area: 'gbt', key: 'gobabytrade' },
         { type: 'box', area: 'pic', class: 'photos tall',
           art: [ { name: 'serenity-aerial', height: 3.85, pos: 'center 45%', caption: 'SerenitySpaces Bahamas from the air: the four villas, the pool and the gardens. Freeport, Grand Bahama.' } ],
           html: '' },
