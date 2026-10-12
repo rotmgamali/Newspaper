@@ -285,3 +285,11 @@ body, .body p, .dek, .ear, figcaption { font-variant-ligatures: common-ligatures
 
 /* Page 7 photographs: the aerial wide, the pool beside it. */
 .box.photos .box-art { grid-auto-columns: auto; grid-template-columns: 2.4fr 1fr; column-gap: .1in; }
+
+/* Page 7: the tall starred box on the right (Andrew, 2026-10-12). */
+.mod-box { display: flex; flex-direction: column; }
+.box.stars.tall { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: .14in .12in; }
+.box.stars.tall .byob { font-size: 13pt; line-height: 1.2; margin-bottom: .08in; }
+.box.stars.tall .byob-url { font-size: 8pt; letter-spacing: .04em; margin: .04in 0 .14in; overflow-wrap: anywhere; }
+.box.stars.tall p { font-size: 9.6pt; line-height: 1.35; margin-bottom: .1in; }
+.box.photos .box-art { grid-template-columns: 1fr; }

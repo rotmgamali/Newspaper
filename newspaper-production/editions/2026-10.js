@@ -182,34 +182,32 @@ export const edition = {
     },
 
     // 7 ---------------------------------------------------------------------------
-    // Publisher, 2026-10-10: space between paragraphs on 7 and 8 ("let's see if
-    // it's superior"); photos of SerenitySpaces bottom centre with the two ads
-    // either side; and a second starred box for students where there is room.
+    // Publisher, 2026-10-10: space between paragraphs on 7 and 8; SerenitySpaces
+    // photos bottom centre with the ads either side; a second starred box for
+    // students. Andrew, 2026-10-12: the students' box vertical on the right-hand
+    // side, the Bahamas ads bigger and higher, everything more uniform. So: the
+    // two articles on top, a middle band with the aerial and the tall starred
+    // box, and the two Bahamas ads the same size across the foot.
     {
       class: 'spaced',
-      areas: ['oth oth cou cou', 'ba1 pic pic ba2'],
-      rows: ['1fr', '2.7in'],
+      areas: ['oth oth cou cou', 'oth oth pic stu', 'ba1 ba1 ba2 ba2'],
+      rows: ['1fr', '3.2in', '2.8in'],
       modules: [
         { type: 'article', area: 'oth', id: 'other-half-of-affordability', span: 2, size: 'm', dropcap: true,
           caption: 'Résumé in hand at a hiring fair, 2023. U.S. Air Force photo.', artHeight: 1.15 },
-        { type: 'stack', area: 'cou', items: [
-          { type: 'article', id: 'come-on-up', span: 2, size: 'm', grow: true,
-            caption: 'Hartford in October. Photo: Quintin Soloviev, CC BY 4.0.', artHeight: 3.0, artPos: 'center 45%' },
-          { type: 'box', class: 'stars', html:
-            '<p class="byob">For Students, part II: Earn big $ with CS 250!</p>' +
-            '<p class="byob-url">commonsense250.news/earn</p>' +
-            '<p>Become a paid influencer via CS250. Influence for GOOD. Steer others to your favorite places, services, and goods.</p>' },
-        ] },
-        { type: 'stack', area: 'ba1', items: [ { type: 'ad', key: 'bahamas-villas', grow: true, class: 'narrow' } ] },
+        { type: 'article', area: 'cou', id: 'come-on-up', span: 2, size: 'm',
+          caption: 'Hartford in October. Photo: Quintin Soloviev, CC BY 4.0.', artHeight: 1.9, artPos: 'center 45%' },
         { type: 'box', area: 'pic', class: 'photos',
-          // The aerial he liked, and the pool, cut from the same aerial: the
-          // site has no ground-level pool photograph of its own, and its beach
-          // picture is Getty stock, so neither of those runs.
-          // A close crop of the pool was tried (2026-10-12) and printed as a
-          // blur: the only pool picture is inside this aerial, so it runs alone.
-          art: [ { name: 'serenity-aerial', height: 2.3, pos: 'center 40%', caption: 'SerenitySpaces Bahamas from the air: the villas, the pool at left, and the gardens. Freeport, Grand Bahama.' } ],
+          art: [ { name: 'serenity-aerial', height: 2.75, pos: '28% center', caption: 'SerenitySpaces Bahamas from the air: the villas, the pool and the gardens. Freeport, Grand Bahama.' } ],
           html: '' },
-        { type: 'stack', area: 'ba2', items: [ { type: 'ad', key: 'bahamas-complex', grow: true, class: 'narrow' } ] },
+        { type: 'box', area: 'stu', class: 'stars tall', html:
+          '<p class="byob">For Students, part II</p>' +
+          '<p class="byob">Earn big $ with CS 250!</p>' +
+          '<p class="byob-url">commonsense250.news/earn</p>' +
+          '<p>Become a paid influencer via CS250. Influence for GOOD.</p>' +
+          '<p>Steer others to your favorite places, services, and goods.</p>' },
+        { type: 'ad', area: 'ba1', key: 'bahamas-villas' },
+        { type: 'ad', area: 'ba2', key: 'bahamas-complex' },
       ],
     },
 
