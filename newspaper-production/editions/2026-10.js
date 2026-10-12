@@ -192,7 +192,7 @@ export const edition = {
     // left (it came off page 8 for room and fits this cell).
     {
       areas: ['oth oth cou cou', 'ybh pic pic stu', 'ba1 pic pic ba2'],
-      rows: ['1fr', '1.35in', '2.75in'],
+      rows: ['1fr', '1.6in', '2.75in'],
       modules: [
         // The hiring-fair photograph came out of this article to make its column
         // height: the page keeps two modern photographs (Hartford, the villas).
@@ -213,13 +213,16 @@ export const edition = {
     },
 
     // 8 ---------------------------------------------------------------------------
+    // Publisher, 2026-10-13 17:00Z: the Walsh columns finish even; the space
+    // below goes to a larger Common Sense 250 and larger fine print; no shadows
+    // on the Whalers logo; the students' box type larger (it is on page 7 now).
     {
       areas: ['wal wal wal sid', 'col col col col'],
-      rows: ['1fr', 'auto'],
+      rows: ['auto', '1fr'],
       modules: [
         // Publisher, 2026-10-10: "for the pg 8 header, call it LIBERTY and ETHICS".
-        { type: 'article', area: 'wal', id: 'matt-walsh-reply', span: 3, size: 'l', dropcap: true, kicker: 'Liberty and Ethics',
-          caption: 'Henry Hintermeister, Foundation of the American Government, 1925.', artHeight: 2.0, artPos: 'center 55%' },
+        { type: 'article', area: 'wal', id: 'matt-walsh-reply', span: 3, size: 'l', dropcap: true, kicker: 'Liberty and Ethics', class: 'even',
+          caption: 'Henry Hintermeister, Foundation of the American Government, 1925.', artHeight: 1.75, artPos: 'center 55%' },
         { type: 'stack', area: 'sid', items: [
           { type: 'box', class: 'write-back', title: 'Write Back', html:
             '<p class="big">Every article in these pages invites a reply.</p>' +

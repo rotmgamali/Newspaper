@@ -325,3 +325,19 @@ body, .body p, .dek, .ear, figcaption { font-variant-ligatures: common-ligatures
 .si-ad .ad.tiny .ad-head::after { margin-top: .04in; width: .8in; }
 .si-ad .ad.tiny p { font-size: 7.8pt; line-height: 1.25; margin-bottom: .02in; }
 .si-ad .ad.tiny .ad-url { font-size: 6.4pt; margin-top: .03in; letter-spacing: .06em; }
+
+/* Page 8 (publisher, 2026-10-13): the three columns finish even, and the
+   colophon below is set large: the name at display size, the notes at article
+   size in two columns, with the barcode at the right. */
+.mod-article.even .body { flex: none; column-fill: balance; }
+.mod-article.even { justify-content: flex-start; }
+.mod-colophon { display: flex; flex-direction: column; justify-content: center; }
+.colophon { align-items: center; padding-top: .1in; }
+.colo-title { font-size: 36pt; margin-bottom: .08in; text-align: center; }
+.colo-text { column-count: 2; column-gap: .25in; }
+.colophon p { font: 400 8.4pt/1.35 'Caslon'; margin: 0 0 .04in; }
+.barcode { margin-left: .1in; }
+/* The students' box on page 7, its type larger. */
+.mod-box .box.stars .byob { font-size: 12pt; }
+.mod-box .box.stars p { font-size: 9.2pt; margin-bottom: .05in; }
+.mod-box .box.stars .byob-url { font-size: 8.4pt; margin: .03in 0 .08in; }

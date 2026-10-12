@@ -43,7 +43,10 @@ for page in d:
         im = Image.frombytes("L", (pix.width, pix.height), pix.samples)
         k = TARGET_DPI / dpi
         im = im.resize((max(1, round(im.width * k)), max(1, round(im.height * k))), Image.LANCZOS)
-        buf = io.BytesIO(); im.save(buf, "JPEG", quality=90, optimize=True)
+        buf = io.BytesIO()
+        few = im.getcolors(32)          # a logo or a barcode: a handful of greys, kept lossless (a JPEG halo reads as a shadow)
+        if few is not None and len(few) <= 32: im.save(buf, "PNG", optimize=True)
+        else: im.save(buf, "JPEG", quality=90, optimize=True)
         page.replace_image(xref, stream=buf.getvalue())
         resampled += 1
 

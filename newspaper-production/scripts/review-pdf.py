@@ -21,7 +21,10 @@ for page in d:
         if base.n not in (1, 3): base = fitz.Pixmap(fitz.csRGB, base)
         im = Image.frombytes("L" if base.n == 1 else "RGB", (base.width, base.height), base.samples)
         im.thumbnail((780, 780))
-        buf = io.BytesIO(); im.convert("L").save(buf, "JPEG", quality=66, optimize=True)
+        buf = io.BytesIO(); g = im.convert("L")
+        few = g.getcolors(32)          # logos and the barcode stay lossless: a JPEG halo reads as a shadow
+        if few is not None and len(few) <= 32: g.save(buf, "PNG", optimize=True)
+        else: g.save(buf, "JPEG", quality=66, optimize=True)
         page.replace_image(xref, stream=buf.getvalue())
 d.save(out, garbage=4, deflate=True)
 print(f"{out}: {os.path.getsize(out)/1048576:.2f} MB, {fitz.open(out).page_count} pages")
