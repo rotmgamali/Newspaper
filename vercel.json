@@ -4,5 +4,17 @@
             "source": "/(.*)",
             "destination": "/index.html"
         }
+    ],
+    "redirects": [
+        {
+            "source": "/hear",
+            "destination": "https://go.screenpal.com/watch/cO6Xc1nxRO3",
+            "permanent": false
+        },
+        {
+            "source": "/earn",
+            "destination": "https://go.screenpal.com/watch/cO6Xc2nxRtF",
+            "permanent": false
+        }
     ]
 }
