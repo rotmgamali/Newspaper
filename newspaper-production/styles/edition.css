@@ -356,7 +356,17 @@ body, .body p, .dek, .ear, figcaption { font-variant-ligatures: common-ligatures
 
 /* The GoBabyTrade bar chart (page 7, publisher 2026-10-13): the picture is the figures, so it
    takes more than the usual side-ad share and the headline gives up a little size. */
-.ad.side.chart .ad-art { height: auto; max-height: 100%; width: 50%; max-width: 50%; object-fit: contain; align-self: center; }
-.ad.side.chart .ad-url { font-size: 6.6pt; letter-spacing: .04em; }
+.ad.side.chart { justify-content: flex-start; }
+.ad.side.chart .ad-art { height: auto; max-height: 100%; width: 47%; max-width: 47%; object-fit: contain; align-self: center; }
+.ad.side.chart .ad-copy { min-width: 0; }
+.ad.side.chart .ad-url { font-size: 6.2pt; letter-spacing: .02em; }
+/* Measured in Draft 14: the row overflowed its box by 24px because the URL line cannot
+   shrink; centred justification pushed half of that under the left border. */
 .ad.side.chart .ad-head { font-size: 24pt; }
 .ad.side.chart p:first-of-type { font-size: 11pt; }
+
+/* Page 8, publisher 2026-10-13: no black borders beside the Whalers logos. */
+.si-ad .ad.sides-open { border-left: none; border-right: none; }
+/* The chart ad's left border was clipped by its module's overflow in Chrome's print output
+   (measured in the Draft 14 PDF: top, right and bottom rules present, left missing). */
+.mod-ad.chart { overflow: visible; }

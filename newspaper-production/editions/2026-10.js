@@ -202,9 +202,10 @@ export const edition = {
         { type: 'article', area: 'cou', id: 'come-on-up', span: 2, size: 'm',
           caption: 'Hartford in October. Photo: Quintin Soloviev, CC BY 4.0.', artHeight: 2.2, artPos: 'center 45%' },
         { type: 'ad', area: 'gbt', key: 'gobabytrade', class: 'chart' },
-        // Publisher, 2026-10-13 17:39Z: "fill the bottom 1/3 inch below the serenity graphic".
+        // Publisher, 2026-10-13 17:39Z: "fill the bottom 1/3 inch below the serenity graphic";
+        // 22:56Z: "fill the bottom 1/8" " - the picture reaches the foot of the ads beside it.
         { type: 'box', area: 'pic', class: 'photos tall',
-          art: [ { name: 'serenity-aerial', height: 4.18, pos: 'center 45%', caption: 'SerenitySpaces Bahamas from the air: the four villas, the pool and the gardens. Freeport, Grand Bahama.' } ],
+          art: [ { name: 'serenity-aerial', height: 4.32, pos: 'center 45%', caption: 'SerenitySpaces Bahamas from the air: the four villas, the pool and the gardens. Freeport, Grand Bahama.' } ],
           html: '' },
         { type: 'box', area: 'stu', class: 'stars', html:
           '<p class="byob">For Students, part II: Earn big $ with CS 250!</p>' +
@@ -239,7 +240,9 @@ export const edition = {
           // moves here from page 4, which is now all Columbine Inn.
           // Publisher, 2026-10-13: the students' box is back on page 7; the Whalers
           // takes the room. The 1/16 'Your Business Here' is on page 7 too.
-          { type: 'ad', key: 'whalers', grow: true, class: 'compact', artHeight: 2.0, artPos: 'center 30%' },
+          // Publisher, 2026-10-13 22:56Z: "remove the black borders next to the two whalers logos":
+          // the frame's sides come off; the rules above and below stay.
+          { type: 'ad', key: 'whalers', grow: true, class: 'compact sides-open', artHeight: 2.0, artPos: 'center 30%' },
           { type: 'ad', key: 'powder-mountain-west' },
         ] },
         { type: 'colophon', area: 'col' },
