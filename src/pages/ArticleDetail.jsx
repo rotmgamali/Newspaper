@@ -39,7 +39,7 @@ const ArticleDetail = () => {
                 </div>
 
                 <div className="article-footer-cta">
-                    <Link to="/about" className="gold-link">Submit a Reply to this Article &rarr;</Link>
+                    <Link to="/submit" className="gold-link">Write back to this article &rarr;</Link>
                 </div>
             </div>
         </main>

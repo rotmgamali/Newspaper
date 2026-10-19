@@ -26,8 +26,8 @@ const Submit = () => {
                         <h3>Editorial Guidelines</h3>
                         <ul className="guidelines-list">
                             <li><strong>Who:</strong> Residents (active or former) of ME, NH, VT, CT, or MA, age 12+.</li>
-                            <li><strong>What:</strong> Articles (1000 words max) or Dialogue Replies (300 words max).</li>
-                            <li><strong>Style:</strong> We value clarity, respect, and evidence. </li>
+                            <li><strong>Articles:</strong> up to 1,000 words, on civics public or private.</li>
+                            <li><strong>Replies:</strong> a reply runs if it answers an article in these pages, argues logically, and has no profanity. The best run in the next issue beside the article they answer.</li>
                             <li><strong>Format:</strong> Submit text in the body of an email or as a .doc/.pdf attachment.</li>
                             <li><strong>Photos:</strong> Include 1-3 high-quality images. We use 1" square thumbnails.</li>
                         </ul>

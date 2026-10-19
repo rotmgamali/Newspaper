@@ -162,4 +162,14 @@ export const articlesV2 = [
 /** Withdrawn from this issue at the publisher's instruction, 2026-09. */
 export const withdrawn = ['girls-sports'];
 
+// Online edition only (publisher, 2026-10-13 17:22Z: "For the online issue... May 30 2027 is
+// the replacement date on the lower front"). The printed box keeps "2027"; the plates were made.
+{
+  const hc = articlesV2.find((a) => a.id === 'hartford-convention');
+  if (hc) {
+    hc.excerptOnline = hc.excerpt.replace('in 2027', 'on May 30, 2027');
+    hc.contentOnline = hc.contentFull.replace('In 2027,', 'On May 30, 2027,');
+  }
+}
+
 export default articlesV2;

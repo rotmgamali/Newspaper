@@ -18,7 +18,9 @@
  * To change what the site shows, change the issue. Not this file.
  */
 
-import { articlesV2 as issueArticles } from '../../newspaper-production/content/2026-09-articles.js';
+import { articlesV2 } from '../../newspaper-production/content/2026-09-articles.js';
+import { walshReply } from '../../newspaper-production/content/walsh-reply.js';
+import { edition } from '../../newspaper-production/editions/2026-10.js';
 
 // Art on hand. Pieces without a match run as typographic cards, which is
 // better than bolting an unrelated stock photograph onto an argument.
@@ -41,18 +43,34 @@ function fullText(a) {
   return [a.contentPart1, a.contentPart2].filter(Boolean).join('\n\n');
 }
 
+// The web edition is the printed issue, in page order: exactly the pieces the
+// edition file placed, nothing the content file still holds from earlier drafts.
+// (Online edition, 2026-10-13: the site had been showing four placeholder pieces
+// the paper never ran, and missing the Walsh reply it did.)
+const pool = [...articlesV2, walshReply];
+const ids = [];
+(function walk(x) {
+  if (Array.isArray(x)) return x.forEach(walk);
+  if (x && typeof x === 'object') {
+    if (x.type === 'article' && x.id && !ids.includes(x.id)) ids.push(x.id);
+    Object.values(x).forEach(walk);
+  }
+})(edition.pages);
+
+const ISSUE_DATE = `${edition.meta.month || 'October'} ${edition.meta.year || 2026}`;
+
 // Withdrawn from the website at the publisher's request (19 October 2026).
 // The printed issue keeps them; the site does not show them.
 const withdrawnFromWeb = new Set(['health-insurance']);
 
-export const articles = issueArticles.filter((a) => !withdrawnFromWeb.has(a.id)).map((a) => ({
+export const articles = ids.filter((id) => !withdrawnFromWeb.has(id)).map((id) => pool.find((a) => a.id === id)).filter(Boolean).map((a) => ({
   id: a.id,
   title: a.title,
   author: a.author,
-  date: a.date,
+  date: ISSUE_DATE,
   category: a.category,
-  excerpt: a.excerpt,
-  content: fullText(a),
+  excerpt: a.excerptOnline || a.excerpt,
+  content: a.contentOnline || fullText(a),   // *Online fields: the publisher's web-only wording
   image: artwork[a.id] || null,
   sourceVideo: a.sourceVideo || null,
 }));

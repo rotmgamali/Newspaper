@@ -18,6 +18,10 @@ const Home = () => {
 
     return (
         <main className="container magazine-layout">
+            {/* Publisher, 2026-10-13: his words for the online edition. */}
+            <div className="spread-the-word">
+                Spread the word! Forward CS250 to thoughtful adults and teens. A print version is available for grocery stores in New England.
+            </div>
             <div className="hero-grid">
                 <div className="featured-hero">
                     <span className="section-label">Featured Opinion</span>
@@ -40,7 +44,7 @@ const Home = () => {
                         </div>
                     ))}
                     <div className="sidebar-cta">
-                        <Link to="/articles" className="gold-link">Browse Archive &rarr;</Link>
+                        <Link to="/articles" className="gold-link">All of Issue 1 &rarr;</Link>
                     </div>
 
                     {justAdded && justAdded.id !== featured.id && (
@@ -86,33 +90,28 @@ const Home = () => {
             <div className="bottom-grid">
                 <section className="civic-dialogue-home">
                     <div className="section-header">
-                        <h2 className="section-title">The Civic Dialogue</h2>
+                        <h2 className="section-title">Write Back</h2>
                     </div>
                     <div className="dialogue-card">
-                        <div className="original-mini">
-                            <span className="label">Original:</span>
-                            <h4>The Responsibility of Citizenship</h4>
-                        </div>
-                        <div className="reply-arrow-mini">↓</div>
-                        <div className="public-reply-mini">
-                            <span className="label">Public Reply:</span>
-                            <blockquote className="italic">
-                                "While I agree with the core sentiment, we must consider the modern barriers..."
-                            </blockquote>
-                            <span className="reply-author">— J. Rollins, Manchester, NH</span>
-                        </div>
-                        <p className="republication-note-mini">Republished later this week with reply.</p>
+                        <p>Every article in these pages invites a reply. The best replies run in the next issue, printed beside the article they answer, so readers see both sides of the argument together. We will print a reply from anyone named or argued against in these pages.</p>
+                        <p>A reply runs if it:</p>
+                        <ul className="guidelines-list">
+                            <li>answers an article in these pages;</li>
+                            <li>argues logically;</li>
+                            <li>has no profanity.</li>
+                        </ul>
+                        <p><a href="mailto:andrew@web4guru.com" className="gold-link">andrew@web4guru.com</a></p>
                     </div>
                 </section>
 
                 <section className="conference-preview">
                     <div className="section-header">
-                        <h2 className="section-title">Blue Moon Conferences</h2>
+                        <h2 className="section-title">Coming in 2027</h2>
                     </div>
                     <div className="conference-card">
-                        <p className="date">Next Event: May 31, 2026</p>
-                        <p className="description">Gathering point for New England's most independent minds.</p>
-                        <Link to="/about" className="gold-link">Details & Registration &rarr;</Link>
+                        <p className="date">A Second Hartford Convention &middot; May 30, 2027</p>
+                        <p className="description">Civic-minded adults and teenagers from the six New England states are invited to Hartford, Connecticut, to once again discuss our relations with the federal union. It was done before, in 1814.</p>
+                        <Link to="/article/hartford-convention" className="gold-link">Read more &rarr;</Link>
                     </div>
                 </section>
             </div>
