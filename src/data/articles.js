@@ -41,7 +41,11 @@ function fullText(a) {
   return [a.contentPart1, a.contentPart2].filter(Boolean).join('\n\n');
 }
 
-export const articles = issueArticles.map((a) => ({
+// Withdrawn from the website at the publisher's request (19 October 2026).
+// The printed issue keeps them; the site does not show them.
+const withdrawnFromWeb = new Set(['health-insurance']);
+
+export const articles = issueArticles.filter((a) => !withdrawnFromWeb.has(a.id)).map((a) => ({
   id: a.id,
   title: a.title,
   author: a.author,
